@@ -5,7 +5,7 @@ create user testUser for login mrzahidali
 Use Testdb                     /*start using table */
 
 create table persons (         /*creating persons table with following column*/
-	personID int,
+	personID int primary key,
 	lastName varchar (255),
 	firstName varchar (255),
 	address2 varchar (255), 
@@ -29,3 +29,9 @@ select * from persons  /*select all data from persons table*/
 select firstName, lastName from persons /*selecting specific columns from persons table*/
 
 select distinct firstName from persons /*to return different values*/
+select count(distinct firstName) from persons  /*return the numbers of different values*/
+select firstName from persons where(personID=3) /*select data from persons table where condition meets*/
+
+update student set student_name='Zahdi Ali' where (cnic='1')  /*to update the content of the column*/
+
+
