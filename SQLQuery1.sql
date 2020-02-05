@@ -45,3 +45,11 @@ ALTER TABLE DEPARTMENTS /*name 0f table in which f0reign key will be added nad l
 	Primary key (EMPLOYEE_ID, MANAGER_ID)   /*adding primary keys*/
 )
    
+/*tw0 primary keys f0t f0reign keys that in unique key */
+
+CREATE TABLE EMPLOYEES(
+	EMPLOYEE_ID INT primary key,
+	COMMISION_PCT FLOAT(24),
+	MANAGER_ID INT UNIQUE,  /*unique key*/
+	DEPARTMENT_ID INT
+)
