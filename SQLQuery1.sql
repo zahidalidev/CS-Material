@@ -37,3 +37,11 @@ update student set student_name='Zahdi Ali' where (cnic='1')  /*to update the co
 ALTER TABLE DEPARTMENTS /*name 0f table in which f0reign key will be added nad l0cati0n_ID will be f0reign key*/
    ADD FOREIGN KEY (LOCATION_ID) REFERENCES EMPLOYEES(EMPLOYEE_ID);  /*table name and primary key 0f that table*/
    
+/*adding tw0 primary keys in 0ne table*/   
+ CREATE TABLE EMPLOYEES(
+	EMPLOYEE_ID INT,
+	MANAGER_ID INT,
+	DEPARTMENT_ID INT foreign key references DEPARTMENTS(DEPARTMENT_ID)
+	Primary key (EMPLOYEE_ID, MANAGER_ID)   /*adding primary keys*/
+)
+   
