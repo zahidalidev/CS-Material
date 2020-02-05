@@ -34,4 +34,6 @@ select firstName from persons where(personID=3) /*select data from persons table
 
 update student set student_name='Zahdi Ali' where (cnic='1')  /*to update the content of the column*/
 
-
+ALTER TABLE DEPARTMENTS /*name 0f table in which f0reign key will be added nad l0cati0n_ID will be f0reign key*/
+   ADD FOREIGN KEY (LOCATION_ID) REFERENCES EMPLOYEES(EMPLOYEE_ID);  /*table name and primary key 0f that table*/
+   
