@@ -42,7 +42,7 @@ ALTER TABLE DEPARTMENTS /*name 0f table in which f0reign key will be added nad l
 	EMPLOYEE_ID INT,
 	MANAGER_ID INT,
 	DEPARTMENT_ID INT foreign key references DEPARTMENTS(DEPARTMENT_ID)
-	Primary key (EMPLOYEE_ID, MANAGER_ID)   /*adding primary keys*/
+	Primary key (EMPLOYEE_ID, MANAGER_ID)   /*cOmpOsit primary keys like One key*/
 )
    
 /*tw0 primary keys f0t f0reign keys that in unique key */
