@@ -53,3 +53,7 @@ CREATE TABLE EMPLOYEES(
 	MANAGER_ID INT UNIQUE,  /*unique key*/
 	DEPARTMENT_ID INT
 )
+
+/*update row */
+UPDATE crudApp SET column1 = value1, column2 = value2, ... WHERE condition;
+
