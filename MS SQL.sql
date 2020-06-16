@@ -28,6 +28,7 @@ insert into persons values (3, 'shahid', 'ali', 'uet3', 'lahore3');
 select * from persons  /*select all data from persons table*/
 select firstName, lastName from persons /*selecting specific columns from persons table*/
 
+
 select distinct firstName from persons /*to return different values*/
 select count(distinct firstName) from persons  /*return the numbers of different values*/
 select firstName from persons where(personID=3) /*select data from persons table where condition meets*/
