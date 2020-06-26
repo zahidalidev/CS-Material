@@ -199,6 +199,7 @@ SELECT p.date, pm.name, SUM(p.amount) AS Total_payments
     JOIN payment_methods pm ON p.payment_method = pm.payment_method_id
     GROUP BY p.date, pm.name
     ORDER BY p.date;
+ 
     
 -- --------------------------------------------- HAVING CLAUSE filter
 SELECT p.date, pm.name, SUM(p.amount) AS Total_payments
