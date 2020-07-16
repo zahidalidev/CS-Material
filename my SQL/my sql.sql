@@ -489,7 +489,7 @@ CREATE OR REPLACE VIEW invoice_with_balance AS
 -- -4- we can decide who can use which procedure this can limit what user can do with our data 
 -- we are changing delimiter to consider whole procedure as single unit
 DROP PROCEDURE IF EXISTS get_clients;
-DELIMITER $$		
+DELIMITER $$		-- DELIMITER command is used to change the standard delimiter of MySQL commands like here (;) to ($$)
 CREATE PROCEDURE get_clients()
 BEGIN 
 	SELECT * FROM clients;
