@@ -766,6 +766,7 @@ DELIMITER ;
 -- 2-Consistency (data remain consistent)
 -- 3-Isolation (transaction are protected from each other even they are updating the same data they cannot interfare each other)
 -- 4-Durability (its mean once transaction is commited the changes made by transcations are permanent
+-- 5-Serializability (Ensure that the schedule for the concurrent execution of several transactions should yeild consistent result)
 
 USE sql_store;
 START TRANSACTION;
