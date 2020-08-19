@@ -58,3 +58,64 @@ CREATE TABLE EMPLOYEES(
 /*update row */
 UPDATE crudApp SET column1 = value1, column2 = value2, ... WHERE condition;
 
+
+
+
+
+
+
+
+
+
+
+
+
+-- transaction
+begin transaction
+	update employees set manager_id = null where manager_id = 101
+	delete from dependents where employee_id = 101
+	delete from employees where employee_id = 101
+commit
+
+-- transaction with rollback
+begin tran
+	create table newTable (
+		personID int primary key,
+		fullname varchar (255)
+	);
+commit
+
+begin tran
+	insert into newTable values(1, 'zahid1');
+	insert into newTable values(2, 'zahid2');
+	insert into newTable values(3, 'zahid3');
+	insert into newTable values(4, 'zahid4');
+	insert into newTable values(5, 'zahid5');
+commit
+
+begin tran
+	insert into newTable values(6, 'zahid6');
+	insert into newTable values(7, 'zahid7');
+	rollback	-- rollBack
+commit
+
+select * from newTable
+
+
+
+-- roolbasck to the save transaction
+begin tran
+	insert into newTable values(6, 'zahid6');
+	insert into newTable values(7, 'zahid7');
+	UPDATE newTable SET fullname = 'ali_1' WHERE personID = 1;
+
+	save tran one
+
+	UPDATE newTable SET fullname = 'ali_2' WHERE personID = 2;
+	UPDATE newTable SET fullname = 'ali_3' WHERE personID = 3;
+	UPDATE newTable SET fullname = 'ali_4' WHERE personID = 4;
+	UPDATE newTable SET fullname = 'ali_5' WHERE personID = 5;
+
+	rollback tran one
+
+select * from newTable
