@@ -1,0 +1,1 @@
+Physical Pixels = DIPs x Scale Factor  (density-independent-pixels) (if scale-factor = 2 then every every points contain 2 pixels in device)(Dimensions.get("screen")) 
