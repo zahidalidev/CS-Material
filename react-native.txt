@@ -1,1 +1,2 @@
-Physical Pixels = DIPs x Scale Factor  (density-independent-pixels) (if scale-factor = 2 then every every points contain 2 pixels in device)(Dimensions.get("screen")) 
+1-  Physical Pixels = DIPs x Scale Factor  (density-independent-pixels) (if scale-factor = 2 then every every points contain 2 pixels in device)(Dimensions.get("screen")) 
+2-  npm i expo-constants  //to see the device properties like name, status bar hight, type, real or not etc.
