@@ -381,9 +381,305 @@ print("gen: ", getsizeof(values), "bytes") # taking 120 bytes
 values = [x * 2 for x in range(100000)]  # list 
 print("list: ", getsizeof(values), "bytes") # taking 824464 bytes
 ``` 
+---
+## **Unpacking operator(*) Equal to Spread(...) in JS**
+```
+By using unpacking operator we can unpack any iterable
+
+numbers = [1, 2, 3, 4]
+print(*numbers)
+
+values = [*range(10), *"zahid", *(1, 2, 4), *{6, 7, 9}]
+print(values)
+
+# For dictionary use double *
+first = {"x": 2}
+second = {"x": 10, "y": 20}
+combined = {**first, "z": 10, **second}
+print(combined)
+```
+---
+## **Exercise Find maximum repeated char in string**
+```
+from pprint import pprint
+
+sentence = "This is a common interview question"
+
+char_frequency = {}
+for char in sentence:
+    if char in char_frequency:
+        char_frequency[char] += 1
+    else:
+        char_frequency[char] = 1
+
+char_frequency_sorted = sorted(
+    char_frequency.items(), key=lambda item: item[1], reverse=True)
+
+pprint(char_frequency_sorted[0])
+```
+---
+## **Exception Handling** 
+https://docs.python.org/3/library/exceptions.html
+```
+<!-- Handling value Error -->
+
+try:
+    age = int(input("Age: "))
+except ValueError as ex:
+    print("You didnot enter valid age")
+    print(ex)
+else:
+    print("No Exception wer thrown")
+```
+```
+<!-- Zero Division Error -->
+
+try:
+    age = int(input("Age: "))
+    xFactor = 10/age
+except (ValueError, ZeroDivisionError) as ex:
+    print("You didnot enter valid age")
+else:
+    print("No Exception wer thrown")
+```
+```
+<!-- Final stage to close files, network connections etc. -->
+
+try:
+    file = open("app.py")
+except FileNotFoundError as ex:
+    print(ex)
+finally:
+    file.close()
+```
+```
+<!-- Using With no need of final state for file because using with statement files can automatically close simply means with statemtn is used to automatically releas external resources, if an object support content managemnet protocol in other words has two magic methods __enter__ and __exit__ then we can use with -->
+
+try:
+    with open("app.py") as file:
+        print("file opened")
+except FileNotFoundError as ex:
+    print("error: ", ex)
+```
+```
+<!-- open multiple files usgin with statement -->
+
+try:
+    with open("app.py") as file, open("secondFile.txt") as file2:
+        print("file opened")
+except FileNotFoundError as ex:
+    print("error: ", ex)
+```
+```
+<!-- Raise Exception and handle (bad practice) -->
+
+def calculate_factor(age):
+    if age <= 0:
+        raise ValueError("Age cannot be zero or less")
+    return 10/age
+
+try:
+    calculate_factor(-1)
+except ValueError as ex:
+    print(ex)
+```
+```
+<!-- Raisng Error by returning None (better faster)-->
+
+def calculate_factor(age):
+    if age <= 0:
+        return None
+    return 10/age
+
+xfactor = calculate_factor(-1)
+if xfactor == None:
+    pass
+```
+
+```
+<!-- Calculating Exceution Time -->
+
+from timeit import timeit
+
+code1 = """
+def calculate_factor(age):
+    if age <= 0:
+        return None
+    return 10/age
+
+xfactor = calculate_factor(-1)
+if xfactor == None:
+    pass
+"""
+
+print("time: ", timeit(code1, number=1000))
+```
+---
+## **CLasses**
+Class is a blueprint for creating new objects and object is instane of class
+```
+<!-- methods we define in class should have atleast one parameter that is self this referenece to current object -->
+
+class Point:
+    def draw(self):  # draw is instance method and self is reference to curent object
+        print("draw")
+
+point = Point()
+point.draw()
+```
+```
+class Point:
+    def __init__(self, x, y): # __init__ is a constructor and this is magic method
+        self.x = x
+        self.y = y
+
+    def draw(self): #instance method
+        print(f"Point ({self.x}, {self.y})")
 
 
+point = Point(3, 5)
+point.draw()
+```
+```
+<!-- Class level attribute -->
 
+class Point:
+    default_color = "red"  # class level attribute are shared among all instances of class
+
+
+Point.default_color = "blue"  # change for all instances of class
+
+point = Point()
+point.default_color = "green"  # chane only for point object
+print(point.default_color)
+
+another = Point()
+print(another.default_color)
+```
+### Defining method at class level in Class
+```
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    @classmethod
+    def zero(cls):  # Method at class Level and cls is reference to class itself
+        return cls(0, 0)  # this is equalent to Point(0, 0)
+
+    def draw(self):
+        print(f"({self.x}, {self.y})")
+
+
+point = Point.zero()
+point.draw()
+```
+### Magic Methods
+https://rszalski.github.io/magicmethods/
+```
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):  # called when we try to convert object to string
+        return f"({self.x}, {self.y})"
+
+    def draw(self):
+        print(f"({self.x}, {self.y})")
+
+
+point = Point(0, 0)
+print(point)
+# or
+print(str(point))
+```
+```
+<!-- equality, greater and lesser magic methid -->
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __eq__(self, other):  # this magic methid will when we compare two objects for equality
+        return self.x == other.x and self.y == other.y
+
+    def __gt__(self, other):  # called when check one object is greater then or lesser then other
+        return self.x > other.x and self.y > other.y
+
+
+point = Point(1, 1)
+other = Point(0, 0)
+
+print(point == other)
+print(point > other)
+print(point < other)
+```
+```
+<!-- add and subtract -->
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    # mosh implementation
+    # def __add__(self, other):  # called when we add two objects
+    #     return Point(self.x + other.x, self.y + other.y)
+
+    def __add__(self, other):  # called when we add two objects
+        return self.x + other.x, self.y + other.y
+
+    def __sub__(self, other):  # called when we subtract two objects
+        return self.x - other.x, self.y - other.y
+
+
+point = Point(1, 1)
+other = Point(4, 2)
+print(point + other)
+print(point - other)
+
+# mosh implementation
+# combined = point + other
+# print(combined.x)
+```
+
+---
+## **Making Custom Container**
+```
+class TagCloud:
+    def __init__(self):
+        self.__tags = {} # __ is to make tags private mean "__tags" is private and "tags" is public
+
+    def add(self, tag):  # called when adding item
+        self.__tags[tag.lower()] = self.__tags.get(tag.lower(), 0) + 1
+
+    def __getitem__(self, tag):  # called when getting item
+        return self.__tags.get(tag.lower(), 0)
+
+    def __setitem__(self, tag, count):  # called when setting item
+        self.__tags[tag.lower()] = count
+
+    def __len__(self):  # called when getting lenght of custom container
+        return len(self.__tags)
+
+    def __iter__(self):  # called when iterrating over container
+        return iter(self.__tags)
+
+
+cloud = TagCloud()
+
+cloud.add("t1")
+cloud.add("t2")
+cloud["t1"] = 10
+print(cloud["t1"])
+print("length: ", len(cloud))
+
+for tag in cloud:
+    print(tag)
+
+```
 
 
 
