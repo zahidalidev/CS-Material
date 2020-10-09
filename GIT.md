@@ -251,6 +251,7 @@ git push -u origin bugfix # Pushes bugfix to origin
 git push -d origin bugfix # Removes bugfix from origin
 
 **Managing remotes**
+git remote -v # cheking current remote
 git remote # Shows remote repos
 git remote add upstream url # Adds a new remote called upstream
 git remote rm upstream # Remotes upstream
