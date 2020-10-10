@@ -978,3 +978,26 @@ p2 = Point(x=1, y=4)
 print(p1.x, p1.y)
 print(p1 == p2)
 ```
+---
+## **Modules**
+
+### Import modules
+```
+<!-- Two ways to import modules from another files -->
+
+1- 
+from file2 import sales_tax  # Importing from file2
+sales_tax()  # calling simply 
+
+2- 
+import file2  # Importing 
+file2.sale_tax()  # calling using dot notation
+```
+### Relative and Absolute imports
+```
+# Absolute import, here ecommerce and customer is directory and contact is module (file)
+from ecommerce.customer import contact
+
+# Relative import
+from ..cusomter import contact
+```
