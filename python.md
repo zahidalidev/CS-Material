@@ -679,11 +679,302 @@ print("length: ", len(cloud))
 for tag in cloud:
     print(tag)
 
+# access private members
+print(cloud._TagCloud__tags)
 ```
+---
+## **Properties**
+```
+<!-- here we are using properties to check conditionally price is valid or not -->
+class Product:
+    def __init__(self, price):
+        self.__price = price    # __price is private
+
+    @property
+    def price(self):
+        return self.__price
+
+    @price.setter   # property to set the value of price
+    def price(self, value):
+        if(value > 0):
+            self.__price = value
 
 
+product = Product(0)
+product.price = 10
+print(product.price)
+```
+---
+## **Inheritance**
+object class is base class for all classes
+```
+# Parent or Base Clss
+class Animal:
+    def __init__(self):
+        self.age = 1
+
+    def eat(self):
+        print("eat")
 
 
+# child or Sub Class
+class Mammal(Animal):
+    def walk(self):
+        print("ealk")
 
 
+# shild or Sub Class
+class Fish(Animal):
+    def swim(self):
+        print("swim")
 
+
+m = Mammal()
+m.eat()
+m.walk()
+print(m.age)
+
+print(isinstance(m, Animal))   # isinstance to check the object is instance of another class
+
+print(issubclass(Mammal, Animal)) # with issubclass we can see if class drived from another class
+```
+---
+## **Method Overriding**
+```
+# Parent or Base Clss
+class Animal:
+    def __init__(self):
+        self.age = 1
+
+    def eat(self):
+        print("eat")
+
+
+# child or Sub Class
+class Mammal(Animal):
+
+    # overriding
+    def __init__(self):
+        super().__init__()
+        self.weight = 2
+
+    def walk(self):
+        print("ealk")
+
+
+m = Mammal()
+m.eat()
+m.walk()
+print(m.age)
+
+print(isinstance(m, Animal))
+
+print(issubclass(Mammal, Animal))
+
+print(m.weight)
+```
+---
+Tip! Use mulitlevel Inheritance only upto two to three levels.
+---
+---
+
+## **Mulitple Inheritance**
+Use multiple inheritance if parent classes have nothing in common like here Flyer and Swimmer classes have nothing in common.
+```
+class Flyer:
+    def fly(self):
+        print("fly")
+
+
+class Swimmer:
+    def swim(self):
+        print("swimm")
+
+
+class FlyFish(Flyer, Swimmer):
+    pass  # pass do nothing only satement
+
+
+flyFish = FlyFish()
+flyFish.swim()
+flyFish.fly()
+```
+---
+## **Good Example of Inheritance with Custom Exception**
+```
+# Customer Exception
+class InvalidOperationalError(Exception):
+    pass
+
+
+# parent or base class
+class Stream:
+    def __init__(self):
+        self.opened = False
+
+    def open(self):
+        if self.opened:
+            raise InvalidOperationalError("Stream is already opened")
+        self.opened = True
+
+    def close(self):
+        if not self.opened:
+            raise InvalidOperationalError("stream is already closed")
+        self.opened = False
+
+
+class FileStream(Stream):
+    def read(self):
+        print("Reading data from file")
+
+
+class NetworkStream(Stream):
+    def read(self):
+        print("Reading data from network")
+```
+---
+## **Abstract Class**
+An abstract class is a class that contains at least one abstract method. An abstract method is a method that is declared, but not implemented in the code.<br/>
+or
+<br/>
+An abstract type is a type in a nominative type system that cannot be instantiated directly; a type that is not abstract – which can be instantiated – is called a concrete type. Every instance of an abstract type is an instance of some concrete subtype
+
+```
+from abc import ABC, abstractmethod
+
+
+# Customer Exception
+class InvalidOperationalError(Exception):
+    pass
+
+# parent or base class drived from ABC (abstract base class) so noe this is abstract class
+class Stream(ABC):
+    def __init__(self):
+        self.opened = False
+
+    def open(self):
+        if self.opened:
+            raise InvalidOperationalError("Stream is already opened")
+        self.opened = True
+
+    def close(self):
+        if not self.opened:
+            raise InvalidOperationalError("stream is already closed")
+        self.opened = False
+
+    # to procide common interface to all sub classes of read methid we decorate it with abstractmethod and this method will have no implementation
+    @abstractmethod
+    def read(self):
+        pass     # no implementation just pass
+
+# Concrete class
+class FileStream(Stream):
+    def read(self):
+        print("Reading data from file")
+
+# Concrete class
+class NetworkStream(Stream):
+    def read(self):
+        print("Reading data from network")
+
+
+# stream = Stream()  #cannot be instansiated because Stream is abstract class
+```
+---
+## **Polymorphism**
+The word polymorphism means having many forms. In simple words, we can define polymorphism as the ability of a message to be displayed in more than one form. Real life example of polymorphism: A person at the same time can have different characteristic. Like a man at the same time is a father, a husband, an employee
+```
+<!-- In below example draw method has many forms -->
+
+from abc import ABC, abstractmethod
+
+class UIControl(ABC):   # abstract class
+
+    @abstractmethod  # abstract method
+    def draw(self):
+        pass        # no implementation just pass
+
+
+class TextBox(UIControl):   # concrete class
+    def draw(self):
+        print("TextBox")
+
+
+class DropDownList(UIControl):  # concrete class
+    def draw(self):
+        print("Drop down list")
+
+
+def draw(controls): # simple draw function
+    for control in controls:
+        control.draw()
+
+
+ddl = DropDownList()
+textBox = TextBox()
+draw([ddl, textBox])
+```
+### **DUCK Typing**
+Duck typing is a concept related to dynamic typing, where the type or the class of an object is less important than the methods it defines. When you use duck typing, you do not check types at all. Instead, you check for the presence of a given method or attribute.
+
+To achieve polymorphic behaviour we don't necessarily need of base class because Python support DUCK Typing, but having the abstract base class is a good practice because it enforces the common interface or common contract across all its derivatives, like in above example we make sure all the derivative of UIControl class has a draw method. 
+
+Example of Duck Typing
+```
+class TextBox:
+    def draw(self):
+        print("TextBox")
+
+
+class DropDownList:
+    def draw(self):
+        print("Drop down list")
+
+
+def draw(controls):
+    for control in controls:
+        control.draw()
+
+
+ddl = DropDownList()
+textBox = TextBox()
+draw([ddl, textBox])
+```
+---
+
+## **Extending Built-in Types**
+In this, we drive class from built-in types like string, list and dictionary etc. by this we can have all properties of parent class but also can have extra properties that we define in the driven class, Below is a good example of this.
+```
+class Text(str):    # Drived from string class
+    def duplicate(self):
+        return self + self
+
+
+class TrackableList(list):    # Drived from list class
+    def append(self, object):
+        print("append called")
+        super().append(object)
+
+
+text = Text("Python")
+print(text.duplicate())
+print(text.duplicate().lower())
+
+list = TrackableList()
+list.append("1")
+```
+---
+## **Data Classes**
+If we are working with classes that only have data and no method we should use named tuple instance with this we will write less code, named tuples are immutable once we create them we cannot modify them.
+```
+from collections import namedtuple
+
+Point = namedtuple("point", ["x", "y"])
+
+
+p1 = Point(x=1, y=4)
+p2 = Point(x=1, y=4)
+
+print(p1.x, p1.y)
+print(p1 == p2)
+```
