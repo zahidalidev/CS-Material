@@ -1091,3 +1091,26 @@ target.write_text(source.read_text())
 # 2nd and better approach
 shutil.copy(source, target)
 ```
+---
+## **Working with Zip Files**
+```
+from pathlib import Path
+from zipfile import ZipFile
+
+# creating zip file of ecommerce directory (using with no need to close file)
+with ZipFile("files.zip", "w") as zip:
+    for path in Path("ecommerce").rglob("*.*"):
+        zip.write(path)
+
+# reading content of zip file
+with ZipFile("files.zip") as zip:
+    print(zip.namelist())
+    info = zip.getinfo("ecommerce/__init__.py")
+    print(info.file_size)
+    print(info.compress_size)
+
+# extracting files from zip file
+with ZipFile("files.zip") as zip:
+    zip.extractall("extract")
+```
+---
