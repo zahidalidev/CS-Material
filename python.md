@@ -1001,3 +1001,93 @@ from ecommerce.customer import contact
 # Relative import
 from ..cusomter import contact
 ```
+---
+
+## **Paths, Files and Directories**
+https://docs.python.org/3/library/pathlib.html
+```
+from pathlib import Path #importing Path Module
+
+1- path = Path(r"C:\Program Files\Micrpspft")  # absolute path for windows
+2- path = Path("/usr/local/bin")  # absolute path for MAC or LINUX
+3- path = Path()  # path object that represent the current folder
+4- path = Path("ecommerce/__init__.py")  # related path
+5- path = Path() / "ecommercer" / "__init__.py"  # we can combine path object together
+6- path = Path.home()  # Home directory of current user
+```
+### Important Members of Path class
+```
+from pathlib import Path
+
+path = Path("ecommerce/__init__.py")  # related path
+print(path.exists())
+print(path.is_file())
+print(path.is_dir())
+print(path.name)
+print(path.stem)
+print(path.suffix)
+print(path.parent)
+
+path = path.with_name("file.txt")  # adding file.txt in path
+print(path)
+print(path.absolute())
+
+path = path.with_suffix(".txt")  # to change the extension of the file
+print(path)
+print(path.absolute())
+```
+### Working with Directories
+```
+from pathlib import Path
+
+path = Path("ecommerce")  # related path
+path.exists()
+path.mkdir()
+path.rmdir()
+path.rename("new_name")
+
+path.iterdir()  # with this we can get the files and directories in this path
+for p in path.iterdir():
+    print(p)
+# or
+paths = [p for p in path.iterdir()]  # all directoris and files
+paths = [p for p in path.iterdir() if p.is_dir()]  # getting only directories
+
+# iterdir doesnot support search so for this we will use glob()
+py_files = [p for p in path.glob("*.py")]
+py_files = [p for p in path.rglob("*.py")] # for search recursively use rglob() methid
+
+print(py_files)
+```
+---
+### Working with files
+```
+from pathlib import Path
+from time import ctime
+
+path = Path("ecommerce/__init__.py")
+
+path.exists()
+path.rename("new_name.txt")
+path.unlink()  # to delete file
+path.stat()  # returnd information about file
+print(ctime(path.stat().st_atime))  # printing file creation time
+
+# file reading and writing in below we does not need to open and close the file, all this login happen behind the scene
+path.read_bytes()  # return content of the file as byte object representing binary data
+path.read_text()  # return the content of the file as a string
+path.write_text("writing something")  # write some textual data to file
+path.write_bytes("some binary data")
+
+<!-- Copy content from one to another file -->
+from pathlib import Path
+import shutil
+source = Path("ecommerce/__init__.py")
+target = Path() / "__init__.py"
+
+# 1st approach
+target.write_text(source.read_text())
+
+# 2nd and better approach
+shutil.copy(source, target)
+```
