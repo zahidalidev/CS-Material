@@ -1114,3 +1114,84 @@ with ZipFile("files.zip") as zip:
     zip.extractall("extract")
 ```
 ---
+## **Working with CSV Files**
+```
+import csv
+
+# writing in csv File
+with open("data.csv", "w") as file:
+    writer = csv.writer(file)
+    writer.writerow(["Transaction_id, product_id, price"])
+    writer.writerow([1000, 1, 1])
+    writer.writerow([1231, 2, 4])
+
+with open("data.csv") as file:  # opening file in reading mode
+    reader = csv.reader(file)
+    # print(list(reader))
+    for row in reader:
+        print(row)
+```
+---
+## **Working with JSON files**
+```
+<!-- Writing into json file  -->
+
+import json
+from pathlib import Path
+
+movies = [
+    {"id": 1, "title": "Terminator", "year": 1989},
+    {"id": 2, "title": "Cop", "year": 1993}
+]
+
+data = json.dumps(movies)
+Path("movies.json").write_text(data)
+
+
+<!-- Reading from JSON file -->
+
+import json
+from pathlib import Path
+
+data = Path("movies.json").read_text()
+movies = json.loads(data)
+print(movies)
+print(movies[0]["title"])
+```
+---
+## **Working with SQLite**
+https://sqlitebrowser.org/
+```
+<!-- writing into .sqlite3 file -->
+
+import sqlite3
+import json
+from pathlib import Path
+
+movies = json.loads(Path("movies.json").read_text())
+
+with sqlite3.connect("db.sqlite3") as conn:
+    command = "INSERT INTO Movies VALUES(?, ?, ?)"
+    for movie in movies:
+        conn.execute(command, tuple(movie.values()))
+    conn.commit()
+
+
+
+<!-- Reading from .sqlite3 file -->
+
+import sqlite3
+import json
+from pathlib import Path
+
+with sqlite3.connect("db.sqlite3") as conn:
+    command = "SELECT * FROM Movies"
+    cursor = conn.execute(command)
+
+    # for row in cursor:
+    #     print(row)
+
+    movies = cursor.fetchall()
+    print(movies)
+```
+---
