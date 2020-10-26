@@ -1265,3 +1265,37 @@ print(numbers)
 
 ```
 ---
+## **Open Web Browser in pythin script**
+```
+import webbrowser
+
+print("Deployment Completed")
+webbrowser.open("http://github.com")
+```
+----
+## **Sending Email**
+```
+# 1st allow less secure app access or create app Passwords to send email
+# https://support.google.com/accounts/answer/185833?hl=en
+# https://myaccount.google.com/u/1/security
+
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import smtplib
+
+message = MIMEMultipart()
+message["from"] = "Zahid Ali"
+message["to"] = "hafizshahid907@gmail.com"
+message["subject"] = "This is a test"
+message.attach(MIMEText("body"))
+
+for i in range(1, 10):
+    with smtplib.SMTP(host="smtp.gmail.com", port=587) as smtp:
+        smtp.ehlo()
+        smtp.starttls()
+        smtp.login("m.zahidalidev@gmail.com", "z@h1d@l1")
+        smtp.send_message(message)
+        print("sent...")
+
+```
+----
