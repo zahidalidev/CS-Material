@@ -1281,21 +1281,64 @@ webbrowser.open("http://github.com")
 
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
+from pathlib import Path
 import smtplib
+
 
 message = MIMEMultipart()
 message["from"] = "Zahid Ali"
-message["to"] = "hafizshahid907@gmail.com"
+message["to"] = "target_email"
 message["subject"] = "This is a test"
 message.attach(MIMEText("body"))
+# sending image in body, read_bytes return all data of image in binary
+message.attach(MIMEImage(Path("DocOCR.png").read_bytes()))
 
-for i in range(1, 10):
-    with smtplib.SMTP(host="smtp.gmail.com", port=587) as smtp:
-        smtp.ehlo()
-        smtp.starttls()
-        smtp.login("m.zahidalidev@gmail.com", "z@h1d@l1")
-        smtp.send_message(message)
-        print("sent...")
+with smtplib.SMTP(host="smtp.gmail.com", port=587) as smtp:
+    smtp.ehlo()
+    smtp.starttls()
+    smtp.login("sender_email", "password")
+    smtp.send_message(message)
+    print("sent...")
+```
+### Using Template and Image
+```
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
+from pathlib import Path
+from string import Template
+import smtplib
 
+template = Template(Path("template.html").read_text())
+
+
+message = MIMEMultipart()
+message["from"] = "Zahid Ali"
+message["to"] = "engrzahid612@gmail.com"
+message["subject"] = "This is a test"
+message.attach(MIMEText(template.substitute({"name": "Zahid"}), "html"))
+# read_bytes return all data of image in binary
+# message.attach(MIMEImage(Path("DocOCR.png").read_bytes()))
+
+with smtplib.SMTP(host="smtp.gmail.com", port=587) as smtp:
+    smtp.ehlo()
+    smtp.starttls()
+    smtp.login("m.zahidalidev@gmail.com", "z@h1d@l1")
+    smtp.send_message(message)
+    print("sent...")
+
+<!-- template.html file -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    Hi <strong>$name</strong>, this is test email.
+</body>
+
+</html>
 ```
 ----
