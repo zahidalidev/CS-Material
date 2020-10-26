@@ -8,7 +8,7 @@
 3- instal python extension in VsCode
 4- install lint in VsCode
 5- PEP 8 -- Style Guide for Python Code https://www.python.org/dev/peps/pep-0008/
-6- install code runner in VsCode to run the python code by pressing 
+6- install code runner in VsCode to run the python code by pressing (Ctrl + alt + n)
 ```
 ---
 ## Python Implementaion
@@ -37,6 +37,8 @@ Python is platform independent because when we run python program using CPython 
 ```
 1- Range
 ```
+https://www.datacamp.com/community/tutorials/data-structures-python
+
 ---
 
 ## Conditional Statement
@@ -1177,7 +1179,6 @@ with sqlite3.connect("db.sqlite3") as conn:
     conn.commit()
 
 
-
 <!-- Reading from .sqlite3 file -->
 
 import sqlite3
@@ -1193,5 +1194,74 @@ with sqlite3.connect("db.sqlite3") as conn:
 
     movies = cursor.fetchall()
     print(movies)
+```
+---
+## **Working With Time**
+### time
+```
+import time
+
+def send_emails():
+    for i in range(10000):
+        pass
+
+start = time.time()     # Return current Datetime as TimeStamp
+send_emails()
+end = time.time()
+
+duration = end - start
+print(duration)
+
+```
+### DateTime
+strptime: https://www.programiz.com/python-programming/datetime/strptime
+```
+from datetime import datetime
+import time
+
+dt = datetime(2020, 1, 1)
+dt = datetime.now()
+dt = datetime.strptime("2020/12/12", "%Y/%m/%d")
+dt = datetime.fromtimestamp(time.time())
+print(dt)
+print(f"{dt.year}/{dt.month}")
+print(dt.strftime("%Y/%m"))
+
+```
+### TimeDelta
+```
+from datetime import datetime, timedelta
+
+dt1 = datetime(2018, 1, 1) + timedelta(days=1, seconds=1000)
+print("1st DateTime", dt1)
+dt2 = datetime.now()
+print("Curret DateTime", dt2)
+
+duration = dt2 - dt1
+print(duration)
+print("days", duration.days)
+print("seconds", duration.seconds)
+print("total_seconds", duration.total_seconds())
+```
+---
+## **Random**
+```
+import random
+import string
+
+print(random.random())  # random decimal number
+print(random.randint(1, 10))  # random between 1 to 10
+print(random.choice([1, 2, 3, 5]))  # will pick 1 element from list
+print(random.choices([1, 2, 3, 4, 5], k=2))  # will pick 2 random elements
+# will pick 2 random elements
+print("".join(random.choices("abakhdlajshdias", k=4)))
+print(string.digits)
+print("".join(random.choices(string.ascii_letters + string.digits, k=4)))
+
+# shufling
+numbers = [1, 2, 3, 5]
+random.shuffle(numbers)
+print(numbers)
+
 ```
 ---

@@ -1,3 +1,0 @@
-1-  Physical Pixels = DIPs x Scale Factor  (density-independent-pixels) (if scale-factor = 2 then every every points contain 2 pixels in device)(Dimensions.get("screen")) 
-2-  npm i expo-constants  //to see the device properties like name, status bar hight, type, real or not etc.
-3-  (expo or npm) install react-native-gesture-handler //to handle swipes or gestures  https://docs.expo.io/versions/v39.0.0/sdk/gesture-handler/ 
