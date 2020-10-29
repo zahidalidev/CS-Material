@@ -1342,3 +1342,64 @@ with smtplib.SMTP(host="smtp.gmail.com", port=587) as smtp:
 </html>
 ```
 ----
+## **Command-line-arguments**
+```
+import sys
+
+if (len(sys.argv) == 1):
+    print("Usage python app.py <password>")
+else:
+    password = sys.argv[1]
+    print("Password", password)
+```
+---
+## **Running External Program**
+```
+import subprocess
+
+completed = subprocess.run(
+            ["dir"], 
+            shell=True, 
+            capture_output=True,
+            text=True)
+print("args", completed.args)
+print("returncode", completed.returncode)
+print("stderr", completed.stderr)
+print("stdout", completed.stdout)
+```
+### Running other python script
+```
+<!-- app.py file -->
+import subprocess
+
+completed = subprocess.run(["python", "other.py"], shell=True, 
+                capture_output=True,
+                text=True
+                )
+print("args", completed.args)
+print("returncode", completed.returncode)
+print("stderr", completed.stderr)
+print("stdout", completed.stdout)
+
+<!-- other.py file -->
+print("Here is a complicated script.")
+```
+### Error handling using try catch
+```
+import subprocess
+
+try:
+    # Below code will generate error because of "false" applied # as a argument and there is not command of false
+    completed = subprocess.run(["false"], shell=True, 
+                    capture_output=True,
+                    text=True,
+                    check=True
+                    )
+    print("args", completed.args)
+    print("returncode", completed.returncode)
+    print("stderr", completed.stderr)
+    print("stdout", completed.stdout)
+except subprocess.CalledProcessError as ex:
+    print(ex)
+```
+---
