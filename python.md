@@ -1403,3 +1403,35 @@ except subprocess.CalledProcessError as ex:
     print(ex)
 ```
 ---
+# **Python Package Index**
+https://pypi.org/
+
+https://stackoverflow.com/questions/36835341/pip-is-not-recognized
+## **requests**
+```
+* Use to send http requests
+
+<!-- install requests-->
+pip install requests
+
+<!-- Update requests -->
+pip install --upgrade pip
+
+<!-- Check current packages -->
+pip list
+
+<!-- install specific version -->
+pip install requests==2.9.0
+
+<!-- install specific compatible version with 2.9 -->
+pip install requests==2.9.*
+
+<!-- install specific compatible version with 2 -->
+pip install requests==2.*
+
+<!-- Demo get request with requests -->
+import requests
+responce = requests.get("http://google.com")
+print(responce)
+```
+---
