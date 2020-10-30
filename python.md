@@ -1495,7 +1495,7 @@ D:/Python/helloWorld/.venv/Scripts/python
 ```
 1- Create account (https://pypi.org/)
 2- pip install setuptools wheel twine
-3- As a best practice we should create high level directory with the same name as our package.
+3- As a best practice we should create high level directory with the same name as our package and add source code files.
 4- add __init__.py file so python will see this as a package 
 5- To publish this package add three files at the root of project
     *(1- ) setup.py
@@ -1517,9 +1517,30 @@ D:/Python/helloWorld/.venv/Scripts/python
     *(3- ) LICENSE
         for license goto "https://choosealicense.com/" 
 
-6- to build run this command "python setup.py sdist bdist_wheel"
-7- uploading package to pypi.org run this command "twine upload dist/*"
-``` 
+6- To build run this command "python setup.py sdist bdist_wheel"
+7- Uploading package to pypi.org run this command "twine upload dist/*"
+```
+### **Docstring or Documentation String**
+Add the discription about the methods etc. to show in a little tooltip window by intellicense to tell what this functions does, what parameters are and what its return etc to do this in python we have special format for documenting our code called docstring or documentation string its basically string with triple quotes (""").
+```
+eg. 
+<!-- in pdf2text.py file -->
+
+""" This module provides functions to convert a pdf to text """
+
+def convert(path):
+    """ 
+    Convert the given pdf to text. 
+    
+    Parameters:
+    path(str): The path to a pdf file.
+
+    Returns:
+    str: The content of the pdf file as a text.
+    """
+    print("pdf2text")
+
+```
 --- 
 
 
