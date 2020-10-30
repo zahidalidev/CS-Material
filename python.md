@@ -1435,3 +1435,93 @@ responce = requests.get("http://google.com")
 print(responce)
 ```
 ---
+# **Virtual Environment**
+* To install different versions of a packages for different applications we need to create virtual environment 
+```
+<!-- Create Virtual Environment -->
+1-  python -m venv env
+
+<!-- Activate Virtual environment -->
+2- env\Scripts\activate
+2- (for MAC) source env\bin\activate
+
+3- Now we can install packages only for current project like pip install requests==2.9.*.
+
+4- Finally when we are done we need deactivate virtual environment so for this run command "deactivate"
+```
+## **pipenv** equalent to npm in python
+* pipenv is dependency manager for python projects
+by using this no need to remember above commands
+```
+1- pip install pipenv
+
+<!-- Issue whilw creating virtual environment with pipenv solved -->
+https://itqna.net/questions/16455/problems-trying-create-virtual-environment-pipenv
+
+1- python -m venv .venv
+
+2- pip install pipenv
+
+3- Install packages with pipenv like "pipenv install requests==2.9.*"
+
+4- activate virtual environment "pipenv shell"
+
+5- Run command "exit" to exit from virtual environment
+
+6- Reopen VS Code
+```
+
+**If not working with code runner then follow the following steps:**
+```
+1- To add code-runner.executorMap in setting.json file simply type "code-runner.executorMap" and hit enter vs code will automatically generate all settings for you.
+
+2- change this line
+"python": "python -u",
+
+3- find path of venv dir by this command "pipenv --venv" and change path of python in setting.json.
+like replace this settting
+D:/Python/helloWorld/.venv/Scripts/python
+=== paht of enve dir ===/Scripts/python
+(In MAC) ===============/bin/python
+```
+* ###  Run **pipenv install** to install all dependencies of project.
+* ### To Install exact same versions of packages run **pipenv install --ignore-pipfile** 
+```
+* pipenv graph (to see all dependencies)
+* pipenv update (update all package)
+* pipenv update packageName (to update specific package)
+```
+## **Publish Package to pypi.org**
+```
+1- Create account (https://pypi.org/)
+2- pip install setuptools wheel twine
+3- As a best practice we should create high level directory with the same name as our package.
+4- add __init__.py file so python will see this as a package 
+5- To publish this package add three files at the root of project
+    *(1- ) setup.py
+
+    <!-- Setup file  -->
+    import setuptools
+
+    import setuptools
+    from pathlib import Path
+
+    setuptools.setup(
+        name="zahidpdf",
+        version=1.0,
+        long_description=Path("README.md").read_text(),
+        packages=setuptools.find_packages(exclude=["tests", "data"]) # Excluding two directories tests and data
+    )
+
+    *(2- ) create README.md  (will display at the home page of or package at pypi.org)
+    *(3- ) LICENSE
+        for license goto "https://choosealicense.com/" 
+
+6- to build run this command "python setup.py sdist bdist_wheel"
+7- uploading package to pypi.org run this command "twine upload dist/*"
+``` 
+--- 
+
+
+
+
