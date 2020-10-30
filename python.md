@@ -1541,6 +1541,19 @@ def convert(path):
     print("pdf2text")
 
 ```
+### **pydoc** to see the documentation of modules
+```
+eg. pydoc math
+
+1- Add path of pydoc.bat file in environment variables to run pydoc command like in my case "C:\Users\Zahid Ali\AppData\Local\Programs\Python\Python37\Lib\site-packages\virtualenv\activation\batch"
+
+2- run command "pydoc math" in cmd
+
+3- write documentation in file by this command "pydoc -w math"
+
+4- Loading the documentation for application as well python standard library in the web server run command "pydoc -p port_number" like "pydoc -p 4769" and hit enter and then enter "b" for open in browser and "q" for stop.
+```
+
 --- 
 
 
