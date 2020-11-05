@@ -114,6 +114,58 @@ df = pd.DataFrame(X, columns=iris.feature_names)
 # ensuring that our data points in our figure will be colored by their species, we also pass list of figsize
 # which specfies the size of our figure as well as a marker size and shape
 _ = pd.plotting.scatter_matrix(df, c=y, figsize=[8, 8], s=150, marker='D')
-
 ```
 
+# **Classification Challenge**
+https://campus.datacamp.com/courses/supervised-learning-with-scikit-learn/classification?ex=6
+
+**Training Data** = already labeled data
+
+<br>
+
+### **Classifier**
+```
+* We will choose simple algorithm called K-Nearest Neighbours (KNN), The basic idea of KNN is to predict the label of any data point by looking at the K. for example 3 closest labeled data points and getting them to vote on what label the unlabeled point should have.
+eg. mean if we have a point in the middle and two red and 1 green are the closet points so if k is 3 then its mean the midde point should be red because in the closet points red have mejority and if we have 3 green and 2 red closet points and k is 5 then middle point should be green because here green points have mejority.
+```
+
+### **Scikit-learn fit and predict**
+```
+* All machine learning models implemented as python classes
+  -> They implented the algorithm for learning and predicting.
+  -> Store the information learned from the data
+
+* Training a model on the data = "fitting a model to the data 
+    -> we use fit method ".fit()" to do this in scikit-learn
+
+* To predict the label of new data we use .predict() method
+```
+
+## **Using scikit-learn to fit a classifier**
+```
+from sklearn import datasets
+from sklearn.neighbors import KNeighborsClassifier
+import pandas as pd
+import numpy
+import matplotlib.pyplot as plt
+import numpy as np
+
+plt.style.use('ggplot')
+iris = datasets.load_iris()
+
+knn = KNeighborsClassifier(n_neighbors=6)
+knn.fit(iris['data'], iris['target'])
+
+X_new = np.array([[5.6, 2.8, 3.9, 1.1],
+                  [5.7, 2.6, 3.8, 1.3],
+                  [4.7, 3.2, 1.3, 0.2]])
+
+# print(X_new.shape)
+# output: (3, 4), mean 3 observations and four features
+
+prediction = knn.predict(X_new)
+print('Prediction: {}'.format(prediction))
+
+# ouput: Prediction: [1 1 0]
+# three by one array with a prediction for each observation for row in X_new, 1 correspons to Versicolor for the first two observations and 0 which corresponds to setosa for the third.
+``` 
