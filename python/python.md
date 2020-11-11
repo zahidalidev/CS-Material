@@ -1553,7 +1553,6 @@ eg. pydoc math
 
 4- Loading the documentation for application as well python standard library in the web server run command "pydoc -p port_number" like "pydoc -p 4769" and hit enter and then enter "b" for open in browser and "q" for stop.
 ```
-
 --- 
 
 

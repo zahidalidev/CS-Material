@@ -169,3 +169,27 @@ print('Prediction: {}'.format(prediction))
 # ouput: Prediction: [1 1 0]
 # three by one array with a prediction for each observation for row in X_new, 1 correspons to Versicolor for the first two observations and 0 which corresponds to setosa for the third.
 ``` 
+
+# **New Course ML** 
+## **Machine Learning**
+ML is a subset of AI, In ML we build model and give it a lot of data like we give it a lots of images of cats and dogs and then our model will then find and learn patterns in input data so we can give it a new picture of cat that it has not seen before and ask it, is it cat or dog and it will tell us with certain level of accuracy. the more input data we give the more accurate our is going to be.
+
+## **Machine Learning Steps**
+1- Import the data which often come in the form of csv file. </br>
+
+2- Clean the data it involves tasks such as removing duplicating data, removed irrelevant data and remove incomplete data or modify. If our data is text-based like the names of countries or genres of music we need to ceonvert them to numarical values.</br>
+
+3- Split The data into Training/Test Sets (to make sure our model produces the right result).</br>
+
+4- Creata a Model this involves selecting an algorithm to analyze the data. there are so many different machine learning algorithms out there such as decision trees, neural network and so on. Each algorithm has prons and cons in term of accuracy and performance so the algorithm we choose depends on the problem we are trying to solve and input data, we dont need to explicitly program and algorithm there are libraries out there that provide these algorithms the most popular one is scikit-learn. So we build a model using an algorithm.</br>
+
+5- Train the Model. So we fitted our training data our model then look for a patterns in the data. </br>
+
+6- Make Predictions. </br>
+
+7- Evaluate and Improve.
+
+## **Popular Python Libraries for ML**
+### **1- Numpy**
+Provides multidimensional array 
+
