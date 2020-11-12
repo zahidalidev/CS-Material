@@ -322,6 +322,63 @@ predictions = model.predict(X_test) # making predictions
 score = accuracy_score(y_test, predictions)
 score
 ```
-
-### **Persisting Models**
+---
+## **Persisting Models**
 We should not train our model every time Every time when we want to make  predictions. Because training a model can sometimes be really time consuming. Training a model can take seconds, minutes or sometimes maybe hours. Thats why model persistence is important. once in a while we build and train a model and then we will save it to a file. Now next time we want to make predictions we simply load the model from file and ask it to make predictions because that model is already trained we dont need to retrain it.
+
+
+**Saving Model**
+```
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+
+# import joblib object has methods for saving and loading modules. 
+# from sklearn.externals.joblib import joblib
+# or
+import joblib
+
+music_data = pd.read_csv('music.csv')
+X = music_data.drop(columns=['genre'])
+y = music_data['genre']
+
+model = DecisionTreeClassifier()
+
+model.fit(X, y)
+
+joblib.dump(model, 'music-model.joblib') # saving model
+```
+**Loading Model**
+```
+import joblib
+
+model = joblib.load('music-model.joblib')
+predictions = model.predict([[21, 1]])
+predictions
+```
+---
+## **Visualizing Decision Trees**
+```
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+from sklearn import tree  # this object has a method for exporting our decision tree in a graphical format
+
+music_data = pd.read_csv('music.csv')
+X = music_data.drop(columns=['genre'])
+y = music_data['genre']
+
+model = DecisionTreeClassifier()
+
+model.fit(X, y) # X is input and y is output
+
+tree.export_graphviz(model, out_file='music-model.dot',  # file in dot format which is graph description language 
+                     feature_names=['age', 'gender'],  # properties or features of our data
+                     class_names=sorted(y.unique()), #  list of classes or labels we have in our ouptput dataset like here we have jazz, classical and so on.
+                     label='all',  # label for all so every node has label that we can read
+                     rounded=True, # for making the box corners round
+                     filled=True) # filled is true so each box or node fill with color
+```
+1- Open downloaded file having dot extension with VS Code and install extension "Graphviz (dot) language support for Visual Studio Code" <br>
+
+2- click on triple dots on the top right corner of VS code and slect "Open Preview to the side". Then we can see binary decision tree.
+
+---
