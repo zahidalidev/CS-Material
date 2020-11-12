@@ -169,11 +169,14 @@ print('Prediction: {}'.format(prediction))
 # ouput: Prediction: [1 1 0]
 # three by one array with a prediction for each observation for row in X_new, 1 correspons to Versicolor for the first two observations and 0 which corresponds to setosa for the third.
 ``` 
+---
 
 # **New Course ML** 
+
 ## **Machine Learning**
 ML is a subset of AI, In ML we build model and give it a lot of data like we give it a lots of images of cats and dogs and then our model will then find and learn patterns in input data so we can give it a new picture of cat that it has not seen before and ask it, is it cat or dog and it will tell us with certain level of accuracy. the more input data we give the more accurate our is going to be.
 
+---
 ## **Machine Learning Steps**
 1- Import the data which often come in the form of csv file. </br>
 
@@ -189,7 +192,44 @@ ML is a subset of AI, In ML we build model and give it a lot of data like we giv
 
 7- Evaluate and Improve.
 
+---
+
 ## **Popular Python Libraries for ML**
+
 ### **1- Numpy**
-Provides multidimensional array 
+Provides multi-dimensional array 
+
+### **2- Pandas**
+Data analysis library that provides concept called data frame, data frame is two dimensional data structure similar to an excel spraedsheet, so we have rows and columns, we can select data in a row or a column or range of rows and columns popula in ML and Data Science.
+
+### **3- Matplotlib**
+Two dimensional plotting library for creating graphs and plots.
+
+### ** 4- Scikit-learn**
+One of the most popular machine learning library that provides all these common algorithms like decision trees neural network and so on.
+---
+---
+## **Installing Jupyter**
+1- Download anaconda distribution 
+https://www.anaconda.com/products/individual
+https://repo.anaconda.com/archive/
+
+It will install Jupyter as well all popular data science libraries like numpy, pandas and so on.
+2- run by terminal by running command "jupyter notebook" of open from start menue and create new notebook.
+
+----
+## **Importing a Dataset**
+To download dataset goto https://www.kaggle.com/
+
+run the below code in jupyter notebook
+```
+import pandas as pd
+df = pd.read_csv('vgsales.csv')
+# df
+# df.shape # to see numbers of rows and columns
+# df.describe() # to get the basic statistics about our data
+#df.values
+```
+---
+## **Real ML Problem**
 
