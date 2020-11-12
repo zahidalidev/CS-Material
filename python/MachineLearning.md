@@ -190,7 +190,7 @@ ML is a subset of AI, In ML we build model and give it a lot of data like we giv
 
 6- Make Predictions. </br>
 
-7- Evaluate and Improve.
+7- Evaluate and Improve to its accuracy if its not accurate wo either fine tune our model or select a different algorithm.
 
 ---
 
@@ -231,5 +231,94 @@ df = pd.read_csv('vgsales.csv')
 #df.values
 ```
 ---
-## **Real ML Problem**
+# **Real ML Problem**
+When user signup we will ask age and gender and base on their profile we recommend various music album they will like to buy.<br/>
+We will build model and will feed this model with some sample data base on existing user. Our model will learn the pattern in our data so we can ask it to make predictions
 
+## **Steps**
+1- Import the Data. <br>
+2- Clean the data. <br>
+3- Split the data into training and Test Sets.<br>
+4- Select Machine learning algorithm and build the model. <br>
+5- Train the model. <br>
+6- Make predictions. <br>
+7- Evaluate and Improve to its accuracy if its not accurate wo either fine tune our model or select a different algorithm. <br>
+
+### **1- Import Data**
+```
+import pandas as pd
+music_data = pd.read_csv('music.csv')
+music_data
+```
+### **2- Clean or prepare the data**
+The data we have is already clean and filled but we have to split this data sets into two seperate sets one for input and the other for output.
+```
+import pandas as pd
+music_data = pd.read_csv('music.csv')
+X = music_data.drop(columns=['genre']) # input data
+y = music_data['genre'] # output data
+```
+
+### **4- Build A Model using machine learning algorithm**
+We are going to use decision tree that is already implemented in scikit-learn 
+```
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+
+music_data = pd.read_csv('music.csv')
+X = music_data.drop(columns=['genre'])
+y = music_data['genre']
+
+model = DecisionTreeClassifier()
+```
+### **5- Train the model**
+Train the model so its learn pattern in the data.
+```
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+
+music_data = pd.read_csv('music.csv')
+X = music_data.drop(columns=['genre'])
+y = music_data['genre']
+
+model = DecisionTreeClassifier()
+
+model.fit(X, y) # X is input and y is output
+```
+### **6- Make predictions**
+```
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+
+music_data = pd.read_csv('music.csv')
+X = music_data.drop(columns=['genre'])
+y = music_data['genre']
+
+model = DecisionTreeClassifier()
+
+model.fit(X, y)
+
+predictions = model.predict([[21, 1], [22, 0]])
+predictions
+```
+### **-7 and -3 Evaluate and Improve (Calculating Accuracy), Split data into Training and Test Sets.**
+```
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier # to build model
+from sklearn.model_selection import train_test_split # for split dataset into train and test
+from sklearn.metrics import accuracy_score
+
+music_data = pd.read_csv('music.csv') # reading csv file
+X = music_data.drop(columns=['genre']) # getting dataset without genre column
+y = music_data['genre'] # getting only genre column
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+model = DecisionTreeClassifier() # build model
+
+model.fit(X_train, y_train) # train model 
+
+predictions = model.predict(X_test) # making predictions
+score = accuracy_score(y_test, predictions)
+score
+```
