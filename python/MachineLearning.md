@@ -322,3 +322,6 @@ predictions = model.predict(X_test) # making predictions
 score = accuracy_score(y_test, predictions)
 score
 ```
+
+### **Persisting Models**
+We should not train our model every time Every time when we want to make  predictions. Because training a model can sometimes be really time consuming. Training a model can take seconds, minutes or sometimes maybe hours. Thats why model persistence is important. once in a while we build and train a model and then we will save it to a file. Now next time we want to make predictions we simply load the model from file and ask it to make predictions because that model is already trained we dont need to retrain it.
