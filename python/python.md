@@ -1196,6 +1196,39 @@ with sqlite3.connect("db.sqlite3") as conn:
     print(movies)
 ```
 ---
+### **Convert xlsx to csv**
+pip install openpyxl
+```
+## XLSX TO CSV
+import openpyxl
+
+filename = 'appending.xlsx'
+
+## opening the xlsx file
+xlsx = openpyxl.load_workbook(filename)
+
+## opening the active sheet
+sheet = xlsx.active
+
+## getting the data from the sheet
+data = sheet.rows
+
+## creating a csv file
+csv = open("data.csv", "w+")
+
+for row in data:
+    l = list(row)
+    for i in range(len(l)):
+        if i == len(l) - 1:
+            csv.write(str(l[i].value))
+        else:
+            csv.write(str(l[i].value) + ',')
+        csv.write('\n')
+
+## close the csv file
+csv.close()
+```
+---
 ## **Working With Time**
 ### time
 ```
@@ -1554,7 +1587,59 @@ eg. pydoc math
 4- Loading the documentation for application as well python standard library in the web server run command "pydoc -p port_number" like "pydoc -p 4769" and hit enter and then enter "b" for open in browser and "q" for stop.
 ```
 --- 
+# **Python Popular Packages**
+## **API**
+End points that are publicaly accessible on the internet.<br>
+APIs: https://www.yelp.com/developers, https://www.yelp.com/developers/documentation/v3
+<br>
 
+### **Yelp Api**
+1- Create new app at yelp<br>
+2- pipenv or pip install requests
 
+getting Business through yelp api:
+```
+import requests
 
+url = "https://api.yelp.com/v3/businesses/search"
+api_key = "Api_key_here"
 
+headers = {
+    "Authorization": "Bearer " + api_key
+}
+
+params = {
+    "term": "Barber",  # filter only search for barber
+    "location": "NYC"  # specify location of lang and lot
+}
+
+responce = requests.get(url, headers=headers, params=params)
+businesses = responce.json()["businesses"]
+
+names = [business["name"]
+         for business in businesses if business["rating"] > 4.5]
+print(names)
+
+```
+## **Sending Text Messages using twilio**
+https://www.twilio.com/
+
+1- register and get phone number<br>
+2- pip install twilio<br>
+3- copy SID and auth Token from twilio dashboard console<br>
+ 
+```
+from twilio.rest import Client
+
+account_sid = ""  # from twilio console
+auth_token = ""  # from twilio console
+
+client = Client(account_sid, auth_token)
+
+call = client.messages.create(
+    to="",
+    from_="",  # twilio phone numer
+    body="this is our first message"
+)
+
+```
