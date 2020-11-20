@@ -1724,4 +1724,46 @@ for file_name in file_names:
     merger.append(file_name)
 merger.write('combined.pdf')
 ```
-## **
+## **Working with Excel SpreadSheets**
+1- pip install openpyxl
+```
+import openpyxl
+
+# wb = openpyxl.Workbook()  # creating new empty workbook
+wb = openpyxl.load_workbook('transactions.xlsx')  # loading existing workbook
+print(wb.sheetnames)
+
+sheet = wb['Sheet1']
+
+# cell = sheet["a1"]  # 'a' is column and '1' is rown
+cell = sheet.cell(row=1, column=1)
+cell.value = 1  # changing the value of cell
+
+# print(cell.value)
+# print(sheet.max_column)
+# print(sheet.max_row)
+
+# 0 is index of new sheet 0 mean before firt sheet
+# wb.create_sheet('Sheet2', 0)
+
+# for row in range(1, sheet.max_row + 1):
+#     for column in range(1, sheet.max_column + 1):
+#         cell = sheet.cell(row, column)
+#         print(cell.value)
+
+# column = sheet['a']
+# print(column)
+
+# cells = sheet['a:c']  # columns from a to c
+# print(cells)
+
+# cells = sheet['1:3']  # rows from 1 to 3
+# print(cells)
+
+# cells = sheet['a1:c3']  # cells from a1 to c3
+# print(cells)
+
+sheet.append([1, 2, 3])  # to add the row at the end of sheet
+# sheet.insert_rows()  # to add the row at given index
+wb.save('transaction2.xlsx')
+```
