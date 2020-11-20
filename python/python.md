@@ -1641,5 +1641,40 @@ call = client.messages.create(
     from_="",  # twilio phone numer
     body="this is our first message"
 )
+```
+## **Browser Automation with selenium**
+1- pip install selenium<br>
+2- Driver (piece of software to automate the spicific browser) https://pypi.org/project/selenium/<br>
+To automate chrom, driver needed: https://sites.google.com/a/chromium.org/chromedriver/downloads
 
+3- Details: https://selenium-python.readthedocs.io/  
+
+4- Demo:-
+```
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+browser = webdriver.Chrome()
+browser.get("https://github.com")
+
+sign_link = browser.find_element_by_link_text("Sign in")
+sign_link.click()
+
+username_box = browser.find_element_by_id("login_field")
+# username_box = browser.find_element_by_xpath(".//*[@id='login_field']")
+username_box.send_keys("zahidalidev")
+password_box = browser.find_element_by_id("password")
+# password_box = browser.find_element_by_xpath(".//*[@id='password']")
+password_box.send_keys("z@hid@l1")
+password_box.submit()
+
+
+# asster use to varify someting and browser.page_source return html content of webpage
+assert "zahidalidev" in browser.page_source
+
+# profile_link = browser.find_element_by_class_name("user-profile-link")
+# link_label = profile_link.get_attribute("innerHTML")
+# assert "zahidalidev" in link_label
+
+browser.quit()  # to close the browser
 ```
