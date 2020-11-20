@@ -1657,7 +1657,7 @@ from selenium.webdriver.common.keys import Keys
 browser = webdriver.Chrome()
 browser.get("https://github.com")
 
-sign_link = browser.find_element_by_link_text("Sign in")
+sign_link = browser.find_element_by_link_text(`"Sign in")
 sign_link.click()
 
 username_box = browser.find_element_by_id("login_field")
@@ -1677,4 +1677,27 @@ assert "zahidalidev" in browser.page_source
 # assert "zahidalidev" in link_label
 
 browser.quit()  # to close the browser
+```
+## **Web Scraping**
+To get the data from webpage Parse the html we want behind the webpage and get ride of all the html tags and extract actual data this technique is called web scraping, So we scrap all the html tags and get the actual data that we want.
+
+### **Demo:**<br>
+ We are going to write a program that will extract list of newest questions on stackoverflow.com (https://stackoverflow.com/questions), We refer this kind of program as a web crawler or web spider.
+
+1- pip install beautifulsoup4
+2- pip install requests
+
+```
+import requests
+from bs4 import BeautifulSoup
+
+responce = requests.get("https://stackoverflow.com/questions") # getting content of the page
+soap = BeautifulSoup(responce.text, "html.parser")
+
+questions = soap.select(".question-summary") # getting all questions
+
+for question in questions:
+    print(question.select_one(".question-hyperlink").getText()) # getting title with the class
+    print(question.select_one(".vote-count-post").getText()) # getting vote with the class
+
 ```
