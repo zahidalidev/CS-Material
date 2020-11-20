@@ -1699,5 +1699,29 @@ questions = soap.select(".question-summary") # getting all questions
 for question in questions:
     print(question.select_one(".question-hyperlink").getText()) # getting title with the class
     print(question.select_one(".vote-count-post").getText()) # getting vote with the class
+```
+## **Working with PDF**
+1- pip install pypdf2
 
 ```
+import PyPDF2
+
+with open('first.pdf', "rb") as file:  # rb stand for read in binary
+    reader = PyPDF2.PdfFileReader(file)  # for reading pdf file
+    page = reader.getPage(0)
+    page.rotateClockwise(90)
+
+    writer = PyPDF2.PdfFileWriter()  # for writing pdf file
+    writer.addPage(page)
+
+    with open('rotated.pdf', 'wb') as output:  # wb for write binary
+        writer.write(output)
+
+# merging pdf file
+merger = PyPDF2.PdfFileMerger()
+file_names = ['first.pdf', 'second.pdf']
+for file_name in file_names:
+    merger.append(file_name)
+merger.write('combined.pdf')
+```
+## **
