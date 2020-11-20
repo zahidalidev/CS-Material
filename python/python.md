@@ -1767,3 +1767,5 @@ sheet.append([1, 2, 3])  # to add the row at the end of sheet
 # sheet.insert_rows()  # to add the row at given index
 wb.save('transaction2.xlsx')
 ```
+## **Command Query Separation Principle** 
+It states that every method should either be a command that performs an action, or a query that returns data to the caller, but not both.
