@@ -1769,3 +1769,37 @@ wb.save('transaction2.xlsx')
 ```
 ## **Command Query Separation Principle** 
 It states that every method should either be a command that performs an action, or a query that returns data to the caller, but not both.
+
+## **NumPy**
+Heavily used in scientific computation.
+Numpy provides multidimensional arrays that are super fast and take less memory plus they support variuos kind of mathematical operations that regular python list dont, its the core library for scientific computations.
+
+**1- pip install numpy**<br>
+If above latest version give error try installing by following command mean version 1.19.3<br>
+**1- pip install numpy==1.19.3**
+```
+import numpy as np
+
+# array = np.array([1, 2, 3])  # creating numpy array
+# print(array)
+# print(array.shape)
+
+# new array with 3 rows and 4 columns and initializes with zeros
+# array = np.zeros((3, 4), dtype=int)
+# array = np.ones((2, 4), dtype=int)
+# array = np.full((3, 5), 5, dtype=int)  # fill with 5
+
+# array = np.random.random((2, 5))  # 2 by 5 array with random numbers
+# print(array[0, 3])
+# print(array > 0.3)  # return true or false
+# print(array[array > 0.3])  # return the values greater then 0.3
+# print(np.sum(array))  # return the sum of all elements in the array
+# print(np.floor(array)) # return the floor of elements
+# print(np.ceil(array))  # return the ceil of elements
+# print(np.round(array))  # return the numbers after rounding
+
+first = np.array([1, 2, 3])
+second = np.array([1, 2, 3])
+# print(first+second) # add corresponding elements of both
+print(first+2)  # add 2 in each item of array
+```
