@@ -1803,3 +1803,17 @@ second = np.array([1, 2, 3])
 # print(first+second) # add corresponding elements of both
 print(first+2)  # add 2 in each item of array
 ```
+# **Web Application With Django**
+
+## **Installation**
+1- Create Virtual Enviroment
+2- pip install django==2.1
+3- django-admin startproject vidly .  # creating project
+
+**Installed Project Include:**<br>
+1- Manage.py # To perform administarot tasks such as starting our web server or migrating database, populating with data and so on.
+2- __init__.py # tells python to treat directory as package <br>
+3- settings.py # In this file we have various configuration settings for project.<br> 
+4- urls.py # In this we define various url endpoints for our project 
+5- wsgi.py # Web Server Gateway Interface the purpose of this file to represent standarad interface between application written in python and web servers.
+5- To Start Development server run command "python manage.py runserver" this will start on port number 8000 if we want to specify own port number then run command like this "python manage.py runserver 8080".
