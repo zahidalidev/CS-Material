@@ -1835,3 +1835,7 @@ INSTALLED_APPS = [
 ```
 ->  2- Run this command to create migration: python manage.py makemigrations
 ->  3- To run Migration run this command: python manage.py migrate
+
+->  4- To check the sql statements sent to the datebase on running migration run this command: python manage.py sqlmigrate appName migration_number.
+
+!!!!!!!! Don't Ever Delete Any Migration !!!!!!!!!!!!
