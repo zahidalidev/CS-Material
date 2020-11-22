@@ -1817,3 +1817,21 @@ print(first+2)  # add 2 in each item of array
 4- urls.py # In this we define various url endpoints for our project 
 5- wsgi.py # Web Server Gateway Interface the purpose of this file to represent standarad interface between application written in python and web servers.
 5- To Start Development server run command "python manage.py runserver" this will start on port number 8000 if we want to specify own port number then run command like this "python manage.py runserver 8080".
+
+## **Creating App and Migrations**
+1- Python manage.py startapp movies # create app named movies.<br>
+2- After creating Models we will create migration to syncronize our models with databse. Migration is assentially a python file that include some code when we run that it will syncronize our database with our model classes.<br>
+->  1- Register our app with django to make migrations, to do this add this the path of movies class from movies/apps.py to vidly/setting.py in INSTALLED_APPS array like below
+```
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'movies.apps.MoviesConfig' # this is the path from movies app class
+]
+```
+->  2- Run this command to create migration: python manage.py makemigrations
+->  3- To run Migration run this command: python manage.py migrate
