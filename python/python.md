@@ -1839,10 +1839,13 @@ INSTALLED_APPS = [
 ->  4- To check the sql statements sent to the datebase on running migration run this command: python manage.py sqlmigrate appName migration_number.
 
 !!!!!!!! Don't Ever Delete Any Migration !!!!!!!!!!!!
+## **Vidly App**
+Django Application that we are going to build: https://github.com/zahidalidev/vidly-django <br>
 
-3- For admin panel headover to \admin and to login create super user by running this command: python manage.py createsuperuser
 
-4- To manage Models using admin interface.<br>
+1- For admin panel headover to \admin and to login create super user by running this command: python manage.py createsuperuser
+
+2- To manage Models using admin interface.<br>
     -> 1- Open admin.py from your app like movies and register models like below<br>
 ```
 from django.contrib import admin
@@ -1854,13 +1857,34 @@ admin.site.register(Movie)
 ```
 Just referesh the page and you can see your models in admin interface.
 
-5- Install django for django-html and 
-6- pip install pylint-django and add file at the root of project named .pylintrc and add this code of line "load-plugins=pylint-django" to tell the pylint to load thi insalled package pylint-django
-
-7- Framework To Create APi 1- django-tastypie  2- djangorestframework<br>
+3- Install django for django-html <br>
+4- pip install pylint-django and add file at the root of project named.pylintrc and add this code of line "load-plugins=pylint-django" to tell the pylint to load thi insalled package pylint-django<br>
+## **API**
+1- Framework To Create APi 1- django-tastypie  2- djangorestframework<br>
     -> Steps for create api:
-        --> 1- pip install tastypie
-        --> 2- Creat new App eg. api
-        --> 3- Register app in main app settings.py in INSTALLED_APPS like adding path like this 'api.apps.ApiConfig'
-        --> 4- Create a Model in api app that represent resources
-        --> 5- Register new url pattern in main app urls.py 
+        --> 1- pip install tastypie<br>
+        --> 2- Creat new App eg. api<br>
+        --> 3- Register app in main app settings.py in INSTALLED_APPS like adding path like this 'api.apps.ApiConfig'<br>
+        --> 4- Create a Model in api app that represent resources<br>
+        --> 5- Register new url pattern in main app urls.py <br>
+
+## **Prepare application to Deploy to Heroku**
+
+1- install heroku cli<br>
+2- install git<br>
+3- pip install gunicorn (popular web server for python applications).<br>
+4- Add 'Procfile' at the roor of project this is a special file thats heroku looks at to start our application and add this line in Procfile 'web: gunicorn vidly.wsgi' here vidly is name of our application.<br>
+5- Prepae the static files for deployment, static file are like css, images, js files and so on, in this appliation we have statis files only for admin panel so we need to bring those files in our project and deploy them to heroku, create static folder at the root of this project and goto vidly open settings.py and add the path of static using this line 'STATIC_ROOT = os.path.join(BASE_DIR, 'static')' here BASE_DIR is the path of current project.<br>
+6- Run this command 'python manage.py collectstatic', this command will look for all the installed app it will get all their statuc files and copy them into our static folder.<br>
+7- To serve the static files in heroku we will install package called whitenoise, so run this comand 'pip install whitenoise' <br>
+8- Add this line 'whitenoise.middleware.WhiteNoiseMiddleware' in vidly/setting.py MiddleWare at the below of this line 'django.middleware.security.SecurityMiddleware'.<br>
+
+## **Deploy to Heroku**
+https://github.com/heroku/python-getting-started <br>
+1- Run 'heroku login' command to login to the heroku.<br>
+2- Run 1- 'git init' 2- 'git add .' 3- git commit -m 'your commit'.<br>
+3- Run 'heroku create repoName' To create Repo on heroku.<br>
+4- Run 'git push heroku master' To push local repo to heroku.<br>
+5- Run 'heroku ps:scale web=1' to allocate 1 web server.<br>
+6- Run 'heroku open' to open web browser pointing to our application.<br>
+7- If we see Error DisallowedHost then just copy line that error says and add that line int vidly/settings.py in ALLOWED_HOSTS = ['paste here'] then commit and push to heroko again.
