@@ -1821,7 +1821,7 @@ print(first+2)  # add 2 in each item of array
 ## **Creating App and Migrations**
 1- Python manage.py startapp movies # create app named movies.<br>
 2- After creating Models we will create migration to syncronize our models with databse. Migration is assentially a python file that include some code when we run that it will syncronize our database with our model classes.<br>
-->  1- Register our app with django to make migrations, to do this add this the path of movies class from movies/apps.py to vidly/setting.py in INSTALLED_APPS array like below
+->  1- Register our app with django to make migrations, to do this add this path of movies class from movies/apps.py to vidly/setting.py in INSTALLED_APPS array like below
 ```
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -1839,3 +1839,28 @@ INSTALLED_APPS = [
 ->  4- To check the sql statements sent to the datebase on running migration run this command: python manage.py sqlmigrate appName migration_number.
 
 !!!!!!!! Don't Ever Delete Any Migration !!!!!!!!!!!!
+
+3- For admin panel headover to \admin and to login create super user by running this command: python manage.py createsuperuser
+
+4- To manage Models using admin interface.<br>
+    -> 1- Open admin.py from your app like movies and register models like below<br>
+```
+from django.contrib import admin
+from .models import Genre, Movie
+
+# Register your models here.
+admin.site.register(Genre)
+admin.site.register(Movie)
+```
+Just referesh the page and you can see your models in admin interface.
+
+5- Install django for django-html and 
+6- pip install pylint-django and add file at the root of project named .pylintrc and add this code of line "load-plugins=pylint-django" to tell the pylint to load thi insalled package pylint-django
+
+7- Framework To Create APi 1- django-tastypie  2- djangorestframework<br>
+    -> Steps for create api:
+        --> 1- pip install tastypie
+        --> 2- Creat new App eg. api
+        --> 3- Register app in main app settings.py in INSTALLED_APPS like adding path like this 'api.apps.ApiConfig'
+        --> 4- Create a Model in api app that represent resources
+        --> 5- Register new url pattern in main app urls.py 
