@@ -235,6 +235,46 @@ The main two types are what we call **supervised learning** and **unsupervised l
 
 You might also hear other ghost terms such as **reinforcement learning** and **recommender systems**. These are other types of machine learning algorithms that we'll talk about later.
 
+## **Supervised Learning**
+
+In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
+
+Supervised learning problems are categorized into **"regression"** and **"classification"** problems. In a regression problem, we are trying to predict results within a continuous output, meaning that we are trying to map input variables to some continuous function. In a classification problem, we are instead trying to predict results in a discrete output. In other words, we are trying to map input variables into discrete categories. 
+
+**Example 1:**
+
+Given data about the size of houses on the real estate market, try to predict their price. Price as a function of size is a continuous output, so this is a regression problem.
+
+We could turn this example into a classification problem by instead making our output about whether the house "sells for more or less than the asking price." Here we are classifying the houses based on price into two discrete categories.
+
+**Example 2:**
+
+(a) Regression - Given a picture of a person, we have to predict their age on the basis of the given picture
+
+(b) Classification - Given a patient with a tumor, we have to predict whether the tumor is malignant or benign. 
+
+### **Question:**<br> 
+Suppose you're running a company and you want to develop learning algorithms to address each of two problems.
+
+In the **first problem**, you have a large inventory of identical items. So, imagine that you have thousands of copies of some identical items to sell, and you want to predict how many of these items you sell over the next three months. <br>
+
+In the **second problem**, problem two, you have lots of users, and you want to write software to examine each individual of your customer's accounts, so each one of your customer's accounts. For each account, decide whether or not the account has been hacked or compromised. 
+
+
+So, for each of these problems, should they be treated as a classification problem or as a regression problem?
+
+### **Answer:**<br> 
+
+For problem one, I would treat this as a regression problem because if I have thousands of items, well, I would probably just treat this as a real value, as a continuous value. Therefore, the number of items I sell as a continuous value. For the second problem, I would treat that as a classification problem, because I might say set the value I want to predict with zero to denote the account has not been hacked, and set the value one to denote an account that has been hacked into.
+
+## **Unsupervised Learning**
+
+
+
+
+
+
+
 
 
 
@@ -244,8 +284,7 @@ You might also hear other ghost terms such as **reinforcement learning** and **r
 
 The art and science of:<br>
 
-- Giving computers the ability to learn to make decesions from data
-- Withot being explicitly programmed.<br>
+- Giving computers the ability to learn to make decesions from data Withot being explicitly programmed.<br>
 
 Example: <br>
 - Learning to predict email is span or not (trying to predict particular class label that is span or not span this is **Supervised** learning)
