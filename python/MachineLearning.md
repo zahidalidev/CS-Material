@@ -213,6 +213,34 @@ tree.export_graphviz(model, out_file='music-model.dot',  # file in dot format wh
 <br><br>
 
 # **Machine Learning Course -2**
+(Arthur Samuel) Field of study that gives computers the ability to learn without being explicitly programmed.<br>
+
+(Tom Michell) Well-posed learning problem: A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P improves with experience E.<br>
+
+Example: playing checkers.<br>
+
+E = the experience of playing many games of checkers
+
+T = the task of playing checkers.
+
+P = the probability that the program will win the next game.
+
+In general, any machine learning problem can be assigned to one of two broad classifications:
+
+Supervised learning and Unsupervised learning.
+
+## **ML Algorithm Types**
+There are several different types of learning algorithms.<br>
+The main two types are what we call **supervised learning** and **unsupervised learning**.
+
+You might also hear other ghost terms such as **reinforcement learning** and **recommender systems**. These are other types of machine learning algorithms that we'll talk about later.
+
+
+
+
+
+
+# **Machine Learning Course -3**
 
 The art and science of:<br>
 
