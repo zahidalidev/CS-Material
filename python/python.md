@@ -1888,3 +1888,6 @@ https://github.com/heroku/python-getting-started <br>
 5- Run 'heroku ps:scale web=1' to allocate 1 web server.<br>
 6- Run 'heroku open' to open web browser pointing to our application.<br>
 7- If we see Error DisallowedHost then just copy line that error says and add that line int vidly/settings.py in ALLOWED_HOSTS = ['paste here'] then commit and push to heroko again.
+
+
+
