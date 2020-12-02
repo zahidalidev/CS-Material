@@ -306,7 +306,7 @@ To describe the supervised learning problem slightly more formally, our goal is,
 ## **Cost Function**
 We can measure the accuracy of our hypothesis function by using a cost function. This takes an average difference (actually a fancier version of an average) of all the results of the hypothesis with inputs from x's and the actual output y's.
  
- ![img3](./images/image3.png)
+![img3](./images/image3.png)
 
 To break it apart, it is (1/2)x&#772; where x&#772; is the mean of the squares of h<sub>θ</sub>(x<sub>i</sub>) - y<sub>i</sub>, or the difference between the predicted value and the actual value.
 
