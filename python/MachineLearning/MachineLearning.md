@@ -314,14 +314,23 @@ This function is otherwise called the "Squared error function", or "Mean squared
 
 ![img2](./images/image2.png)
 
+## **Cost Function** - Intuition I
 
+If we try to think of it in visual terms, our training data set is scattered on the x-y plane. We are trying to make a straight line (defined by h<sub>θ</sub>(x) ) which passes through these scattered data points. 
 
+Our objective is to get the best possible line. The best possible line will be such so that the average squared vertical distances of the scattered points from the line will be the least. Ideally, the line should pass through all the points of our training data set. In such a case, the value of J(θ<sub>0</sub>, θ<sub>1</sub>) will be 0. The following example shows the ideal situation where we have a cost function of 0. 
 
+![img2](./images/costfunction_1.png)
 
+When θ<sub>1</sub> = 1, we get a slope of 1 which goes through every single data point in our model. Conversely, when θ<sub>1</sub> = 0.5, we see the vertical distance from our fit to the data points increase.
 
+![img2](./images/costfunction_2.png)
 
+This increases our cost function to 0.58. Plotting several other points yields to the following graph: 
 
+![img2](./images/costfunction_3.png)
 
+Thus as a goal, we should try to minimize the cost function. In this case, θ<sub>1</sub> = 1 is our global minimum. 
 
 
 
