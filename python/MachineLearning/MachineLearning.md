@@ -370,10 +370,51 @@ repeat until convergence:
 
 where j=0,1 represents the feature index number.
 
-At each iteration j, one should simultaneously update the parameters θ<sub>0</sub>, θ<sub>1</sub>, θ<sub>2</sub> . . . . θ<sub>n</sub>. Updating a specific parameter prior to calculating another one on the j<sup>(th)</sup> iteration would yield to a wrong implementation. 
+At each iteration j, one should simultaneously update the parameters θ<sub>0</sub>, θ<sub>1</sub>, θ<sub>2</sub> . . . . θ<sub>n</sub>. Updating a specific parameter prior to calculating another one on the j<sup>(th)</sup> iteration would yield to a wrong implementation.
 
 ![img2](./images/gradient_2.png)
  
+## **Gradient Descent Intuition**
+we explored the scenario where we used one parameter θ<sub>1</sub>​ and plotted its cost function to implement a gradient descent. Our formula for a single parameter was : 
+
+Repeat until convergence:
+
+θ<sub>1</sub> := θ<sub>1</sub> - α (d / (dθ<sub>1</sub>)) J(θ<sub>1</sub>)
+
+Regardless of the slope's sign for ​(d / (dθ<sub>1</sub>)) J(θ<sub>1</sub>), θ<sub>1</sub> eventually converges to its minimum value. The following graph shows that when the slope is negative, the value of θ<sub>1</sub> increases and when it is positive, the value of θ<sub>1</sub> decreases.
+
+![img2](./images/gradient_3.png)
+
+On a side note, we should adjust our parameter α to ensure that the gradient descent algorithm converges in a reasonable time. Failure to converge or too much time to obtain the minimum value imply that our step size is wrong.
+
+![img2](./images/gradient_4.png)
+
+
+How does gradient descent converge with a fixed step size α?
+
+The intuition behind the convergence is that (d / (dθ<sub>1</sub>)) J(θ<sub>1</sub>) approaches 0 as we approach the bottom of our convex function. At the minimum, the derivative will always be 0 and thus we get: 
+
+θ<sub>1</sub> := θ<sub>1</sub> - α * 0
+
+![img2](./images/gradient_5.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
