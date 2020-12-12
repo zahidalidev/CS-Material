@@ -374,6 +374,9 @@ At each iteration j, one should simultaneously update the parameters θ<sub>0</s
 
 ![img2](./images/gradient_2.png)
  
+
+
+
 ## **Gradient Descent Intuition**
 we explored the scenario where we used one parameter θ<sub>1</sub>​ and plotted its cost function to implement a gradient descent. Our formula for a single parameter was : 
 
@@ -399,7 +402,10 @@ The intuition behind the convergence is that (d / (dθ<sub>1</sub>)) J(θ<sub>1<
 ![img2](./images/gradient_5.png)
 
 
+## **Gradient Descent For Linear Regression**
 
+![img2](./images/gradient_6.png)
+![img2](./images/gradient_7.png)
 
 
 
