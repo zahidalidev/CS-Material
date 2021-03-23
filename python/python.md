@@ -1665,7 +1665,7 @@ username_box = browser.find_element_by_id("login_field")
 username_box.send_keys("zahidalidev")
 password_box = browser.find_element_by_id("password")
 # password_box = browser.find_element_by_xpath(".//*[@id='password']")
-password_box.send_keys("z@hid@l1")
+password_box.send_keys("password")
 password_box.submit()
 
 
