@@ -11,3 +11,67 @@ Store can have many slices.
 Here are two slices of store cart and products each **reducer** will responcible for updating specific slice of the store. <br>
 
 When user perform an action lets say add an item to shoping cart. We create an action object then dispatch it. The store object has a dispatch method that takes an action then forward this action to the reducer so we do not call the reducer directly we just work with the store store is the incharge of calling the reducer. reducer compute the new state and returns it next store will set the state internally and then notify the UI component about the update. These UI component will then pull out the updated data and referesh themself.
+
+### **Steps**
+1- Design the store.<br>
+2- Define the actions.<br>
+3- Create a reducer.<br>
+4- Set up the store.<br>
+
+## **1- Design the store.**
+```js
+{
+    bugs: [
+        {
+            id: 1, 
+            description: "",
+            resolved: false
+        }
+    ],
+    currentUser: {}
+}
+```
+## **2- Define the actions.**
+```js
+{
+    type: "ADD_BUG",
+    payload: {
+        description: "..."
+    }
+}
+// or
+{
+    type: "REMOVE_BUG",
+    payload: {
+        id: 1
+    }
+}
+```
+
+## **3- Create a reducer.**
+reducer has to be pure function.
+```js
+// [] state is an array
+
+let lastId = 0;
+function reducer(state = [], action) {
+    switch (action.type) {
+        case "BUG_ADDED":
+            return [ 
+                ...state,
+                {
+                    id: ++lastId,
+                    description: action.payload.description,
+                    resolved: false
+                }
+            ]
+
+        case "BUG_REMOVED":
+            return state.filter(bug => bug.id !== action.payload.id);
+
+        default:
+            return state;
+    }
+}
+
+```
