@@ -51,10 +51,11 @@ When user perform an action lets say add an item to shoping cart. We create an a
 ## **3- Create a reducer.**
 reducer has to be pure function.
 ```js
+// reducer.js
 // [] state is an array
 
 let lastId = 0;
-function reducer(state = [], action) {
+export default function reducer(state = [], action) {
     switch (action.type) {
         case "BUG_ADDED":
             return [ 
@@ -74,4 +75,64 @@ function reducer(state = [], action) {
     }
 }
 
+```
+
+## **4- Set up the store.**
+
+```js
+// store.js
+
+import { createStore } from 'redux'
+
+import reducer from "./reducer";
+
+const store = createStore(reducer) //this is a higher order function bcz it takes function as a argument
+export default store;
+```
+
+## **Dispatcing action (using store)**
+```js
+import store from "./store";
+
+store.dispatch({
+    type: "BUG_ADDED",
+    payload: {
+        description: 'bug_1'
+    }
+})
+
+store.dispatch({
+    type: "BUG_REMOVED",
+    payload: {
+        id: 1
+    }
+})
+
+console.log(store.getState());
+```
+
+## **Subscribing to the Store**
+```js
+import store from "./store";
+
+// every time when state will change this method will be called
+store.subscribe(() => {
+    console.log("Store changed!", store.getState());
+})
+
+store.dispatch({
+    type: "BUG_ADDED",
+    payload: {
+        description: 'bug_1'
+    }
+})
+
+store.dispatch({
+    type: "BUG_REMOVED",
+    payload: {
+        id: 1
+    }
+})
+
+console.log(store.getState())
 ```
