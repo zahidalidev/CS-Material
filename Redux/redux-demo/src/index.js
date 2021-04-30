@@ -1,6 +1,6 @@
 import store from "./store";
 
-store.subscribe(() => {
+const unsubscribe = store.subscribe(() => {
     console.log("Store changed!", store.getState());
 })
 
@@ -10,6 +10,8 @@ store.dispatch({
         description: 'bug_1'
     }
 })
+
+unsubscribe(); // unsubscribe to prevent memory eg. when user navigate from this page to another mean when UI component is not visible
 
 store.dispatch({
     type: "BUG_REMOVED",

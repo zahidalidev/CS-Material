@@ -115,8 +115,7 @@ console.log(store.getState());
 ```js
 import store from "./store";
 
-// every time when state will change this method will be called
-store.subscribe(() => {
+const unsubscribe = store.subscribe(() => {
     console.log("Store changed!", store.getState());
 })
 
@@ -127,6 +126,8 @@ store.dispatch({
     }
 })
 
+unsubscribe(); // unsubscribe to prevent memory eg. when user navigate from this page to another mean when UI component is not visible
+
 store.dispatch({
     type: "BUG_REMOVED",
     payload: {
@@ -134,5 +135,6 @@ store.dispatch({
     }
 })
 
-console.log(store.getState())
+console.log(store.getState());
+
 ```
