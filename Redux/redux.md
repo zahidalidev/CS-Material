@@ -260,3 +260,19 @@ createStore.dispatch(actionCreators.BUG_ADDED("BUG 1"));
 console.log(createStore.getState());
 
 ```
+
+# **Debug Redux application**
+
+1- Add Redux DevTools extension in chrome.<br>
+2- npm i redux-devtools-extension
+
+```js
+// store.js
+
+import { createStore } from 'redux'
+import { devToolsEnhancer } from "redux-devtools-extension"
+import reducer from "./reducer";
+
+const store = createStore(reducer, devToolsEnhancer({ trace: true }))    //this is a higher order function bcz it takes function as a argument
+export default store;
+```
