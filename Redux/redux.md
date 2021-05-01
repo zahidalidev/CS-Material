@@ -138,3 +138,125 @@ store.dispatch({
 console.log(store.getState());
 
 ```
+
+# **Redux from Scratch**
+
+
+## **actionTypes.js**
+```js
+export const BUG_ADDED = 'BUG_ADDED'
+export const BUG_REMOVED = 'BUG_REMOVED'
+export const BUG_RESOLVED = 'BUG_RESOLVED'
+```
+
+## **reducer.js**
+```js
+import * as actions from "./actionTypes";
+// [] state is an array
+
+let lastId = 0;
+export default function reducer(state = [], action) {
+    switch (action.type) {
+        case actions.BUG_ADDED:
+            return [
+                ...state,
+                {
+                    id: ++lastId,
+                    description: action.payload.description,
+                    resolved: false
+                }
+            ]
+
+        case actions.BUG_REMOVED:
+            return state.filter(bug => bug.id !== action.payload.id);
+
+        case actions.BUG_RESOLVED:
+            return state.map(bug => bug.id !== action.payload.id ? bug : { ...bug, resolved: true })
+
+        default:
+            return state;
+    }
+}
+```
+
+
+## **store.js**
+```js
+import reducer from "../reducer";
+
+function createStore(reducer) {
+    let state;
+    let listeners = [];
+
+    function getState() {
+        return state;
+    }
+
+    function dispatch(action) {
+        state = reducer(state, action);
+
+        for (let i = 0; i < listeners.length; i++)
+            listeners[i]();  // calling all listenres when state change mean action is ispatched
+    }
+
+    function subscribe(listener) {
+        listeners.push(listener);  //push listenre into array of listeners to call later when state change
+    }
+
+    // Public
+    return {
+        dispatch,
+        getState,
+        subscribe
+    };
+
+}
+
+export default createStore(reducer);  //passing reducer and export
+```
+
+## **actionCreator.js**
+```js
+import * as actions from "./actionTypes";
+
+
+export function BUG_ADDED(description) {
+    return {
+        type: actions.BUG_ADDED,
+        payload: {
+            description
+        }
+    }
+}
+export function BUG_REMOVED(id) {
+    return {
+        type: actions.BUG_REMOVED,
+        payload: {
+            id
+        }
+    }
+}
+
+export function BUG_RESOLVED(id) {
+    return {
+        type: actions.BUG_RESOLVED,
+        payload: {
+            id
+        }
+    }
+}
+```
+
+## **index.js**
+```js
+import createStore from "./reduxScratch/store";
+
+createStore.subscribe(() => {
+    console.log("custom changed!");
+});
+
+createStore.dispatch(actionCreators.BUG_ADDED("BUG 1"));
+
+console.log(createStore.getState());
+
+```
