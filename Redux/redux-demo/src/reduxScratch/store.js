@@ -1,5 +1,5 @@
 
-import reducer from "../reducer";
+import reducer from "../store/bugs";
 
 function createStore(reducer) {
     let state;
