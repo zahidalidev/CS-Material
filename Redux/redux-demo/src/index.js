@@ -11,15 +11,16 @@ const unsubscribe = store.subscribe(() => {
 })
 
 store.dispatch(USER_ADDED({ name: "user 1" }))
-store.dispatch(USER_ADDED({ name: "user 2" }))
+store.dispatch({ type: "error", payload: { message: "An error occured 1" } })
+// store.dispatch(USER_ADDED({ name: "user 2" }))
 
-store.dispatch(PROJECT_ADDED({ name: "Project 1" }))
+// store.dispatch(PROJECT_ADDED({ name: "Project 1" }))
 
-store.dispatch(BUG_ADDED({ description: "BUG 1" }))
-store.dispatch(BUG_ADDED({ description: "BUG 2" }))
-store.dispatch(BUG_RESOLVED({ id: 1 }))
+// store.dispatch(BUG_ADDED({ description: "BUG 1" }))
+// store.dispatch(BUG_ADDED({ description: "BUG 2" }))
+// store.dispatch(BUG_RESOLVED({ id: 1 }))
 
-store.dispatch(BUG_ASSIGNED_TO_USER({ userId: 1, bugId: 1 }))
+// store.dispatch(BUG_ASSIGNED_TO_USER({ userId: 1, bugId: 1 }))
 
 unsubscribe(); // unsubscribe to prevent memory eg. when user navigate from this page to another mean when UI component is not visible
 console.log(getUnresolvedBugs(store.getState()));
