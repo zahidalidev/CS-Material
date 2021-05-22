@@ -484,4 +484,17 @@ const slice = createSlice({
 export const { BUG_ADDED, BUG_REMOVED, BUG_RESOLVED } = slice.actions;
 export default slice.reducer;
 ```
+## **Combining Reducers**
 
+### **reducer.js**
+```js
+import { combineReducers } from "redux";
+
+import bugReducer from "./bugs";
+import projectReducer from "./projects";
+
+export default combineReducers({
+    bugs: bugReducer,
+    projects: projectReducer
+})
+```
