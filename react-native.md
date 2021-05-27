@@ -34,6 +34,8 @@ expo build:android
 2- build ipa file
 expo build:ios
 
+
+## adb reverse tcp:8081 tcp:8081
 3- Fetch keyStore file:
 expo fetch:android:keystore
 
