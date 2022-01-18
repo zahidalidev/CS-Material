@@ -50,3 +50,7 @@ These objects are called “React elements”. You can think of them as descript
 ### DOM (Document Object Model)
 - The Document Object Model is a cross-platform and language-independent interface that treats an XML or HTML document as a tree structure wherein each node is an object representing a part of the document. The DOM represents a document with a logical tree.
 
+### Pure Function
+- Pure Function is a function (a block of code ) that always returns the same result if the same arguments are passed. It does not depend on any state, or data change during a program's execution rather it only depends on its input arguments.
+
+
