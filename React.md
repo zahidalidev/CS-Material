@@ -47,3 +47,6 @@ These objects are called “React elements”. You can think of them as descript
 - React elements are immutable. Once you create an element, you can’t change its children or attributes. An element is like a single frame in a movie: it represents the UI at a certain point in time.
 - With our knowledge so far, the only way to update the UI is to create a new element, and pass it to ReactDOM.render().
 
+### DOM (Document Object Model)
+- The Document Object Model is a cross-platform and language-independent interface that treats an XML or HTML document as a tree structure wherein each node is an object representing a part of the document. The DOM represents a document with a logical tree.
+
