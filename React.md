@@ -53,4 +53,8 @@ These objects are called “React elements”. You can think of them as descript
 ### Pure Function
 - Pure Function is a function (a block of code ) that always returns the same result if the same arguments are passed. It does not depend on any state, or data change during a program's execution rather it only depends on its input arguments.
 
+### !!!!! All React components must act like pure functions with respect to their props.
+
+### Super(props) in class constructor
+- So to ensure that the React. Component 's constructor() function gets called, we call super(props) . super(props) is a reference to the parents constructor() function, that's all it is. We have to add super(props) every single time we define a constructor() function inside a class-based component
 
