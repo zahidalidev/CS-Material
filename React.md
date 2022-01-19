@@ -80,3 +80,5 @@ How is React so fast? So amenable? So receptive? The answer lies in the diffing 
 ### What is Change Detection (CD)?
 - CD is the process of detecting whether the application’s UI should be updated (and, if so, which parts to update) when changes to the underlying model come in through user interaction or through the network.
 
+### npx
+- The npx stands for Node Package Execute and it comes with the npm, when you installed npm above 5.2.0 version then automatically npx will installed. It is an npm package runner that can execute any package that you want from the npm registry without even installing that package.
