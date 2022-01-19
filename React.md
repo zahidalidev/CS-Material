@@ -68,3 +68,14 @@ How is React so fast? So amenable? So receptive? The answer lies in the diffing 
 - React’s speed is a result of its virtual DOM. Behind the scenes, every time a change is made to a React app (such as calling setState(), the firing of an event handler, or sending an API request), React renders an entirely new virtual DOM from scratch. In keeping with JavaScript’s ontology, the Virtual DOM is itself — like everything else in the JavaScript world— a JavaScript object!
 - At any given time, ReactJS maintains two virtual DOM, one with the updated state Virtual DOM and other with the previous state Virtual DOM.
 - https://javascript.plainenglish.io/reacts-diffing-algorithm-1a64cfefa4e0
+
+**The process**
+- Each time render() is executed, React creates a virtual DOM object based on the JSX returned by render(). The virtual DOM is called “virtual” because it’s a replica of the real DOM — a lightweight JavaScript replica object representing the data structures and data of the component.
+- Subsequently, each time render() is executed, a new version of the virtual DOM is created. This latest virtual DOM is compared with the immediately previous version, using a diffing algorithm.
+- The diffing algorithm comes up with the minimum number of steps to update the real DOM, in O(n) time, making it really efficient. Based on whatever changes were detected by this diffing algorithm, a patch is created and scheduled to be applied to the real DOM.
+- React considers dirty only those components for which the state/props changed.
+- CD cycles are batched. This means that while React is busy updating the real DOM, all the CD requests that come in are batched together and are brought into effect only after the previous DOM update cycle has ended.
+
+### What is Change Detection (CD)?
+- CD is the process of detecting whether the application’s UI should be updated (and, if so, which parts to update) when changes to the underlying model come in through user interaction or through the network.
+
