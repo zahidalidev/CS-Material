@@ -61,3 +61,10 @@ These objects are called “React elements”. You can think of them as descript
 ### Callback
 - A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
 - A JavaScript callback is a function which is to be executed after another function has finished execution. A more formal definition would be - Any function that is passed as an argument to another function so that it can be executed in that other function is called as a callback function.
+
+### React’s Diffing Algorithm
+- something warmer than plain old sentience: attention.
+How is React so fast? So amenable? So receptive? The answer lies in the diffing algorithm, a sphinx whose beguiling riddle has confounded many a humble developer.
+- React’s speed is a result of its virtual DOM. Behind the scenes, every time a change is made to a React app (such as calling setState(), the firing of an event handler, or sending an API request), React renders an entirely new virtual DOM from scratch. In keeping with JavaScript’s ontology, the Virtual DOM is itself — like everything else in the JavaScript world— a JavaScript object!
+- At any given time, ReactJS maintains two virtual DOM, one with the updated state Virtual DOM and other with the previous state Virtual DOM.
+- https://javascript.plainenglish.io/reacts-diffing-algorithm-1a64cfefa4e0
