@@ -82,3 +82,6 @@ How is React so fast? So amenable? So receptive? The answer lies in the diffing 
 
 ### npx
 - The npx stands for Node Package Execute and it comes with the npm, when you installed npm above 5.2.0 version then automatically npx will installed. It is an npm package runner that can execute any package that you want from the npm registry without even installing that package.
+
+### State and Props
+- https://medium.com/@ahmedwasim777/how-react-works-part-2-32414f5e1a66
