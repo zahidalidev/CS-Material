@@ -85,3 +85,17 @@ How is React so fast? So amenable? So receptive? The answer lies in the diffing 
 
 ### State and Props
 - https://medium.com/@ahmedwasim777/how-react-works-part-2-32414f5e1a66
+
+### Iterators
+- In JavaScript an iterator is an object which defines a sequence and potentially a return value upon its termination.
+Specifically, an iterator is any object which implements the Iterator protocol by having a next() method that returns an object with two properties:
+value
+The next value in the iteration sequence.
+done
+This is true if the last value in the sequence has already been consumed. If value is present alongside done, it is the iterator's return value.
+- For a function to implement the iterator protocol, it must return an object with a next function. This next function returns an object with the attributes value and done.
+
+### Generators
+- Generators are special JavaScript functions that implement the iterator protocol.
+- A generator is a function that can stop midway and then continue from where it stopped. In short, a generator appears to be a function but it behaves like an iterator.
+- A generator is a process that can be paused and resumed and can yield multiple values. A generator in JavaScript consists of a generator function, which returns an iterable Generator object.
