@@ -107,3 +107,17 @@ This is true if the last value in the sequence has already been consumed. If val
 - Easier deletion of CSS: it can be hard to know whether a class name is used somewhere in your codebase. styled-components makes it obvious, as every bit of styling is tied to a specific component
 - Simple dynamic styling
 - Painless maintenance
+
+### Fetch VS Axios
+- Axios is a Javascript library used to make http requests from node.js or XMLHttpRequests from the browser and it supports the Promise API that is native to JS ES6. Another feature that it has over .fetch() is that it performs automatic transforms of JSON data.
+- If you use .fetch() there is a two-step process when handing JSON data. The first is to make the actual request and then the second is to call the .json() method on the response.
+```
+const url = 'https://api.spotify.com/v1/artists/0OdUWJ0sBjDrqHygGUXeCF'
+
+fetch(url).then(response => response.json()).then(data => console.log(data));
+
+axios.get(url).then(response => console.log(response));
+```
+- The second issue with .fetch() is that in case of error it excecute 'then(res => console.log(res))' block insead of 'catch(error => console.log(error))' block
+- So Axios automatically convert the response to JSON and handle the error in catch block.
+
