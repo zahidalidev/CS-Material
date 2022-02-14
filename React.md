@@ -121,3 +121,19 @@ axios.get(url).then(response => console.log(response));
 - The second issue with .fetch() is that in case of error it excecute 'then(res => console.log(res))' block insead of 'catch(error => console.log(error))' block
 - So Axios automatically convert the response to JSON and handle the error in catch block.
 
+### API
+- An API (application program interface) is a set of rules that enables different programs to communicate with one another. It outlines the appropriate way for a software developer to compose a program on a server that communicates with various client applications.
+
+### REST (Representational State Transfer Application) & SOAP (Simple Object Access Protocol) API
+- It means when a RESTful API is called, the server will transfer a representation of the requested resource’s state to the client system
+- 
+- Typical data transfer protocols, such as SOAP (Simple Object Access Protocol), offer excellent data security and integrity capabilities. Moreover, SOAP offers in-built retry logic to compensate for unsuccessful communications. But such protocols are also tough to work with. RESTful API is a simpler alternative that has developed exponentially in the past few years. People often get confused regarding REST standards. Compared to SOAP, older web services, REST is more flexible and easy to implement.
+- SOAP only works with XML formats whereas REST work with plain text, XML, HTML and JSON.
+- SOAP cannot make use of REST whereas REST can make use of SOAP.
+- SOAP is a protocol whereas REST is an architectural pattern.
+- 
+### HTTP & TCP
+- As a request-response protocol, HTTP gives users a way to interact with web resources such as HTML files by transmitting hypertext messages between clients and servers. HTTP clients generally use Transmission Control Protocol (TCP) connections to communicate with servers.
+- HTTP is a protocol designed for the exchange of files between remote devices, specifically adapted for web contents. You surf websites using HTTP. A web service is an application that runs on top of HTTP. It is like a website intended to be read from other applications rather than humans.
+- HTTP requests are messages sent by the client to initiate an action on the server. Their start-line contain three elements: An HTTP method, a verb (like GET , PUT or POST ) or a noun (like HEAD or OPTIONS ), that describes the action to be performed.
+- TCP is used for organizing data in a way that ensures the secure transmission between the server and client. It guarantees the integrity of data sent over the network, regardless of the amount. For this reason, it is used to transmit data from other higher-level protocols that require all transmitted data to arrive.
