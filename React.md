@@ -126,12 +126,22 @@ axios.get(url).then(response => console.log(response));
 
 ### REST (Representational State Transfer Application) & SOAP (Simple Object Access Protocol) API
 - It means when a RESTful API is called, the server will transfer a representation of the requested resource’s state to the client system
-- 
+- SOAP is a messaging protocol specification for exchanging structured information (data) in the implementation of web services in computer networks.
 - Typical data transfer protocols, such as SOAP (Simple Object Access Protocol), offer excellent data security and integrity capabilities. Moreover, SOAP offers in-built retry logic to compensate for unsuccessful communications. But such protocols are also tough to work with. RESTful API is a simpler alternative that has developed exponentially in the past few years. People often get confused regarding REST standards. Compared to SOAP, older web services, REST is more flexible and easy to implement.
 - SOAP only works with XML formats whereas REST work with plain text, XML, HTML and JSON.
 - SOAP cannot make use of REST whereas REST can make use of SOAP.
 - SOAP is a protocol whereas REST is an architectural pattern.
-- 
+- SOAP is standerized protcol with predefined rules to follow.
+- Stateless but we can make it statefull
+- SOAP: API calls cannot be cached
+- SOAP require more bandwith and computing power
+- SOAP works on HTTP, UDP, SMTP and others
+- REST is architecturel style with loose guidelines and recommendations
+- REST is stateless
+- REST API calls can be cached
+- REST require fewer resources
+- REST works only on HTTP
+
 ### HTTP & TCP
 - As a request-response protocol, HTTP gives users a way to interact with web resources such as HTML files by transmitting hypertext messages between clients and servers. HTTP clients generally use Transmission Control Protocol (TCP) connections to communicate with servers.
 - HTTP is a protocol designed for the exchange of files between remote devices, specifically adapted for web contents. You surf websites using HTTP. A web service is an application that runs on top of HTTP. It is like a website intended to be read from other applications rather than humans.
