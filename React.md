@@ -148,3 +148,11 @@ axios.get(url).then(response => console.log(response));
 - HTTP is a protocol designed for the exchange of files between remote devices, specifically adapted for web contents. You surf websites using HTTP. A web service is an application that runs on top of HTTP. It is like a website intended to be read from other applications rather than humans.
 - HTTP requests are messages sent by the client to initiate an action on the server. Their start-line contain three elements: An HTTP method, a verb (like GET , PUT or POST ) or a noun (like HEAD or OPTIONS ), that describes the action to be performed.
 - TCP is used for organizing data in a way that ensures the secure transmission between the server and client. It guarantees the integrity of data sent over the network, regardless of the amount. For this reason, it is used to transmit data from other higher-level protocols that require all transmitted data to arrive.
+
+### static routes vs dynamic routing
+ “Static Routing” you declare your routes as part of your app's initialisation before any rendering takes place (Rails, Express, Ember, Angular, and so on). “Dynamic Routing” means that routing takes place as your app is rendering, not in a configuration or convention outside of a running app.
+ - The main difference between static vs. dynamic routing is the time at which the routing takes place. In dynamic routing, routes are initialized dynamically when the page gets rendered.
+ - Dynamic routing allows rendering your React components conditionally.
+ - 
+### react-router-dom vs react-router
+
