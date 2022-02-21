@@ -152,8 +152,8 @@ axios.get(url).then(response => console.log(response));
 ### static routes vs dynamic routing
  “Static Routing” you declare your routes as part of your app's initialisation before any rendering takes place (Rails, Express, Ember, Angular, and so on). “Dynamic Routing” means that routing takes place as your app is rendering, not in a configuration or convention outside of a running app.
  - The main difference between static vs. dynamic routing is the time at which the routing takes place. In dynamic routing, routes are initialized dynamically when the page gets rendered.
- - Dynamic routing allows rendering your React components conditionally.
- - 
-### react-router-dom vs react-router
-dynamic route: /api/v1/posts/:id
+- Dynamic routing allows rendering your React components conditionally.
+- dynamic route: /api/v1/posts/:id
 
+### react-router-dom vs react-router
+If you are writing an application that will run in the browser, you should instead install react-router-dom. Similarly, if you are writing a React Native application, you should instead install react-router-native. Both of those will install react-router as a dependency.
