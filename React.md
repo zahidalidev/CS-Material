@@ -155,4 +155,5 @@ axios.get(url).then(response => console.log(response));
  - Dynamic routing allows rendering your React components conditionally.
  - 
 ### react-router-dom vs react-router
+dynamic route: /api/v1/posts/:id
 
