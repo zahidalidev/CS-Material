@@ -15,3 +15,5 @@
 - As described, we will use:
 - Jest as the test runner, assertion library, and mocking library
 - Enzyme to provide additional testing utilities to interact with elements
+
+https://medium.com/codeclan/testing-react-with-jest-and-enzyme-20505fec4675
