@@ -34,3 +34,11 @@
 - Enzyme allows you to access the internal workings of your components. You can read and set the state, and you can mock children to make tests run faster.
 On the other hand, react-testing-library doesn't give you any access to the implementation details.
 - react-testing-library is intended for blackbox integration/e2e tests. It uses React renderer and ReactTestUtils internally, requires real DOM because it's component's output that is asserted in tests, not internals. It doesn't provide facilities for isolated unit tests but it's possible to do this by mocking modules that contain component that need to be spied, mocked or stubbed by other means, notably jest.mock.
+
+**Extra**
+Here Enzyme and react-testing-library are two similar things and alternatives to each other means you can use
+- enzyme with jest or
+- react-testing-library with jest
+- you can also use all three i.e react-testing-library+Enzyme with jest
+- but you can not use Enzyme and react-testing-library without jest or any other test runner eg: Mocha
+- where jest(testing-framework) will collect all .test.js files execute all the test cases and put the output in console with detail like how many pass and fail and react-testing-library or enzyme(both are testing library) will help you to perform event and accessing dom element
