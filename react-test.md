@@ -35,7 +35,7 @@
 On the other hand, react-testing-library doesn't give you any access to the implementation details.
 - react-testing-library is intended for blackbox integration/e2e tests. It uses React renderer and ReactTestUtils internally, requires real DOM because it's component's output that is asserted in tests, not internals. It doesn't provide facilities for isolated unit tests but it's possible to do this by mocking modules that contain component that need to be spied, mocked or stubbed by other means, notably jest.mock.
 
-**Extra**
+**Extra:** </br>
 Here Enzyme and react-testing-library are two similar things and alternatives to each other means you can use
 - enzyme with jest or
 - react-testing-library with jest
