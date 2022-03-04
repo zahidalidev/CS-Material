@@ -23,6 +23,9 @@
 - As described, we will use:
 - Jest as the test runner, assertion library, and mocking library
 - Enzyme to provide additional testing utilities to interact with elements
+- ***Jest*** is a framework which includes a task runner, assertion library, and mocking support. This means it can execute different unit test cases, write its result in console or log files, create mocks, or verify all the assertions. In short, it will execute the test.
+- ***Enzyme*** is not a test runner. It doesn't have its own assertion library. It just provides a collection of APIs for unit testing. That's why it could be integrated with Jest or any other task runner.
+- Enzyme and Jest both have different responsibilities "Enzyme" is not a test runner meaning when u enter command npm test or npm run test it is jest responsibility that collects all the files ending with .test.js and run each test case and shows pass and fail results in your console
 - https://medium.com/codeclan/testing-react-with-jest-and-enzyme-20505fec4675
 
 **Enzyme and React Testing Library**
