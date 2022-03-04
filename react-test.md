@@ -1,6 +1,8 @@
 **Jest**
 - Jest is a JavaScript unit testing framework, used by Facebook to test services and React applications.
 - Jest acts as a test runner, assertion library, and mocking library.
+- ***Assertion libraries*** are tools to verify that things are correct. This makes it a lot easier to test your code, so you don't have to do thousands of if statements.
+- ***Mocking*** is a process used in unit testing when the unit being tested has external dependencies. The purpose of mocking is to isolate and focus on the code being tested and not on the behavior or state of external dependencies
 - Jest also provides Snapshot testing, the ability to create a rendered ‘snapshot’ of a component and compare it to a previously saved ‘snapshot’. The test will fail if the two do not match. Snapshots will be saved for you beside the test file that created them in an auto-generate __snapshots__ folder. An example snapshot could be as simple as:
 - Jest is a fully-featured testing framework. That means that it doesn't just help you test React components. Jest provides a test-running script that will run all your tests, as well as an entire assertion library
 
