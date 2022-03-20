@@ -49,6 +49,7 @@ These objects are called “React elements”. You can think of them as descript
 
 ### DOM (Document Object Model)
 - The Document Object Model is a cross-platform and language-independent interface that treats an XML or HTML document as a tree structure wherein each node is an object representing a part of the document. The DOM represents a document with a logical tree.
+- What is Real/Browser DOM? DOM stands for "Document Object Model". It represents the entire UI of the web application as a tree data structure. In simpler terms, it is a structural representation of the HTML elements of the web application.
 - The virtual DOM (VDOM) is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This process is called reconciliation. ... They may also be considered a part of “virtual DOM” implementation in React.
 
 ### Pure Function
