@@ -64,6 +64,9 @@ These objects are called “React elements”. You can think of them as descript
 - A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
 - A JavaScript callback is a function which is to be executed after another function has finished execution. A more formal definition would be - Any function that is passed as an argument to another function so that it can be executed in that other function is called as a callback function.
 
+### useRef
+- The useRef Hook allows you to persist values between renders. It can be used to store a mutable value that does not cause a re-render when updated. It can be used to access a DOM element directly.
+
 ### useCallback VS useMemo
 - UseCallback is used to optimize the rendering behavior of your React function components, while useMemo is used to memoize expensive functions to avoid having to call them on every render.
 
