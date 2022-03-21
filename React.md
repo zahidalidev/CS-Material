@@ -64,6 +64,9 @@ These objects are called “React elements”. You can think of them as descript
 - A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
 - A JavaScript callback is a function which is to be executed after another function has finished execution. A more formal definition would be - Any function that is passed as an argument to another function so that it can be executed in that other function is called as a callback function.
 
+### useCallback VS useMemo
+- UseCallback is used to optimize the rendering behavior of your React function components, while useMemo is used to memoize expensive functions to avoid having to call them on every render.
+
 ### React’s Diffing Algorithm
 - something warmer than plain old sentience: attention.
 How is React so fast? So amenable? So receptive? The answer lies in the diffing algorithm, a sphinx whose beguiling riddle has confounded many a humble developer.
