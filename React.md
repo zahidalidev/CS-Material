@@ -164,3 +164,6 @@ axios.get(url).then(response => console.log(response));
 
 ### react-router-dom vs react-router
 If you are writing an application that will run in the browser, you should instead install react-router-dom. Similarly, if you are writing a React Native application, you should instead install react-router-native. Both of those will install react-router as a dependency.
+
+### Lexical vs Closure Scope in JS
+- https://www.freecodecamp.org/news/javascript-closure-lexical-scope/
