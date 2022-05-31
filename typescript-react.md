@@ -11,9 +11,7 @@ const area = obj.width * obj.heigth;
 Property 'heigth' does not exist on type '{ width: number; height: number; }'. Did you mean 'height'?
 ```
 - TypeScript is a language that is a superset of JavaScript: JS syntax is therefore legal TS. Syntax refers to the way we write text to form a program. TypeScript doesn’t consider any JavaScript code to be an error because of its syntax. This means you can take any working JavaScript code and put it in a TypeScript file without worrying about exactly how it is written.
-- However, TypeScript is a typed superset, meaning that it adds rules about how different kinds of values can be used. The earlier error about obj.heigth was not a syntax error: it is an error of using some kind of value (a type) in an incorrect way.
-
-As another example, this is JavaScript code that you can run in your browser, and it will log a value:
+- However, TypeScript is a typed superset, meaning that it adds rules about how different kinds of values can be used. The earlier error about obj.heigth was not a syntax error: it is an error of using some kind of value (a type) in an incorrect way. As another example, this is JavaScript code that you can run in your browser, and it will log a value:
 ```
 console.log(4 / []);
 ```
