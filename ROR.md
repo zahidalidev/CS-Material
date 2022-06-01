@@ -5,8 +5,8 @@
 - HTTP is as request-response oriented protocol.
 - It  is  a  stateless  protocol  since  there  is  no  built-in  state  management  between  successive requests.
 - Parts of an HTTP request oRequest  Method:  
--     It  tells  server  what  type  of  action  client  wants  to  be  performed. 
--     URI:   Uniform   Resource   Indictor   specifies   the   address   of   required   document. 
+--     It  tells  server  what  type  of  action  client  wants  to  be  performed. 
+--     URI:   Uniform   Resource   Indictor   specifies   the   address   of   required   document. 
 -     Header  Fields:  Option  headers  can  be  used  by  client  to  tell  server  extra  information  about  request  e.g.  client  software  and  content  type  that  it  understands.
 -     Body: Contains data sent by client to server
 
@@ -19,3 +19,13 @@
 ### Web Application Development
 - How the Web Works: A Primer for Newcomers to Web Development (or anyone, really) (https://silo.tips/download/web-application-development-2)
 (Read both parts of the above article, link to second part is at the end of the provided link) (https://www.freecodecamp.org/news/how-the-web-works-a-primer-for-newcomers-to-web-development-or-anyone-really-b4584e63585c/)
+
+### HTTP VS HTTPS
+- HTTPS is HTTP with encryption. The only difference between the two protocols is that HTTPS uses TLS (SSL) to encrypt normal HTTP requests and responses. As a result, HTTPS is far more secure than HTTP. A website that uses HTTP has http:// in its URL, while a website that uses HTTPS has https://.
+
+### UDP vs TCP
+- TCP is a connection-oriented protocol, whereas UDP is a connectionless protocol. A key difference between TCP and UDP is speed, as TCP is comparatively slower than UDP. Overall, UDP is a much faster, simpler, and efficient protocol, however, retransmission of lost data packets is only possible with TCP.
+
+### Application server vs Web server
+- A **web server** accepts and fulfills requests from clients for static content (i.e., HTML pages, files, images, and videos) from a website. Web servers handle HTTP requests and responses only.
+- An **application server** exposes business logic to the clients, which generates dynamic content. It is a software framework that transforms data to provide the specialized functionality offered by a business, service, or application. Application servers enhance the interactive parts of a website that can appear differently depending on the context of the request.
