@@ -6,16 +6,16 @@
 - HTTP is as request-response oriented protocol.
 - It  is  a  stateless  protocol  since  there  is  no  built-in  state  management  between  successive requests.
 - Parts of an HTTP request oRequest  Method:  
- * It  tells  server  what  type  of  action  client  wants  to  be  performed. <br />
- * URI:   Uniform   Resource   Indictor   specifies   the   address   of   required   document. <br />
- * Header  Fields:  Option  headers  can  be  used  by  client  to  tell  server  extra  information  about  request  e.g.  client  software  and  content  type  that  it  understands. <br />
+  * It  tells  server  what  type  of  action  client  wants  to  be  performed. <br />
+  * URI:   Uniform   Resource   Indictor   specifies   the   address   of   required   document. <br />
+  * Header  Fields:  Option  headers  can  be  used  by  client  to  tell  server  extra  information  about  request  e.g.  client  software  and  content  type  that  it  understands. <br />
 -     Body: Contains data sent by client to server
 
 ### Layers
 - Normally web applications are partitioned into three layers. Each layer performs a specific functionality which should not be mixed with other layers. Layers are isolated from each other to reduce coupling between them but they provide interfaces to communicate with each other.<br />
- * **Presentation Layer**: Provides user interface for client to interact with the application. This is the only part of application visible to client. <br />
- * **Business Layer**: The business or service layer implements the actual business logic or functionality of the application. For example in case of online shopping systems this layer handles transaction management.<br />
- * **Data Layer**: This layer consists of objects that represent real-world business objects such as an Order, OrderLineItem, Product, and so on. <br />
+  * **Presentation Layer**: Provides user interface for client to interact with the application. This is the only part of application visible to client. <br />
+  * **Business Layer**: The business or service layer implements the actual business logic or functionality of the application. For example in case of online shopping systems this layer handles transaction management.<br />
+  * **Data Layer**: This layer consists of objects that represent real-world business objects such as an Order, OrderLineItem, Product, and so on. <br />
 
 ### Web Application Development
 - How the Web Works: A Primer for Newcomers to Web Development (or anyone, really) (https://silo.tips/download/web-application-development-2)
@@ -53,4 +53,7 @@ The really, really clever part is that anyone can intercept every single one of 
 ### How handshake works in http
 - https://robertheaton.com/2014/03/27/how-does-https-actually-work/#:~:text=How%20an%20SSL%20connection%20is%20established
 
+### What are nameservers
+- Name servers translate the domain name into an IP address, connecting information that's easy for humans to understand with information that's easy for computers to understand.
+- A nameserver, also referred to as “name server,” is a server designed to translate domain names into IP addresses. It handles queries from clients, like a computer or tablet, about the location of a domain name and its services on the DNS servers. Any server that has DNS software can be considered a nameserver.
 
