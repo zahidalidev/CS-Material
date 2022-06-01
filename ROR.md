@@ -7,14 +7,14 @@
 - Parts of an HTTP request oRequest  Method:  
 --     It  tells  server  what  type  of  action  client  wants  to  be  performed. 
 --     URI:   Uniform   Resource   Indictor   specifies   the   address   of   required   document. 
--     Header  Fields:  Option  headers  can  be  used  by  client  to  tell  server  extra  information  about  request  e.g.  client  software  and  content  type  that  it  understands.
+--     Header  Fields:  Option  headers  can  be  used  by  client  to  tell  server  extra  information  about  request  e.g.  client  software  and  content  type  that  it  understands.
 -     Body: Contains data sent by client to server
 
 ### Layers
 - Normally web applications are partitioned into three layers. Each layer performs a specific functionality which should not be mixed with other layers. Layers are isolated from each other to reduce coupling between them but they provide interfaces to communicate with each other.
--       **Presentation Layer**: Provides user interface for client to interact with the application. This is the only part of application visible to client.
--       **Business Layer**: The business or service layer implements the actual business logic or functionality of the application. For example in case of online shopping systems this layer handles transaction management.
--       **Data Layer**: This layer consists of objects that represent real-world business objects such as an Order, OrderLineItem, Product, and so on.
+--       **Presentation Layer**: Provides user interface for client to interact with the application. This is the only part of application visible to client.
+--       **Business Layer**: The business or service layer implements the actual business logic or functionality of the application. For example in case of online shopping systems this layer handles transaction management.
+--       **Data Layer**: This layer consists of objects that represent real-world business objects such as an Order, OrderLineItem, Product, and so on.
 
 ### Web Application Development
 - How the Web Works: A Primer for Newcomers to Web Development (or anyone, really) (https://silo.tips/download/web-application-development-2)
@@ -29,3 +29,7 @@
 ### Application server vs Web server
 - A **web server** accepts and fulfills requests from clients for static content (i.e., HTML pages, files, images, and videos) from a website. Web servers handle HTTP requests and responses only.
 - An **application server** exposes business logic to the clients, which generates dynamic content. It is a software framework that transforms data to provide the specialized functionality offered by a business, service, or application. Application servers enhance the interactive parts of a website that can appear differently depending on the context of the request.
+
+### How encryption VS hashing works
+- Since **encryption** is two-way, the data can be decrypted so it is readable again. **Hashing**, on the other hand, is one-way, meaning the plaintext is scrambled into a unique digest, through the use of a salt, that cannot be decrypted.
+
