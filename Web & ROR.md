@@ -12,7 +12,7 @@
 -     Body: Contains data sent by client to server
 
 ### Layers
-- Normally web applications are partitioned into three layers. Each layer performs a specific functionality which should not be mixed with other layers. Layers are isolated from each other to reduce coupling between them but they provide interfaces to communicate with each other.
+- Normally web applications are partitioned into three layers. Each layer performs a specific functionality which should not be mixed with other layers. Layers are isolated from each other to reduce coupling between them but they provide interfaces to communicate with each other.<br />
 --       **Presentation Layer**: Provides user interface for client to interact with the application. This is the only part of application visible to client. <br />
 --       **Business Layer**: The business or service layer implements the actual business logic or functionality of the application. For example in case of online shopping systems this layer handles transaction management.<br />
 --       **Data Layer**: This layer consists of objects that represent real-world business objects such as an Order, OrderLineItem, Product, and so on. <br />
@@ -34,3 +34,5 @@
 ### How encryption VS hashing works
 - Since **encryption** is two-way, the data can be decrypted so it is readable again. **Hashing**, on the other hand, is one-way, meaning the plaintext is scrambled into a unique digest, through the use of a salt, that cannot be decrypted.
 
+### what are http headers
+- HTTP headers let the client and the server pass additional information with an HTTP request or response.  For example, Content-Type and a request message can use headers to indicate it's preferred media formats, while a response can use header to indicate the media format of the returned body.
