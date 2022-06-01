@@ -9,7 +9,7 @@
   * It  tells  server  what  type  of  action  client  wants  to  be  performed. <br />
   * URI:   Uniform   Resource   Indictor   specifies   the   address   of   required   document. <br />
   * Header  Fields:  Option  headers  can  be  used  by  client  to  tell  server  extra  information  about  request  e.g.  client  software  and  content  type  that  it  understands. <br />
--     Body: Contains data sent by client to server
+  * Body: Contains data sent by client to server
 
 ### Layers
 - Normally web applications are partitioned into three layers. Each layer performs a specific functionality which should not be mixed with other layers. Layers are isolated from each other to reduce coupling between them but they provide interfaces to communicate with each other.<br />
