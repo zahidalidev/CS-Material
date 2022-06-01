@@ -36,3 +36,9 @@
 
 ### what are http headers
 - HTTP headers let the client and the server pass additional information with an HTTP request or response.  For example, Content-Type and a request message can use headers to indicate it's preferred media formats, while a response can use header to indicate the media format of the returned body.
+- Request headers contain more information about the resource to be fetched, or about the client requesting the resource.
+- Response headers hold additional information about the response, like its location or about the server providing it.
+
+### what are comment headers
+- File Header comments are used to identify what is in a file, who wrote it, the date it was written, and a description of what is being solved by the code in the file. All program files should have header comments and it should be located at the TOP of the file!
+
