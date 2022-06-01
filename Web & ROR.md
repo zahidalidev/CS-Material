@@ -42,3 +42,15 @@
 ### what are comment headers
 - File Header comments are used to identify what is in a file, who wrote it, the date it was written, and a description of what is being solved by the code in the file. All program files should have header comments and it should be located at the TOP of the file!
 
+### How SSL/HTTPS encryption actually works
+- HTTPS requires a TLS certificate to be installed on your server. You can apply certificates to different protocols, like HTTP (web), SMTP (email) and FTP. An SSL or TLS certificate works by storing your randomly generated keys (public and private) in your server. The public key is verified with the client and the private key used in the decryption process.
+- HTTP is just a protocol, but when paired with TLS or transport layer security it becomes encrypted.
+- HTTPS takes the well-known and understood HTTP protocol, and simply layers a SSL/TLS (hereafter referred to simply as “SSL”) encryption layer on top of it. Servers and clients still speak exactly the same HTTP to each other, but over a secure SSL connection that encrypts and decrypts their requests and responses. The SSL layer has 2 main purposes:
+  * Verifying that you are talking directly to the server that you think you are talking to
+  * Ensuring that only the server can read what you send it and only you can read what it sends back <br />
+The really, really clever part is that anyone can intercept every single one of the messages you exchange with a server, including the ones where you are agreeing on the key and encryption strategy to use, and still not be able to read any of the actual data you send.
+
+### How handshake works in http
+- https://robertheaton.com/2014/03/27/how-does-https-actually-work/#:~:text=How%20an%20SSL%20connection%20is%20established
+
+
