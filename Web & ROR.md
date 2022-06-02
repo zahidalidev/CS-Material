@@ -71,6 +71,7 @@ The really, really clever part is that anyone can intercept every single one of 
 
 ### Controller layer
 - The Controller layer is responsible for handling incoming HTTP requests and providing a suitable response. Usually, this means returning HTML, but Rails controllers can also generate XML, JSON, PDFs, mobile-specific views, and more. Controllers load and manipulate models, and render view templates in order to generate the appropriate HTTP response. In Rails, incoming requests are routed by Action Dispatch to an appropriate controller, and controller classes are derived from ActionController::Base. Action Dispatch and Action Controller are bundled together in Action Pack.
+- The controller is where CRUD functionality happens, so the methods that describe certain actions live in the controller.
 
 ### Scaffold
 - A scaffold in Rails is a full set of model, database migration for that model, controller to manipulate it, views to view and manipulate the data, and a test suite for each of the above.
