@@ -76,3 +76,10 @@ The really, really clever part is that anyone can intercept every single one of 
 ### Scaffold
 - A scaffold in Rails is a full set of model, database migration for that model, controller to manipulate it, views to view and manipulate the data, and a test suite for each of the above.
 - Rails scaffolding is a quick way to generate some of the major pieces of an application. If you want to create the models, views, and controllers for a new resource in a single operation, scaffolding is the tool for the job.
+
+### Seed in Rails ? 
+- A useful way of populating a database with the initial data needed for a Rails project. This will allow us to populate the database in within our Rails Web application.
+
+### rails Gems, what is gemfile, gemfile.lock
+- The Gemfile is where you specify which gems you want to use, and lets you specify which versions. The Gemfile. lock file is where Bundler records the exact versions that were installed. This way, when the same library/project is loaded on another machine, running bundle install will look at the Gemfile.
+- A Gemfile is a file we create which is used for describing gem dependencies for Ruby programs. A gem is a collection of Ruby code that we can extract into a “collection” which we can call later. It lets you specify which gems you want to use, and which versions of these gems to use.
