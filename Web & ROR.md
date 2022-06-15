@@ -57,6 +57,14 @@ The really, really clever part is that anyone can intercept every single one of 
 - Name servers translate the domain name into an IP address, connecting information that's easy for humans to understand with information that's easy for computers to understand.
 - A nameserver, also referred to as “name server,” is a server designed to translate domain names into IP addresses. It handles queries from clients, like a computer or tablet, about the location of a domain name and its services on the DNS servers. Any server that has DNS software can be considered a nameserver.
 
+# Ruby
+
+### Module
+- Ruby modules allow you to create groups of methods that you can then include or mix into any number of classes. Modules only hold behaviour, unlike classes, which hold both behaviour and state.
+- Since a module cannot be instantiated, there is no way for its methods to be called directly. Instead, it should be included in another class, which makes its methods available for use in instances of that class.
+- Modules are a way of grouping together methods, classes, and constants. Modules give you two major benefits. Modules provide a namespace and prevent name clashes.
+
+
 # Rails
 
 ### What's Rails?
