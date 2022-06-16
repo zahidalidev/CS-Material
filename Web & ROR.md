@@ -63,7 +63,37 @@ The really, really clever part is that anyone can intercept every single one of 
 - Ruby modules allow you to create groups of methods that you can then include or mix into any number of classes. Modules only hold behaviour, unlike classes, which hold both behaviour and state.
 - Since a module cannot be instantiated, there is no way for its methods to be called directly. Instead, it should be included in another class, which makes its methods available for use in instances of that class.
 - Modules are a way of grouping together methods, classes, and constants. Modules give you two major benefits. Modules provide a namespace and prevent name clashes.
+- Namespacing is a way of bundling logically related objects together. Modules serve as a convenient tool for this. This allows classes or modules with conflicting names to co-exist while avoiding collisions. Think of this as storing different files with the same names under separate directories in your filesystem.
 
+### Variables in a Ruby Class
+- Local Variables − Local variables are the variables that are defined in a method. Local variables are not available outside the method. You will see more details about method in subsequent chapter. Local variables begin with a lowercase letter or _.
+
+- Instance Variables − Instance variables are available across methods for any particular instance or object. That means that instance variables change from object to object. Instance variables are preceded by the at sign (@) followed by the variable name.
+
+- Class Variables − Class variables are available across different objects. A class variable belongs to the class and is a characteristic of a class. They are preceded by the sign @@ and are followed by the variable name.
+
+- Global Variables − Class variables are not available across classes. If you want to have a single variable, which is available across classes, you need to define a global variable. The global variables are always preceded by the dollar sign ($).
+
+### block and lambda
+- Blocks are used for passing blocks of code to methods, and procs and lambda's allow storing blocks of code in variables.
+
+### Map Vs Each
+- Array#each executes the given block for each element of the array, then returns the array itself. Array#map also executes the given block for each element of the array, but returns a new array whose values are the return values of each iteration of the block. Note the return value is simply the same array.
+
+### What is :: in Ruby?
+- The :: is a unary operator and is used to access (anywhere outside the class or module) constants, instance methods and class methods defined within a class or module. Note: In Ruby, classes and methods may be considered constants too.
+
+### puts, putc, p
+- putc to print the character
+- p = puts value.inspect
+- While the print method allows you to print information in the same line even multiple times, the puts method adds a new line at the end of the object
+- On the other hand, p is useful when you are trying to understand what your code does, e.g. when you are trying to figure out a certain error.
+
+### Class vs Module? 
+- Modules are collections of methods and constants. They cannot generate instances. Classes may generate instances (objects), and have per-instance state (instance variables).
+
+### yield
+- yield is a keyword in Ruby which allow the developer to pass some argument to block from the yield, the number of the argument passed to the block has no limitations, the main advantage of using yield in Ruby, if we face any situation we wanted to our method perform different functions according to calling block
 
 # Rails
 
