@@ -177,6 +177,111 @@ square[3]       #=> 9
 - detect: Alias for find
 - reject: The opposite of select: runs an expression for each array element and includes that element in the output if the expression is false
 
+### convert array to hash
+- The to_h method is defined in the array class. It works to convert an array to a hash in the form of key-value pairs. The method converts each nested array into key-value pairs. The method also accepts a block.
+```
+ar = [1, 2, "zahid", true]
+
+puts ar.to_h {|i| ["key", i]}
+```
+
+### times loop
+```
+puts 10.times { puts "hello" }
+```
+
+### each with index
+- the each_with_index function in Ruby is used to Iterate over the object with its index and returns value of the given object.
+```
+[5, 10, 15, 20, 25, 30].each_with_index do |num, idx|
+  puts num, idx
+end
+```
+
+### load vs require with res memory
+
+
+
+### background jobs
+- Scheduled Operating System Processes, i.e. Cron Jobs. ...
+- Rails-based Asynchronous Processes. ...
+- Running a Process On-Demand. ...
+- Sidekiq Configuration File. ...
+- Redis Storage. ...
+- Running Sidekiq. ...
+- Scheduling a Background Job. ...
+- Sidekiq Web Console.
+
+### Access Control (Provate, Public, Protected)
+```
+# define a class
+class Box
+   # constructor method
+   def initialize(w,h)
+      @width, @height = w, h
+   end
+
+   # instance method by default it is public
+   def getArea
+      getWidth() * getHeight
+   end
+
+   # define private accessor methods
+   def getWidth
+      @width
+   end
+   def getHeight
+      @height
+   end
+   # make them private
+   private :getWidth, :getHeight
+
+   # instance method to print area
+   def printArea
+      @area = getWidth() * getHeight
+      puts "Big box area is : #@area"
+   end
+   # make it protected
+   protected :printArea
+end
+
+# create an object
+box = Box.new(10, 20)
+
+# call instance methods
+a = box.getArea()
+puts "Area of the box is : #{a}"
+
+# try to call protected or methods
+box.printArea()
+
+<!-- Ouput -->
+Area of the box is : 200
+test.rb:42: protected method `printArea' called for #
+<Box:0xb7f11280 @height = 20, @width = 10> (NoMethodError)
+
+```
+### freeze
+- The freeze method in Ruby is used to ensure that an object cannot be modified. This method is a great way to create immutable objects. Any attempt to modify an object that has called the freeze method will result in the program throwing a runtime error.
+
+### Create Object Using Allocate
+- There may be a situation when you want to create an object without calling its constructor initialize i.e. using new method, in such case you can call allocate, which will create an uninitialized object for you as in the following example −
+
+### How to Use attr_accessor, attr_writer & attr_reader
+- With **attr_reader** you can only read the value, but not change it. With **attr_writer** you can only change a value but not read it.
+- attr_accessor works as both attr_reader and attr_writer 
+
+```
+class Food
+ attr_accessor :protein
+ def initialize(protein)
+   @protein = protein
+ end
+end
+```
+
+
+
 
 
 
