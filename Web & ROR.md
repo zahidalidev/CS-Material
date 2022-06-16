@@ -127,6 +127,56 @@ end
 ### why use catch throw instead of rescue
 - catch/throw are not the same as raise/rescue. catch/throw allows you to quickly exit blocks back to a point where a catch is defined for a specific symbol, raise rescue is the real exception handling stuff involving the Exception object.
 
+### symbol vs string
+- A string, in Ruby, is a mutable series of characters or bytes. Symbols, on the other hand, are immutable values. Just like the integer 2 is a value
+- string: "zahid", symbol: :zahid
+
+### self
+- self is reference to current object.
+```
+class Cat
+  def meow
+    puts self
+  end
+end
+Cat.new.meow
+# <Cat:0x7a14c5>
+```
+
+### Proc
+- A Proc object is an encapsulation of a block of code, which can be stored in a local variable, passed to a method or another Proc, and can be called. Proc is an essential concept in Ruby and a core of its functional programming features.
+```
+square = Proc.new {|x| x**2 }
+
+square.call(3)  #=> 9
+# shorthands:
+square.(3)      #=> 9
+square[3]       #=> 9
+```
+### Ruby map, each, collect, inject, reject, select quick reference
+- map: Performs an action on each array element. The original array is not modified. Returns the modified array.
+- each: Executes an action using as parameter each element of the array. Returns the unmodified array.
+- collect: Alias for map
+- inject: Takes an accumulator (sum) and changes it as many times as there are elements in the array. Returns the final value of the accumulator.
+```
+[1,2,3,4,5,6,7,8,9,10].inject{|sum,e| sum += e }
+# returns 55
+```
+- reduce: Alias for inject
+- select: Runs an expression for each array element and, if it is true, that element gets added to the output which is returned. This is called filter in other languages.
+```
+[1,2,3,4,5,6,7,8,9,10].select{|el| el%2 == 0 }
+# returns [2,4,6,8,10]
+```
+- find: Take an expression and returns the first element for which the expression returns true:
+```
+[1,2,3,4,5,6,7,8,9,10].find{|el| el / 2 == 2 }
+# returns 4
+```
+
+- detect: Alias for find
+- reject: The opposite of select: runs an expression for each array element and includes that element in the output if the expression is false
+
 
 
 
