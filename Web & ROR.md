@@ -280,12 +280,12 @@ class Food
 end
 ```
 
+### colect
+- collect() is an Array class method which invokes the argument block once for each element of the array. A new array is returned which has the value returned by the block.
 
+### association in ruby
 
-
-
-
-
+### rubocop
 
 # Rails
 
