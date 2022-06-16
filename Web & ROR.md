@@ -58,6 +58,7 @@ The really, really clever part is that anyone can intercept every single one of 
 - A nameserver, also referred to as “name server,” is a server designed to translate domain names into IP addresses. It handles queries from clients, like a computer or tablet, about the location of a domain name and its services on the DNS servers. Any server that has DNS software can be considered a nameserver.
 
 # Ruby
+- Ruby is an interpreted, high-level, general-purpose programming language which supports multiple programming paradigms. It was designed with an emphasis on programming productivity and simplicity. In Ruby, everything is an object, including primitive data types.
 
 ### Module
 - Ruby modules allow you to create groups of methods that you can then include or mix into any number of classes. Modules only hold behaviour, unlike classes, which hold both behaviour and state.
@@ -94,6 +95,42 @@ The really, really clever part is that anyone can intercept every single one of 
 
 ### yield
 - yield is a keyword in Ruby which allow the developer to pass some argument to block from the yield, the number of the argument passed to the block has no limitations, the main advantage of using yield in Ruby, if we face any situation we wanted to our method perform different functions according to calling block
+
+### lambda pass to a function
+```
+def some_func(foo, bar, &procedure)
+  procedure.call(foo, bar)
+end
+
+some_func(2, 3) {|a, b| a * b }
+=> 6
+```
+
+### Distructor
+- Ruby does not have.
+
+### to_s vs inspect 
+- to_s is usually used for logging purposes. inspect is usually used for debugging purposes.
+
+### include and extend
+- difference between include and extend is that 'include' is for adding methods only to an instance of a class and 'extend' is for adding methods to the class but not to its instance.
+
+### raise and handle exception
+```
+begin
+  raise "tesing !!"
+  rescue Exception => e
+    puts e
+end
+```
+
+### why use catch throw instead of rescue
+- catch/throw are not the same as raise/rescue. catch/throw allows you to quickly exit blocks back to a point where a catch is defined for a specific symbol, raise rescue is the real exception handling stuff involving the Exception object.
+
+
+
+
+
 
 # Rails
 
