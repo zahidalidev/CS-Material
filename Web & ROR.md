@@ -320,5 +320,9 @@ end
 ### rails Gems, what is gemfile, gemfile.lock
 - The Gemfile is where you specify which gems you want to use, and lets you specify which versions. The Gemfile.lock file is where Bundler records the exact versions that were installed. This way, when the same library/project is loaded on another machine, running bundle install will look at the Gemfile.
 - A Gemfile is a file we create which is used for describing gem dependencies for Ruby programs. A gem is a collection of Ruby code that we can extract into a “collection” which we can call later. It lets you specify which gems you want to use, and which versions of these gems to use.
-- 
 
+### what is Rails/Rake in rails
+- Rake is a popular task runner for Ruby and Rails applications. For example, Rails provides the predefined Rake tasks for creating databases, running migrations, and performing tests. You can also create custom tasks to automate specific actions - run code analysis tools, backup databases, and so on.
+
+### What is rake and rack?
+- One more thing: Don't confuse Rake with Rack, very similar names, but completely different things. Rake is a task runner. Rack helps Ruby servers & frameworks work together.
