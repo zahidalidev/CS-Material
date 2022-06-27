@@ -326,3 +326,7 @@ end
 
 ### What is rake and rack?
 - One more thing: Don't confuse Rake with Rack, very similar names, but completely different things. Rake is a task runner. Rack helps Ruby servers & frameworks work together.
+
+### hash.with_indifferent_access
+- https://medium.com/@soni.dumitru/the-hash-with-indifferent-access-method-in-rails-37f0bd3d5a76
+- using with_indifferent_access we can access the valuse from hash using both symbol and strings.
