@@ -330,3 +330,13 @@ end
 ### hash.with_indifferent_access
 - https://medium.com/@soni.dumitru/the-hash-with-indifferent-access-method-in-rails-37f0bd3d5a76
 - using with_indifferent_access we can access the valuse from hash using both symbol and strings.
+
+### Asset pipline line 4 advatnges
+- The asset pipeline provides a framework to concatenate and minify or compress JavaScript and CSS assets. It also adds the ability to write these assets in other languages such as CoffeeScript, Sass and ERB.
+
+### app/Channels
+- Each consumer can, in turn, subscribe to multiple channels. Each channel encapsulates a logical unit of work, similar to what a controller does in a typical MVC setup. For example, you could have a ChatChannel and an AppearancesChannel, and a consumer could be subscribed to either or both of these channels. At the very least, a consumer should be subscribed to one channel.
+
+### ./bin directory 
+- contains your app's "binstubs." Binstubs are wrappers around gem executables, like rails or bundle , which ensures a gem executable is run inside the correct environment for your Rails app.
+
