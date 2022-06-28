@@ -331,12 +331,23 @@ end
 - https://medium.com/@soni.dumitru/the-hash-with-indifferent-access-method-in-rails-37f0bd3d5a76
 - using with_indifferent_access we can access the valuse from hash using both symbol and strings.
 
-### Asset pipline line 4 advatnges
+### Asset pipline
 - The asset pipeline provides a framework to concatenate and minify or compress JavaScript and CSS assets. It also adds the ability to write these assets in other languages such as CoffeeScript, Sass and ERB.
+- The first feature of the pipeline is to concatenate assets, which can reduce the number of requests that a browser makes to render a web page. Web browsers are limited in the number of requests that they can make in parallel, so fewer requests can mean faster loading for your application.
+- The second feature of the asset pipeline is asset minification or compression. For CSS files, this is done by removing whitespace and comments. For JavaScript, more complex processes can be applied. You can choose from a set of built in options or specify your own.
+- The third feature of the asset pipeline is it allows coding assets via a higher-level language, with precompilation down to the actual assets. Supported languages include Sass for CSS, CoffeeScript for JavaScript, and ERB for both by default.
+
+### What is Fingerprinting and Why Should I Care?
+- Fingerprinting is a technique that makes the name of a file dependent on the contents of the file. When the file contents change, the filename is also changed. For content that is static or infrequently changed, this provides an easy way to tell whether two versions of a file are identical, even across different servers or deployment dates.
+-  Rails inserts an SHA256 fingerprint into each filename so that the file is cached by the web browser. You can invalidate the cache by altering this fingerprint, which happens automatically whenever you change the file contents.
 
 ### app/Channels
 - Each consumer can, in turn, subscribe to multiple channels. Each channel encapsulates a logical unit of work, similar to what a controller does in a typical MVC setup. For example, you could have a ChatChannel and an AppearancesChannel, and a consumer could be subscribed to either or both of these channels. At the very least, a consumer should be subscribed to one channel.
 
 ### ./bin directory 
 - contains your app's "binstubs." Binstubs are wrappers around gem executables, like rails or bundle , which ensures a gem executable is run inside the correct environment for your Rails app.
+
+### What is the difference between preprocess and precompile?
+- Preprocess - a process that transforms your code into either css, html or js before you sent it to your browser. This is usually when you use (redundant here) preprocessors such as coffeescript, erb, scss, etc. I must say that the order is important when using preprocess.
+- Precompile - happens before you send your code to production using rake assets:precompile. It makes sure your code is compilable (made up word) and put them in public/assets
 
