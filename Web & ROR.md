@@ -351,3 +351,12 @@ end
 - Preprocess - a process that transforms your code into either css, html or js before you sent it to your browser. This is usually when you use (redundant here) preprocessors such as coffeescript, erb, scss, etc. I must say that the order is important when using preprocess.
 - Precompile - happens before you send your code to production using rake assets:precompile. It makes sure your code is compilable (made up word) and put them in public/assets
 
+### Callbacks
+- Callbacks are methods that get called at certain moments of an object's life cycle. With callbacks it is possible to write code that will run whenever an Active Record object is created, saved, updated, deleted, validated, or loaded from the database.
+
+### symbol vs string?
+- A string, in Ruby, is a mutable series of characters or bytes.
+- Symbols, on the other hand, are immutable values. Just like the integer 2 is a value.
+
+### What is Active Record?
+- Active Record is the M in MVC - the model - which is the layer of the system responsible for representing business data and logic. Active Record facilitates the creation and use of business objects whose data requires persistent storage to a database. It is an implementation of the Active Record pattern which itself is a description of an Object Relational Mapping system.
