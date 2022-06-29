@@ -420,3 +420,8 @@ User.save
   after_save
 => true
 ```
+
+### validates_with 
+- The validates_with helper takes a class, or a list of classes to use for validation. There is no default error message for validates_with. You must manually add errors to the record's errors collection in the validator class.
+- To implement the validate method, you must have a record parameter defined, which is the record to be validated.
+
