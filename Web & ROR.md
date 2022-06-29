@@ -360,3 +360,63 @@ end
 
 ### What is Active Record?
 - Active Record is the M in MVC - the model - which is the layer of the system responsible for representing business data and logic. Active Record facilitates the creation and use of business objects whose data requires persistent storage to a database. It is an implementation of the Active Record pattern which itself is a description of an Object Relational Mapping system.
+
+### What is ORM and rails ORM?
+- ORM is the mapping of relational database tables to object-oriented classes. A perfect ORM hides the details of a database's relational data behind the object hierarchy. In Rails, ORM is implemented by Active Record which is one of the most important components of the Rails library.
+- Object Relational Mapping, commonly referred to as its abbreviation ORM, is a technique that connects the rich objects of an application to tables in a relational database management system.
+
+### Validations?
+- Validations are used to ensure that only valid data is saved into your database
+- Database constraints and/or stored procedures make the validation mechanisms database-dependent and can make testing and maintenance more difficult. However, if your database is used by other applications, it may be a good idea to use some constraints at the database level. Additionally, database-level validations can safely handle some things (such as uniqueness in heavily-used tables) that can be difficult to implement otherwise. 
+- Client-side validations can be useful, but are generally unreliable if used alone. If they are implemented using JavaScript, they may be bypassed if JavaScript is turned off in the user's browser. However, if combined with other techniques, client-side validation can be a convenient way to provide users with immediate feedback as they use your site.
+- Controller-level validations can be tempting to use, but often become unwieldy and difficult to test and maintain. Whenever possible, it's a good idea to keep your controllers skinny, as it will make your application a pleasure to work with in the long run.
+
+### validate vs. validateS
+- ::ActiveModel::Validations treats validates and validate differently. validates is used for normal validations presence, length, and the like. validate is used for custom validation methods validate_name_starts_with_a, or whatever crazy method you come up with.
+
+### before/after_commit vs before/after_create/save
+- after_commit and after_rollback. These callbacks are very similar to the after_save callback except that they don't execute until after database changes have either been committed or rolled back. They are most useful when your active record models need to interact with external systems which are not part of the database transaction.
+```
+ after_save is invoked when an object is created and updated
+ after_commit is called on create, update and destroy.
+ after_create is only called when creating an object
+ With Order of callbacks
+```
+- after_create - Is called after Model.save on new objects that haven‘t been saved yet (no record exists)
+- after_save - Is called after Model.save (regardless of whether it‘s a create or update save)
+- after_commit - Is called after the database transaction is completed.
+
+- Rails runs after_save callbacks within a transaction, thus the state changes you just saved can theoretically be unwound if the transaction fails due to an exception getting raised within the after_save functionality. Sometimes this is what you want. Sometimes it isn't.
+- Whenever you are dealing with actions that should occur ONLY after you are sure everything is done (e.g. saving to a special full-text database, tracking, etc.), you ought to use after_commit since this gets run after and outside the transaction.
+
+### Up vs down vs change in Rails
+- In other words, the changes in up are the forward change you want to make to your db, where the changes defined in down should be changes to revert back in time. When you run rails db:migrate, the up method is executed, whereas rails db:rollback executes the down method
+
+### around_* 
+- callbacks are invoked before the action, then when you want to invoke the action itself, you yield to it, then continue execution. That's why it's called around
+- The order goes like this: before, around, after.
+- The around_* callback is called around the action and inside the before_* and after_* actions. For example:
+```
+class User
+  def before_save
+    puts 'before save'
+  end
+
+  def after_save
+    puts 'after_save'
+  end
+
+  def around_save
+    puts 'in around save'
+    yield # User saved
+    puts 'out around save'
+  end
+end
+
+User.save
+  before save
+  in around save
+  out around save
+  after_save
+=> true
+```
