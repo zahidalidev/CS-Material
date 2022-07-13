@@ -421,7 +421,31 @@ User.save
 => true
 ```
 
-### validates_with 
+### Validates_with 
 - The validates_with helper takes a class, or a list of classes to use for validation. There is no default error message for validates_with. You must manually add errors to the record's errors collection in the validator class.
 - To implement the validate method, you must have a record parameter defined, which is the record to be validated.
 
+### Controller callbacks in rails
+- Rails provides before, after and around actions in controllers as an easy way to call methods before or after executing controller actions as response to route requests. Action Callbacks can be particularly helpful when implementing authentication/authorization for example, and are heavily used by gems such as Devise.
+
+### Base controller concept
+- A base controller is a controller with basic functionalities from which the other controllers in your SAPUI5 application inherit. The base controller holds basic functionalities that are used across multiple controllers.
+
+### Fat and slim controller
+- Fat Model, Skinny Controller” refers to how the M and C parts of MVC ideally work together. Namely, any non-response-related logic should go in the model, ideally in a nice, testable method. Meanwhile, the “skinny” controller is simply a nice interface between the view and model.
+- Mean main logic, minimum logic should be in contoller and all other should be in models.
+
+### Serializer
+- Serialization converts an object in memory into a stream of bytes that can be recreated when needed. Serializers in Ruby on Rails convert a given object into a JSON format. Serializers control the particular attributes rendered when an object or model is converted into a JSON format.
+
+### Strong params
+- Strong Parameters, aka Strong Params, are used in many Rails applications to increase the security of data sent through forms. Strong Params allow developers to specify in the controller which parameters are accepted and used. By permitting only the expected params, any unneeded or potentially dangerous params will be ignored and effectively filtered out. This is especially important during Active Model mass assignments where multiple params can be passed at once.
+
+### require vs permit vs permit in rails
+- The require method ensures that a specific parameter is present, and if it's not provided, the require method throws an error. It returns an instance of ActionController::Parameters for the key passed into require.
+- The permit method returns a copy of the parameters object, returning only the permitted keys and values. When creating a new ActiveRecord model, only the permitted attributes are passed into the model.
+- To whitelist an entire hash of parameters, the permit! method can be used.
+
+### Gem and Gem.lock files in rails
+- The Gemfile is where you specify which gems you want to use, and lets you specify which versions.
+- The Gemfile.lock file is where Bundler records the exact versions that were installed. This way, when the same library/project is loaded on another machine, running bundle install will look at the Gemfile.lock and install the exact same versions, rather than just using the Gemfile and installing the most recent versions. (Running different versions on different machines could lead to broken tests, etc.) You shouldn't ever have to directly edit the lock file.
