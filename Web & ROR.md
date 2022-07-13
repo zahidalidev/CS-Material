@@ -449,3 +449,10 @@ User.save
 ### Gem and Gem.lock files in rails
 - The Gemfile is where you specify which gems you want to use, and lets you specify which versions.
 - The Gemfile.lock file is where Bundler records the exact versions that were installed. This way, when the same library/project is loaded on another machine, running bundle install will look at the Gemfile.lock and install the exact same versions, rather than just using the Gemfile and installing the most recent versions. (Running different versions on different machines could lead to broken tests, etc.) You shouldn't ever have to directly edit the lock file.
+
+### Why Associations?
+- In Rails, an association is a connection between two Active Record models. Why do we need associations between models? Because they make common operations simpler and easier in your code. For example, consider a simple Rails application that includes a model for authors and a model for books. 
+- https://guides.rubyonrails.org/v5.2/association_basics.html
+
+### Rails CSRF Token (Cross Site Request Forgery)
+- The server generates these tokens, links them to the user session, and stores them in the database. This token is then injected into any form presented to the client as a hidden field. When the client correctly submits the form for validation, it passes the token back to the server.
