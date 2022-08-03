@@ -33,4 +33,6 @@
 - To pull docker image from docker hub: dcoker pull username/imageName:tagname
 - To see running containers/processes: docker ps
 - To see all containers/processes: docker ps -a
+- To interect with container: docker run -it username/imageName:tagname
+
 
