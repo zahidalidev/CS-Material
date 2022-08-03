@@ -26,4 +26,11 @@
 - Once we have an image we can push it to a docker registry like docker like docker hub, docker hub to docker is like github to git, its storage for docker image that anyone can use, so once our application image is on docker hub wen can put it on any machine running docker this machine has the same image we have on our development machine which containes specific version of our application with everything it needs, so we can start our application the same way we start on our development machine. We just tell docker to start a container using this image.
 - All the instructions for building an image of an application are written in a docker file with that we can package our application into an image and run it virtually anywhere this is the beauty of docker.
 
+### Docker commands
+- To genrate image: Docker build -t username/imageName:tagname .
+- To run docker image: docker run username/imageName:tagname
+- To push docker image to docker hub: docker push username/imageName:tagname
+- To pull docker image from docker hub: dcoker pull username/imageName:tagname
+- To see running containers/processes: docker ps
+- To see all containers/processes: docker ps -a
 
