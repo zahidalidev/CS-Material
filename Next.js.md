@@ -17,10 +17,10 @@
 - In the **production** stage, Next.js optimizes for the end-users, and their experience using the application. It aims to transform the code to make it performant and accessible.
 - Since each environment has different considerations and goals, there is a lot that needs to be done to move an application from development to production. For instance, the application code needs to be compiled, bundled, minified, and code split.
 - **Next.js** handles much of these code transformations and underlying infrastructure to make it easier for your application to go to production. This is made possible because Next.js has a **compiler** written in Rust, a low-level programming language, and SWC, a platform that can be used for compilation, minification, bundling, and more.
-
-#### Compilation
-- In Next.js, compilation happens during the development stage as you edit your code, and as part of the build step to prepare your application for production.
-
+- **Compilation** In Next.js, compilation happens during the development stage as you edit your code, and as part of the build step to prepare your application for production.
+- **Minifying** Minification is the process of removing unnecessary code formatting and comments without changing the code’s functionality. The goal is to improve the application’s performance by decreasing file sizes. In Next.js, JavaScript and CSS files are automatically minified for production.
+- **Bundling** Bundling is the process of resolving the web of dependencies and merging (or ‘packaging’) the files (or modules) into optimized bundles for the browser, with the goal of reducing the number of requests for files when a user visits a web page.
+- **Splitting** Code-splitting is the process of splitting the application’s bundle into smaller chunks required by each entry point. The goal is to improve the application's initial load time by only loading the code required to run that page. Next.js has built-in support for code splitting. Each file inside your pages/ directory will be automatically code split into its own JavaScript bundle during the build step. 
 
 
 ### Problems with React
@@ -28,4 +28,5 @@
 - You need to do production optimizations such as code splitting.
 - You might want to statically pre-render some pages for performance and SEO. You might also want to use server-side rendering or client-side rendering.
 - You might have to write some server-side code to connect your React app to your data store.
+
 
