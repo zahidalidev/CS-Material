@@ -5,4 +5,8 @@
 - Whether you’re an individual developer or part of a larger team, you can leverage React and Next.js to build fully interactive, highly dynamic, and performant web applications. 
 - https://nextjs.org/learn/foundations/from-react-to-nextjs/getting-started-with-nextjs
 
-
+### Problems with React
+- Code has to be bundled using a bundler like webpack and transformed using a compiler like Babel.
+- You need to do production optimizations such as code splitting.
+- You might want to statically pre-render some pages for performance and SEO. You might also want to use server-side rendering or client-side rendering.
+- You might have to write some server-side code to connect your React app to your data store.
