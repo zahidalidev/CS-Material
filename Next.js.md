@@ -18,6 +18,9 @@
 - Since each environment has different considerations and goals, there is a lot that needs to be done to move an application from development to production. For instance, the application code needs to be compiled, bundled, minified, and code split.
 - **Next.js** handles much of these code transformations and underlying infrastructure to make it easier for your application to go to production. This is made possible because Next.js has a **compiler** written in Rust, a low-level programming language, and SWC, a platform that can be used for compilation, minification, bundling, and more.
 
+#### Compilation
+- In Next.js, compilation happens during the development stage as you edit your code, and as part of the build step to prepare your application for production.
+
 
 
 ### Problems with React
