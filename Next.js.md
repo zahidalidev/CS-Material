@@ -62,9 +62,10 @@
 - This reduces the load on the origin because the computation doesn’t have to happen on each request. It also makes it faster for the user because the response comes from a location geographically closer to them.
 - In Next.js, since pre-rendering can be done ahead of time, CDNs are well suited to store the static result of the work - making content delivery faster.
 
-
-
-
+### The Edge
+- The Edge is a generalized concept for the fringe (or edge) of the network, closest to the user. CDNs could be considered part of "the Edge" because they store static content at the fringe (edge) of the network.
+- Similar to CDNs, Edge servers are distributed to multiple locations around the world. But unlike CDNs, which store static content, some Edge servers can run code. This means both caching and code execution can be done at the Edge closer to the user.
+- Pros of Edge: 1- Reduce load on a single server 2- Deliver content faster 3- Improve performance
 
 ## Problems with React
 - Code has to be bundled using a bundler like webpack and transformed using a compiler like Babel.
