@@ -35,6 +35,17 @@
 ### Pre-Rendering
 - Server-Side Rendering and Static Site Generation are also referred to as Pre-Rendering because the fetching of external data and transformation of React components into HTML happens before the result is sent to the client.
 
+### Why Pre-Rendering
+- Pre-Rendering improve performance
+    - In a React app, you need to wait for the JS to be executed
+    - perhaps fetch data from an external API and then render the UI
+    - So there is a wait time for the user
+    - With Pre-Rederning page, the HTML is already generated and loads faster  
+- Pre-rendering helps with SEO
+    - With the React app if search engine hits the page, it only sees div tag with the id root.
+    - if search the engine hits a pre-rendered page though, all content is present in the source code which will help index that page
+    - if SEO is of concern for your app, pre-rendering is what you want.     
+
 ### Client-Side Rendering vs. Pre-Rendering
 - In a standard React application, the browser receives an empty HTML shell from the server along with the JavaScript instructions to construct the UI. This is called client-side rendering because the initial rendering work happens on the user's device.
 - You can opt to use client-side rendering for specific components in your Next.js application by choosing to fetch data with React’s useEffect() or a data fetching hook such as useSWR.
