@@ -61,6 +61,26 @@
 - With Static Site Generation, the HTML is generated on the server, but unlike server-side rendering, there is no server at runtime. Instead, content is generated once, at build time, when the application is deployed, and the HTML is stored in a CDN and re-used for each request.
 - In Next.js, you can opt to statically generate pages by using getStaticProps.
 - The beauty of Next.js is that you can choose the most appropriate rendering method for your use case on a page-by-page basis, whether that's Static Site Generation, Server-side Rendering, or Client-Side Rendering. 
+- Recommmended method to pre-render pages whenever possible
+- page can build once, cached by CDN (content delivery network) and served to the client almost instantly
+- By default every page in Next.js will be statically generated when we build our application.
+- Static site generation is done by getStaticProps()
+- getStaticProps() runs only on server side
+
+### getStaticProps
+- Static site generation is done by getStaticProps()
+- getStaticProps() runs only on server side
+- Allowed only in page component and cannot be run from a regular component file
+- It is used only for pre-rendering and not client side data fetching.
+- Should return an object and object must contain props key which is an object.
+- Will run at build time.
+- During development, getStatisProps runs on every request.
+
+## When should I use getStaticProps?
+- The data required to render the page is available at build time ahead of a user’s request
+- The data comes from a headless CMS
+- The page must be pre-rendered (for SEO) and be very fast — getStaticProps generates HTML and JSON files, both of which can be cached by a CDN for performance
+- The data can be publicly cached (not user-specific). This condition can be bypassed in certain specific situation by using a Middleware to rewrite the path.
 
 ## Network?
 - It’s helpful to know where your application code is stored and run once it’s deployed to the network. You can think of the network as linked computers (or servers) capable of sharing resources. In the case of a Next.js application, your application code can be distributed to origin servers, Content Delivery Networks (CDNs), and the Edge. Let’s see what each of these are:
@@ -97,10 +117,3 @@
 ## Code splitting and prefetching, single and multipage (React & Next.js)
 - **Next.js** does code splitting automatically, so each page only loads what’s necessary for that page. That means when the homepage is rendered, the code for other pages is not served initially. This ensures that the homepage loads quickly even if you have hundreds of pages. Only loading the code for the page you request also means that pages become isolated. If a certain page throws an error, the rest of the application would still work. Furthermore, in a production build of Next.js, whenever Link components appear in the browser’s viewport, Next.js automatically prefetches the code for the linked page in the background. By the time you click the link, the code for the destination page will already be loaded in the background, and the page transition will be near-instant!
 - **React** is a Single Page Application (SPA) frontend framework. An intuitive definition of what this means is that your web app needs only 1 page load. However, an SPA can support the user experience of having "multiple pages", including changing the url path: e.g. www.app.com/home -> www.app.com/about.
-
-## When should I use getStaticProps?
-- The data required to render the page is available at build time ahead of a user’s request
-- The data comes from a headless CMS
-- The page must be pre-rendered (for SEO) and be very fast — getStaticProps generates HTML and JSON files, both of which can be cached by a CDN for performance
-- The data can be publicly cached (not user-specific). This condition can be bypassed in certain specific situation by using a Middleware to rewrite the path.
-
