@@ -108,6 +108,7 @@
 ### getStaticPaths fallback: false 
 - The paths returned from getStaticPaths will be rendered to HTML at build time by getStaticProps.
 - Any paths not returned from getStaticPath will result in a 404 page.
+- **WHEN** 
 - The false value is most suitable if you have an application with a small number of paths to pre-render, when new pages are not added often
 - A blog site with few articles is a good example for fallback set to false
 
@@ -117,6 +118,13 @@
 - In the background Next.js will statically generate the requested path HTML and JSON. This includes running getStaticProps.
 - When that's done, the browser receive the JSON for the generated paths, this will be used to automatically render the page with the required props. and the page will be swapped from the fallback page to the full page.
 - At the same time Next.js will keeps track of the new list of pre-rendered pages. Subsequent requests to the same path will serve the generated page just like other pages pre-rendered at build time. 
+- **WHEN** 
+- If our app has a very large number of static pages that depend on the data, like a large e-commerce site 
+- We want all pages to pre-rendered but if we have thousand products then build can take really long time.
+- We can statically generate some popular products and use fallback: true for the rest.
+- When someone requested a page that's not generated yet, then user will see the page with loading indicator.
+- Shortlya after, getStaticProps finishes and the page will be rendered with the reqiuested data from then onwards if someone requested the same page will see the statically pre-rendered page
+- This ensures that users always has fast experience while preserving fast builds and the benifits of static
 
 ## Network?
 - It’s helpful to know where your application code is stored and run once it’s deployed to the network. You can think of the network as linked computers (or servers) capable of sharing resources. In the case of a Next.js application, your application code can be distributed to origin servers, Content Delivery Networks (CDNs), and the Edge. Let’s see what each of these are:
