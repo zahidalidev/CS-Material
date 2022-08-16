@@ -76,11 +76,27 @@
 - Will run at build time.
 - During development, getStatisProps runs on every request.
 
-## When should I use getStaticProps?
+### When should I use getStaticProps?
 - The data required to render the page is available at build time ahead of a user’s request
 - The data comes from a headless CMS
 - The page must be pre-rendered (for SEO) and be very fast — getStaticProps generates HTML and JSON files, both of which can be cached by a CDN for performance
 - The data can be publicly cached (not user-specific). This condition can be bypassed in certain specific situation by using a Middleware to rewrite the path.
+
+### Link Pre-fetching (Static Generation)
+- Any <Link /> component in the viewport (initially or through scroll) will be prefetched by default (including the corresponding data) for pages using Static Generation.
+
+### getStaticPaths fallback: false 
+- The paths returned from getStaticPaths will be rendered to HTML at build time by getStaticProps.
+- Any paths not returned from getStaticPath will result in a 404 page.
+- The false value is most suitable if you have an application with a small number of paths to pre-render, when new pages are not added often
+- A blog site with few articles is a good example for fallback set to false
+
+### getStaticPaths fallback: true
+- The paths returned from getStaticPaths will be rendered to HTML at build time by getStaticProps same as when its false.
+- The paths that have not been generated at build time will not result in 404 page. Instead, Next.js will serve a "fallback" version of the page on the 1st request to such a path.
+- In the background Next.js will statically generate the requested path HTML and JSON. This includes running getStaticProps.
+- When that's done, the browser receive the JSON for the generated paths, this will be used to automatically render the page with the required props. and the page will be swapped from the fallback page to the full page.
+- At the same time Next.js will keeps track of the new list of pre-rendered pages. Subsequent requests to the same path will serve the generated page just like other pages pre-rendered at build time. 
 
 ## Network?
 - It’s helpful to know where your application code is stored and run once it’s deployed to the network. You can think of the network as linked computers (or servers) capable of sharing resources. In the case of a Next.js application, your application code can be distributed to origin servers, Content Delivery Networks (CDNs), and the Edge. Let’s see what each of these are:
