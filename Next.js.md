@@ -6,6 +6,26 @@
 - There are multiple ways to build applications with React. Next.js provides a framework to structure your application, and optimizations that help make both the development process and final application faster.
 - https://nextjs.org/learn/foundations/from-react-to-nextjs/getting-started-with-nextjs
 
+## Problems with React
+- Code has to be bundled using a bundler like webpack and transformed using a compiler like Babel.
+- You need to do production optimizations such as code splitting.
+- You might want to statically pre-render some pages for performance and SEO. You might also want to use server-side rendering or client-side rendering.
+- You might have to write some server-side code to connect your React app to your data store.
+
+## Features of Next.js
+- An intuitive page-based routing system (with support for dynamic routes)
+- Pre-rendering, both static generation (SSG) and server-side rendering (SSR) are supported on a per-page basis
+- Automatic code splitting for faster page loads
+- Client-side routing with optimized prefetching
+- Built-in CSS and Sass support, and support for any CSS-in-JS library
+- Development environment with Fast Refresh support
+- API routes to build API endpoints with Serverless Functions
+- Fully extendable
+
+## Code splitting and prefetching, single and multipage (React & Next.js)
+- **Next.js** does code splitting automatically, so each page only loads what’s necessary for that page. That means when the homepage is rendered, the code for other pages is not served initially. This ensures that the homepage loads quickly even if you have hundreds of pages. Only loading the code for the page you request also means that pages become isolated. If a certain page throws an error, the rest of the application would still work. Furthermore, in a production build of Next.js, whenever Link components appear in the browser’s viewport, Next.js automatically prefetches the code for the linked page in the background. By the time you click the link, the code for the destination page will already be loaded in the background, and the page transition will be near-instant!
+- **React** is a Single Page Application (SPA) frontend framework. An intuitive definition of what this means is that your web app needs only 1 page load. However, an SPA can support the user experience of having "multiple pages", including changing the url path: e.g. www.app.com/home -> www.app.com/about.
+
 ## Different stages in Next.js
 - The environment where your code runs: **Development** vs. **Production**
 - When your code runs: **Build Time** vs. **Runtime**
@@ -113,23 +133,3 @@
 - The Edge is a generalized concept for the fringe (or edge) of the network, closest to the user. CDNs could be considered part of "the Edge" because they store static content at the fringe (edge) of the network.
 - Similar to CDNs, Edge servers are distributed to multiple locations around the world. But unlike CDNs, which store static content, some Edge servers can run code. This means both caching and code execution can be done at the Edge closer to the user.
 - Pros of Edge: 1- Reduce load on a single server 2- Deliver content faster 3- Improve performance
-
-## Problems with React
-- Code has to be bundled using a bundler like webpack and transformed using a compiler like Babel.
-- You need to do production optimizations such as code splitting.
-- You might want to statically pre-render some pages for performance and SEO. You might also want to use server-side rendering or client-side rendering.
-- You might have to write some server-side code to connect your React app to your data store.
-
-## Features of Next.js
-- An intuitive page-based routing system (with support for dynamic routes)
-- Pre-rendering, both static generation (SSG) and server-side rendering (SSR) are supported on a per-page basis
-- Automatic code splitting for faster page loads
-- Client-side routing with optimized prefetching
-- Built-in CSS and Sass support, and support for any CSS-in-JS library
-- Development environment with Fast Refresh support
-- API routes to build API endpoints with Serverless Functions
-- Fully extendable
-
-## Code splitting and prefetching, single and multipage (React & Next.js)
-- **Next.js** does code splitting automatically, so each page only loads what’s necessary for that page. That means when the homepage is rendered, the code for other pages is not served initially. This ensures that the homepage loads quickly even if you have hundreds of pages. Only loading the code for the page you request also means that pages become isolated. If a certain page throws an error, the rest of the application would still work. Furthermore, in a production build of Next.js, whenever Link components appear in the browser’s viewport, Next.js automatically prefetches the code for the linked page in the background. By the time you click the link, the code for the destination page will already be loaded in the background, and the page transition will be near-instant!
-- **React** is a Single Page Application (SPA) frontend framework. An intuitive definition of what this means is that your web app needs only 1 page load. However, an SPA can support the user experience of having "multiple pages", including changing the url path: e.g. www.app.com/home -> www.app.com/about.
