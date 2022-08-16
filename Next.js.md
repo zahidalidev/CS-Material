@@ -126,6 +126,14 @@
 - Shortlya after, getStaticProps finishes and the page will be rendered with the reqiuested data from then onwards if someone requested the same page will see the statically pre-rendered page
 - This ensures that users always has fast experience while preserving fast builds and the benifits of static
 
+### getStaticPaths fallback: 'blocking'
+- The paths returned from getStaticPaths will be rendered to HTML at build time by getStaticProps same as when its false.
+- The paths that have not been generated at build time will not result in 404 page. Instead, on the 1st request Next.js will render the page on the server and return the generated HTML.
+- When that's done, the browser recevices the HTML for generated path. From the user perspective, it will transition from "the browser is requesting the page" to "the full page is loaded". There is no flash of loading/fallback state.
+- At the same time, Next.js keep    
+- **WHEN**
+- On a UX level some user prefer to load page without loading indicator if the wait time is few miliseconds, this helps avoid the layout shift.
+
 ## Network?
 - It’s helpful to know where your application code is stored and run once it’s deployed to the network. You can think of the network as linked computers (or servers) capable of sharing resources. In the case of a Next.js application, your application code can be distributed to origin servers, Content Delivery Networks (CDNs), and the Edge. Let’s see what each of these are:
 
