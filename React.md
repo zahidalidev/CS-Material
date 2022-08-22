@@ -167,3 +167,6 @@ If you are writing an application that will run in the browser, you should inste
 
 ### Lexical vs Closure Scope in JS
 - https://www.freecodecamp.org/news/javascript-closure-lexical-scope/
+
+### Debouncing 
+- A Debouncing Events in ReactJS will allow you to call a function that ensures that a time-consuming task does not fire so often. It's a function that takes a function as a parameter and wraps that function in a closure and returns it so this new function displays the “wait for a bit” behavior.
