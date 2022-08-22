@@ -158,3 +158,7 @@
 - **How** to implement ISR: 
 - In the getStaticProps function, apart from the props key we can specify a revalidate key.
 - The value of revalidate is the number of seconds after which a page re-generation can occur.
+- **Re-genration**
+- A re-generation is initiated only if a user makes a request after revalidate time.
+- If a user visists our product details page but there is no other user hitting the same page entire day then re-generation does not happen. 
+
