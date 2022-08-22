@@ -154,7 +154,6 @@
 - https://www.youtube.com/watch?v=d5unMDna5ng&list=PLC3y8-rFHvwgC9mj0qv972IO5DmD-H0ZH&index=30&ab_channel=Codevolution
 - There was a need to update only those pages which needed to change without having to rebuild the entire app.
 - ISR allows you to update static pages without needning to rebuild the entire site, effectivly deadling with the issue of **stale data**.
-
 - **How** to implement ISR: 
 - In the getStaticProps function, apart from the props key we can specify a revalidate key.
 - The value of revalidate is the number of seconds after which a page re-generation can occur.
@@ -163,3 +162,4 @@
 - If a user visists our product details page but there is no other user hitting the same page entire day then re-generation does not happen. 
 - Re-validate does not mean that page will automaticcally regenerates after every 10 seconds.
 - it simply denotes the timer after which, if a user makes a request, re-generation has to be initiated.
+- The re-generation can also fail and the previousaly cached HTML could be served till the subsequent re-generation succeed.
