@@ -149,3 +149,12 @@
 - The Edge is a generalized concept for the fringe (or edge) of the network, closest to the user. CDNs could be considered part of "the Edge" because they store static content at the fringe (edge) of the network.
 - Similar to CDNs, Edge servers are distributed to multiple locations around the world. But unlike CDNs, which store static content, some Edge servers can run code. This means both caching and code execution can be done at the Edge closer to the user.
 - Pros of Edge: 1- Reduce load on a single server 2- Deliver content faster 3- Improve performance
+
+### Incremental Static Regeneration - ISR
+- https://www.youtube.com/watch?v=d5unMDna5ng&list=PLC3y8-rFHvwgC9mj0qv972IO5DmD-H0ZH&index=30&ab_channel=Codevolution
+- There was a need to update only those pages which needed to change without having to rebuild the entire app.
+- ISR allows you to update static pages without needning to rebuild the entire site, effectivly deadling with the issue of **stale data**.
+
+- **How** to implement ISR: 
+- In the getStaticProps function, apart from the props key we can specify a revalidate key.
+- The value of revalidate is the number of seconds after which a page re-generation can occur.
