@@ -182,5 +182,16 @@
     - Next.js allow you to pre-render a page not a build time but at request time, the HTML is generated for every incoming request. 
     - SSR is a type of pre-rending where the HTML is generated at request time.
     - SSR is requried when you need to fetch the data per request and also when you need to fetch personalized data keeping in mind SEO.
-
-
+    - getServerSideProps is used for Server-side rendering and syntax is similar to getStaticProps. 
+    - **getServerSideProps**
+    - Runs only on server side
+    - The function will never run client side.
+    - The code we write inside getServerSideProps won't inlcuded in the JS bundle that is sent to the browser.
+    - We can write server-side code directly in getServerSideProps
+    - Accessing the file system using the fs module or quering a database can be done inside getServerSideProps
+    - getServerSideProps is allowed only in regular component and cannot be used in regular component.
+    - It is used only for pre-rednering not client-side data fetching
+    - getServerSideProps will run at request time.
+    - 
+    - 
+ 
