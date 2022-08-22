@@ -168,11 +168,19 @@
 - Static generation.
 - Server-side rendering.
 - **Static generation**
-- The HTML is statically generated at build time. The built page is then cached and reused for each request.
-- For a dynamic page with getStaticPaths and fallback set to true the page is not generated at the build time but it is generated at the initial request.
-- With incremental static generation, a page can be regenerated for a request after the revalidation time has elapsed.
-- For the most part, the pages are generated using getStaticProps when you build the project.
-- **Problem with static generation**
-- **We cannot request data at request time**
-- With not being able to get data at request time, we run into a problem of stale data.
-- Let's say we are building a news website the content is very dynamic in the sense that new articles can be published almost every second getStaticProps will fetch the news at build time which is not suitable at all. getStaticPaths will help fetch the data on the initial request but it is then cached for subsequent requests. ISR can help but if revalidate is 1 second, we still might not always see the most up to date news when the regenration is heppening in the background. Rather fetch the data on client side by making a get request from the the component. But no SEO. 
+    - The HTML is statically generated at build time. The built page is then cached and reused for each request.
+    - For a dynamic page with getStaticPaths and fallback set to true the page is not generated at the build time but it is generated at the initial request.
+    - With incremental static generation, a page can be regenerated for a request after the revalidation time has elapsed.
+    - For the most part, the pages are generated using getStaticProps when you build the project.
+    - **Problem with static generation**
+    - **We cannot request data at request time**
+    - With not being able to get data at request time, we run into a problem of stale data.
+    - Let's say we are building a news website the content is very dynamic in the sense that new articles can be published almost every second getStaticProps will fetch the news at build time which is not suitable at all. getStaticPaths will help fetch the data on the initial request but it is then cached for subsequent requests. ISR can help but if revalidate is 1 second, we still might not always see the most up to date news when the regenration is heppening in the background. Rather fetch the data on client side by making a get request from the the component. But no SEO. 
+    - **We can't get access to the incoming request**
+    - Problem when data that needs to be fetched is specific to a user, Let's say we are building a website similar to twitter. As a user, I should be able to see tweets that are personalized based on my interests. Tweets also need an SEO friendly as it is public content that anyone in the world can see.
+- **Server-side Rendering**
+    - Next.js allow you to pre-render a page not a build time but at request time, the HTML is generated for every incoming request. 
+    - SSR is a type of pre-rending where the HTML is generated at request time.
+    - SSR is requried when you need to fetch the data per request and also when you need to fetch personalized data keeping in mind SEO.
+
+
