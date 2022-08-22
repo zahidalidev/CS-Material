@@ -109,8 +109,8 @@
 - The paths returned from getStaticPaths will be rendered to HTML at build time by getStaticProps.
 - Any paths not returned from getStaticPath will result in a 404 page.
 - **WHEN** 
-- The false value is most suitable if you have an application with a small number of paths to pre-render, when new pages are not added often
-- A blog site with few articles is a good example for fallback set to false
+    - The false value is most suitable if you have an application with a small number of paths to pre-render, when new pages are not added often
+    - A blog site with few articles is a good example for fallback set to false
 
 ### getStaticPaths fallback: true
 - The paths returned from getStaticPaths will be rendered to HTML at build time by getStaticProps same as when its false.
@@ -119,20 +119,20 @@
 - When that's done, the browser receive the JSON for the generated paths, this will be used to automatically render the page with the required props. and the page will be swapped from the fallback page to the full page.
 - At the same time Next.js will keeps track of the new list of pre-rendered pages. Subsequent requests to the same path will serve the generated page just like other pages pre-rendered at build time. 
 - **WHEN** 
-- If our app has a very large number of static pages that depend on the data, like a large e-commerce site 
-- We want all pages to pre-rendered but if we have thousand products then build can take really long time.
-- We can statically generate some popular products and use fallback: true for the rest.
-- When someone requested a page that's not generated yet, then user will see the page with loading indicator.
-- Shortlya after, getStaticProps finishes and the page will be rendered with the reqiuested data from then onwards if someone requested the same page will see the statically pre-rendered page
-- This ensures that users always has fast experience while preserving fast builds and the benifits of static
+    - If our app has a very large number of static pages that depend on the data, like a large e-commerce site 
+    - We want all pages to pre-rendered but if we have thousand products then build can take really long time.
+    - We can statically generate some popular products and use fallback: true for the rest.
+    - When someone requested a page that's not generated yet, then user will see the page with loading indicator.
+    - Shortlya after, getStaticProps finishes and the page will be rendered with the reqiuested data from then onwards if someone requested the same page will see the statically pre-rendered page
+    - This ensures that users always has fast experience while preserving fast builds and the benifits of static
 
 ### getStaticPaths fallback: 'blocking'
-- The paths returned from getStaticPaths will be rendered to HTML at build time by getStaticProps same as when its false.
-- The paths that have not been generated at build time will not result in 404 page. Instead, on the 1st request Next.js will render the page on the server and return the generated HTML.
-- When that's done, the browser recevices the HTML for generated path. From the user perspective, it will transition from "the browser is requesting the page" to "the full page is loaded". There is no flash of loading/fallback state.
-- At the same time, Next.js keep    
+    - The paths returned from getStaticPaths will be rendered to HTML at build time by getStaticProps same as when its false.
+    - The paths that have not been generated at build time will not result in 404 page. Instead, on the 1st request Next.js will render the page on the server and return the generated HTML.
+    - When that's done, the browser recevices the HTML for generated path. From the user perspective, it will transition from "the browser is requesting the page" to "the full page is loaded". There is no flash of loading/fallback state.
+    - At the same time, Next.js keep    
 - **WHEN**
-- On a UX level some user prefer to load page without loading indicator if the wait time is few miliseconds, this helps avoid the layout shift.
+    - On a UX level some user prefer to load page without loading indicator if the wait time is few miliseconds, this helps avoid the layout shift.
 
 ## Network?
 - It’s helpful to know where your application code is stored and run once it’s deployed to the network. You can think of the network as linked computers (or servers) capable of sharing resources. In the case of a Next.js application, your application code can be distributed to origin servers, Content Delivery Networks (CDNs), and the Edge. Let’s see what each of these are:
@@ -155,14 +155,14 @@
 - There was a need to update only those pages which needed to change without having to rebuild the entire app.
 - ISR allows you to update static pages without needning to rebuild the entire site, effectivly deadling with the issue of **stale data**.
 - **How** to implement ISR: 
-- In the getStaticProps function, apart from the props key we can specify a revalidate key.
-- The value of revalidate is the number of seconds after which a page re-generation can occur.
+    - In the getStaticProps function, apart from the props key we can specify a revalidate key.
+    - The value of revalidate is the number of seconds after which a page re-generation can occur.
 - **Re-genration**
-- A re-generation is initiated only if a user makes a request after revalidate time.
-- If a user visists our product details page but there is no other user hitting the same page entire day then re-generation does not happen. 
-- Re-validate does not mean that page will automaticcally regenerates after every 10 seconds.
-- it simply denotes the timer after which, if a user makes a request, re-generation has to be initiated.
-- The re-generation can also fail and the previousaly cached HTML could be served till the subsequent re-generation succeed.
+    - A re-generation is initiated only if a user makes a request after revalidate time.
+    - If a user visists our product details page but there is no other user hitting the same page entire day then re-generation does not happen. 
+    - Re-validate does not mean that page will automaticcally regenerates after every 10 seconds.
+    - it simply denotes the timer after which, if a user makes a request, re-generation has to be initiated.
+    - The re-generation can also fail and the previousaly cached HTML could be served till the subsequent re-generation succeed.
 
 ### Two forms of pre-rendering
 - Static generation.
