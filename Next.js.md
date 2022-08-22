@@ -161,4 +161,5 @@
 - **Re-genration**
 - A re-generation is initiated only if a user makes a request after revalidate time.
 - If a user visists our product details page but there is no other user hitting the same page entire day then re-generation does not happen. 
-
+- Re-validate does not mean that page will automaticcally regenerates after every 10 seconds.
+- it simply denotes the timer after which, if a user makes a request, re-generation has to be initiated.
