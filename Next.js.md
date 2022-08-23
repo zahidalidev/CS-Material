@@ -192,6 +192,6 @@
     - getServerSideProps is allowed only in regular component and cannot be used in regular component.
     - It is used only for pre-rednering not client-side data fetching
     - getServerSideProps will run at request time.
-    - 
-    - 
+    
+
  
