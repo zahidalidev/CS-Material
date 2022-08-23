@@ -193,5 +193,13 @@
         - It is used only for pre-rednering not client-side data fetching
         - getServerSideProps will run at request time.
     
+## MISC
+### next/head
+- Used for title of the page
+- Used for SEO
 
- 
+### next/image
+- Provide image optimization.
+- Provide lazing loading.
+- Can load blur image if placeholder='blur' and then load original image if we are working with dynamic images then additonal props is provied which is blurDataURL=''.
+
