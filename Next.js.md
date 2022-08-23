@@ -127,10 +127,10 @@
     - This ensures that users always has fast experience while preserving fast builds and the benifits of static
 
 ### getStaticPaths fallback: 'blocking'    
-    - The paths returned from getStaticPaths will be rendered to HTML at build time by getStaticProps same as when its false.
-    - The paths that have not been generated at build time will not result in 404 page. Instead, on the 1st request Next.js will render the page on the server and return the generated HTML.
-    - When that's done, the browser recevices the HTML for generated path. From the user perspective, it will transition from "the browser is requesting the page" to "the full page is loaded". There is no flash of loading/fallback state.
-    - At the same time, Next.js keep    
+- The paths returned from getStaticPaths will be rendered to HTML at build time by getStaticProps same as when its false.
+- The paths that have not been generated at build time will not result in 404 page. Instead, on the 1st request Next.js will render the page on the server and return the generated HTML.
+- When that's done, the browser recevices the HTML for generated path. From the user perspective, it will transition from "the browser is requesting the page" to "the full page is loaded". There is no flash of loading/fallback state.
+- At the same time, Next.js keep    
     - **WHEN**
         - On a UX level some user prefer to load page without loading indicator if the wait time is few miliseconds, this helps avoid the layout shift.
 
