@@ -193,7 +193,7 @@
         - It is used only for pre-rednering not client-side data fetching
         - getServerSideProps will run at request time.
     
-## MISC
+## Misc Section
 ### next/head
 - Used for title of the page
 - Used for SEO
