@@ -203,3 +203,12 @@
 - Provide lazing loading.
 - Can load blur image if placeholder='blur' and then load original image if we are working with dynamic images then additonal props is provied which is blurDataURL=''.
 
+### Preview Mode
+- https://braydoncoyer.dev/blog/how-to-enable-preview-mode-in-next.js-for-your-cms
+- Next.js provides a special function that we can call which will set cookies in our browser. Inside the API Route, call the setPreviewData function.
+- pages/api/preview.js
+```
+export default function handler(req, res) {
+  res.setPreviewData({});
+}
+```
