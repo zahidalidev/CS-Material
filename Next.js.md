@@ -202,7 +202,7 @@
 - Provide image optimization.
 - Provide lazing loading.
 - Can load blur image if placeholder='blur' and then load original image if we are working with dynamic images then additonal props is provied which is blurDataURL=''.
-
++
 ### Preview Mode
 - https://braydoncoyer.dev/blog/how-to-enable-preview-mode-in-next.js-for-your-cms
 - Next.js provides a special function that we can call which will set cookies in our browser. Inside the API Route, call the setPreviewData function.
@@ -212,3 +212,9 @@ export default function handler(req, res) {
   res.setPreviewData({});
 }
 ```
+- Very helpful when working with a CMS
+
+### Permanent true or false in redirects
+- if true will use the 308 status code which instructs clients/search engines to cache the redirect forever, if false will use the 307 status code which is temporary and is not cached.
+- A permanent redirect is applicable when you are reorganizing the routes in the application. 
+
