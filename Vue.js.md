@@ -12,4 +12,18 @@
 - aslso has component base architecture
 - Viue is declarative, mean we just need to tell Vue how does UI should look like and Vue will do the hard work.
 - Vue make it painles for you to create complex user interfaces by abstacting away difficult parts.
-- Vue is performant, which means  Vue measures just 20kb minified and gzipped at runtime, and provide better performance because of Virtual DOM
+- Vue is performant, which means Vue measures just 20kb minified and gzipped at runtime, and provide better performance because of Virtual DOM.
+
+## .vue
+- A .vue file is a custom file that uses HTML like syntax to describe the portion of the UI
+- Each file contain three types of top level blocks
+
+```
+<template></template>
+<script></script>
+<style></style>
+```
+- The template block is like the HTML of your UI
+- The script block where logic and functionality can be maintained
+- The CSS block where you specify the styles related to the mark up in the template block
+
