@@ -173,3 +173,7 @@ If you are writing an application that will run in the browser, you should inste
 
 ### suspense 
 - React Suspense is a React component that suspends a component('s) being render until a certain condition has been met, and will display a fallback option. This fallback option is required, and it may be a string or another React component such as a spinner.
+
+### Diff between useMemo and React.memo
+
+### WHAT IS MEMOIZATION?
