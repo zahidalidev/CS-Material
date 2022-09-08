@@ -9,6 +9,7 @@
 - Google has laid out a set of web vitals related to user experience, used in its ranking criteria. A longer loading time may affect the user experience score, prompting Google to rank a site lower.
 
 <hr />
+
 ## Page Metadata
 - A meta description is a short snippet, a description tag in HTML, that summarizes a webpage’s content. On a search engine results page (SERP), the meta description appears under the page title and URL.
 - **WHY** To increase the chances of your content being located in response to a search engine request, add appropriate metadata, such as a search engine title, description, keywords, copyright and event dates.
