@@ -77,12 +77,103 @@
 ### Create sitemap
 - [Create sitemap](https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap#sitemapformat)
 - XML, [Complex Sitemaps examples ](https://www.sitemaps.org/protocol.html), Here is a very basic XML sitemap that includes the location of a single URL:
+  ```
+  <?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+      <loc>http://www.example.com/foo.html</loc>
+      <lastmod>2018-06-04</lastmod>
+    </url>
+  </urlset>
+  ```
+ ### Submit sitemap
+ - Google doesn't check a sitemap every time a site is crawled; a sitemap is checked only the first time that we notice it, and thereafter only when you ping us to let us know that it's changed. Alert Google about a sitemap only when it's new or updated; don't submit or ping unchanged sitemaps multiple times.
+ - Make your sitemap available to Google by adding it to your robots.txt file or directly submitting it to Search Console.
+ - [Submit sitemap](https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap#addsitemap:~:text=large%20sitemaps.-,Submit%20your%20sitemap%20to%20Google,-Google%20doesn%27t%20check)
+### Split up your large sitemaps
+- If you have a sitemap that's larger than 50MB, you'll need to split up your large sitemap into multiple sitemaps. You can use a sitemap index file as a way to submit many sitemaps at once. The XML format of a sitemap index file is very similar to the XML format of a sitemap file. The sitemap index file uses the following XML tags:
+    - **sitemapindex** - the parent tag surrounds the file.
+    - **sitemap** - the parent tag for each sitemap listed in the file (a child of the sitemapindex tag)
+    - **loc** - the location of the sitemap (a child of the sitemap tag)
 ```
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>http://www.example.com/sitemap1.xml.gz</loc>
+  </sitemap>
+  <sitemap>
+    <loc>http://www.example.com/sitemap2.xml.gz</loc>
+  </sitemap>
+</sitemapindex>
+```
+### Video sitemaps
+- A video sitemap is a sitemap with additional information about video hosted on your pages. Creating a video sitemap is an excellent way to help Google find and understand the video content on your site, especially content that was recently added or that we might not otherwise discover with our usual crawling mechanisms. A video sitemap is an extension to the Sitemap protocol.
+```
+<url>
+  <!-- URL of the host page -->
+  <loc>https://example.com/mypage</loc>
+  <!-- Information about video 1, like the title and URL for the video's media file -->
+  <video:video>
+    <video:title>Grilling steaks for summer</video:title>
+    <video:content_loc>
+      http://streamserver.example.com/video123.mp4</video:content_loc>
+  </video:video>
+  <!-- As many additional <video> entries as you need -->
+  <video></video>
+</url>
+```
+
+### Image sitemaps
+- Add images to an existing sitemap, or create a separate sitemap just for your images. Adding images to a sitemap helps Google discover images that we might not otherwise find (such as images your site reaches with JavaScript code).
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>http://www.example.com/foo.html</loc>
-    <lastmod>2018-06-04</lastmod>
+    <loc>http://example.com/sample1.html</loc>
+    <image:image>
+      <image:loc>http://example.com/image.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>http://example.com/photo.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://example.com/sample2.html</loc>
+    <image:image>
+      <image:loc>http://example.com/picture.jpg</image:loc>
+    </image:image>
   </url>
 </urlset>
 ```
+
+### Google News sitemaps
+- Only include URLs for articles that were published in the last two days. Once the articles are older than two days, either remove those URLs from the News sitemap or remove the <news:news> metadata from the older URLs. The articles will remain in the index for the regular 30-day period.
+- If you choose the method of removing old URLs from your News sitemap, this could mean that your sitemap becomes empty for a period of time (for example, if you haven't published new articles in the last few days). You may see an Empty Sitemap warning in Search Console, but this is just to make sure it was intentional on your behalf. It will not cause any problems with Google Search if the file is empty.
+- Update your News sitemap with new articles as they're published. Don't create a new sitemap with each update. Google News crawls News sitemaps as often as it crawls the rest of your site.
+- You can add up to 1,000 URLs in a News sitemap. If there are more than 1,000 URLs in a News sitemap, break your sitemap into several smaller sitemaps, and use a sitemap index file to manage them as defined by the sitemap protocol. Since News sitemaps are crawled more often than web sitemaps, this limit ensures that your site isn't unnecessarily overloaded.
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  <url>
+   <loc>http://www.example.org/business/article55.html</loc>
+   <news:news>
+   <news:publication>
+     <news:name>The Example Times</news:name>
+     <news:language>en</news:language>
+   </news:publication>
+   <news:publication_date>2008-12-23</news:publication_date>
+     <news:title>Companies A, B in Merger Talks</news:title>
+    </news:news>
+  </url>
+</urlset>
+```
+
+<hr />
+
+## robots.txt
+- A robots.txt file tells search engine crawlers which URLs the crawler can access on your site. This is used mainly to avoid overloading your site with requests; it is not a mechanism for keeping a web page out of Google. To keep a web page out of Google, block indexing with noindex or password-protect the page.
+
+
+
