@@ -72,4 +72,17 @@
     - Your site is really large
     - your pages are isolated
     - your site is new/changes quickly, such as news website
-    -  
+- **Do we need a sitemap?** If your site's pages are properly linked, Google can usually discover most of your site. Proper linking means that all pages that you deem important can be reached through some form of navigation, be that your site's menu or links that you placed on pages. Even so, a sitemap can improve the crawling of larger or more complex sites, or more specialized files.
+
+### Create sitemap
+- [Create sitemap](https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap#sitemapformat)
+- XML, [Complex Sitemaps examples ](https://www.sitemaps.org/protocol.html), Here is a very basic XML sitemap that includes the location of a single URL:
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://www.example.com/foo.html</loc>
+    <lastmod>2018-06-04</lastmod>
+  </url>
+</urlset>
+```
