@@ -47,7 +47,8 @@
     - Don’t use the same description on more than one page or post.
  
  <hr />
- ## Sitemap
+ 
+## Sitemap
 - Sitemap is a signal about which URLs you would like google to crawl on your site. it may provide information on URLs that were recently created or modified and give some extra information about them. Google support four main ways to provide additional information.
     - images- URL extension, you can extend a URL with images included in it.
     - videos- URL extension, you can extend a URL with videos included in it.
