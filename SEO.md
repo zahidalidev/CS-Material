@@ -58,7 +58,7 @@
       ```
       <link rel="alternate" href="https://edition.cnn.com" hreflang="en-us">
       ![image](https://user-images.githubusercontent.com/46484008/189232984-b5882a5a-bbe3-4656-9a9e-ceac4807b798.png)
-      ``
+      ```
     - recent updates (new sites)- sitemap variations, for new sites we can use special variations for sitemaps. 
       
     
