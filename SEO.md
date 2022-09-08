@@ -14,4 +14,14 @@
 - It's a crucial component of on-page SEO, which is why you need to understand its optimization best practices.
 ![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/46484008/189190349-e0a3b2fa-d670-461c-a57b-0eaa54ef096f.png)
 - Search engines show the meta description in search result listing mostly when the searched for phrase is contained in the description. In the example above, for example, you see the word "gifts" is in bold. This is because "gifts" was the searched for query.
-- 
+- **LENGTH** Google bases meta description lengths based on pixels, so the limit on desktop is 920 pixels, which is roughly 158 characters, and 680 pixels on mobile, which is roughly 120 characters. 
+- The meta description snippet is also show when a piece of content is shared on social media.
+- **Where to add** In the HTML code, a meta description tag looks like this:
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content="A page's description, one or two sentences."/>
+  </head>
+</html>
+```
