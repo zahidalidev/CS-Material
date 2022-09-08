@@ -56,7 +56,8 @@
     - languages/country versions
     - language/country versions -hreflang annotations- you can include information about alternate languages, the hreflang attribute (also referred to as rel="alternate" hreflang="x") tells Google which language you are using on a specific page, so the search engine can serve that result to users searching in that language. **Where to put hreflang**, The hreflang attribute can be placed in the on-page markup, the HTTP header, or the sitemap. Only use one of those locations. If you choose the sitemap, this tool can help you.
       ```
-      <link rel="alternate" href="http://example.com" hreflang="en-us" /
+      <link rel="alternate" href="https://edition.cnn.com" hreflang="en-us">
+      ![image](https://user-images.githubusercontent.com/46484008/189232984-b5882a5a-bbe3-4656-9a9e-ceac4807b798.png)
       ``
     - recent updates (new sites)- sitemap variations, for new sites we can use special variations for sitemaps. 
       
@@ -67,3 +68,8 @@
     - A sitemap image entry can include the location of the images included in a page.
     - A sitemap news entry can include the article title and publication date.
 
+- **HELPFUl WHEN** 
+    - Your site is really large
+    - your pages are isolated
+    - your site is new/changes quickly, such as news website
+    -  
