@@ -223,3 +223,7 @@
 - User agent can crawl any page that is not blocked by a **disallow** rule
 - Rules are case-sensitive
 
+### Upload the robots.txt file
+- How you upload the robots.txt file to your site depends on your site and server architecture. Look for the documentation of your hosting company; for example, search for "upload files infomaniak".
+- After you upload the robots.txt file, test whether it's publicly accessible and if Google can parse it.
+
