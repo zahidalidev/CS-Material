@@ -175,5 +175,15 @@
 ## robots.txt
 - A robots.txt file tells search engine crawlers which URLs the crawler can access on your site. This is used mainly to avoid overloading your site with requests; it is not a mechanism for keeping a web page out of Google. To keep a web page out of Google, block indexing with noindex or password-protect the page.
 
+### used for?
+- A robots.txt file is used primarily to manage crawler traffic to your site, and usually to keep a file off Google, depending on the file type:
+
+### robots.txt effect on different file types
+- **Web page** You can use a robots.txt file for web pages (HTML, PDF, or other non-media formats that Google can read), to manage crawling traffic if you think your server will be overwhelmed by requests from Google's crawler, or to avoid crawling unimportant or similar pages on your site.	If the page is blocked by the robot.txt,its URL can still appear in searh results but the search result will not have description, images, videos, PDFs, and other nont-HTML files will be excluded.
+- **Media file** Use robots.txt to manage crawl traffic and also to prevent images, videos, and audio files from appearing in google search search results.
+- **Resource file** You can use a robots.txt file to block resource files such as unimportant image, script, or style files, if you think that pages loaded without these resources will not be significantly affected by the loss. However, if the absence of these resources make the page harder for Google's crawler to understand the page, don't block them, or else Google won't do a good job of analyzing pages that depend on those resources.	
+
+
+
 
 
