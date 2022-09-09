@@ -226,4 +226,11 @@
 ### Upload the robots.txt file
 - How you upload the robots.txt file to your site depends on your site and server architecture. Look for the documentation of your hosting company; for example, search for "upload files infomaniak".
 - After you upload the robots.txt file, test whether it's publicly accessible and if Google can parse it.
+- To test whether your newly uploaded robots.txt file is publicly accessible, open a private browsing window (or equivalent) in your browser and navigate to the location of the robots.txt file. For example, https://example.com/robots.txt. If you see the contents of your robots.txt file, you're ready to test the markup.
 
+### Submit robots.txt file to Google
+- Once you uploaded and tested your robots.txt file, Google's crawlers will automatically find and start using your robots.txt file. You don't have to do anything.
+
+### Update your robots.txt file
+- Download your robots.txt file
+- copy the content by navigating like https://example.com/robots.txt or using curl 'curl https://example.com/robots.txt -o robots.txt' and create new file robots.txt and upload the file at root of your project, and Google's crawlers will notice changes you made to your robots.txt file and update the cached version every 24 hours. 
