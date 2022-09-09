@@ -206,3 +206,20 @@
     - The user agent named Googlebot is not allowed to crawl any URL that starts with http://example.com/nogooglebot/.
     - All other user agents are allowed to crawl the entire site. This could have been omitted and the result would be the same; the default behavior is that user agents are allowed to crawl the entire site.
     - The site's sitemap file is located at http://www.example.com/sitemap.xml.
+### Format and location rules for robots.txt:
+- The file must be named robots.txt.
+- Site can have only one robots.txt
+- robots.txt file must be located at the root of your project, for example https://website.example.com/robots.txt
+- A robots.txt file applies only to paths within the protocol, host, and port where it is posted. That is, rules in https://example.com/robots.txt apply only to files in https://example.com/, not to subdomains such as https://m.example.com/, or alternate protocols, such as http://example.com/
+- A robots.txt file must be an UTF-8 encoded text file. 
+
+### Rules to the robots.txt file
+- A robots.txt file consists of one or more groups.
+- Each group consist of multple rules or instructions, each group begins with the **User-agent** line that specifies the target of the groups.
+- Group give the following information
+    - who the group applies to like user agent
+    - which files agent can access and cannot access
+- Crawlers process from top to bottom
+- User agent can crawl any page that is not blocked by a **disallow** rule
+- Rules are case-sensitive
+
