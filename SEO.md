@@ -183,7 +183,12 @@
 - **Media file** Use robots.txt to manage crawl traffic and also to prevent images, videos, and audio files from appearing in google search search results.
 - **Resource file** You can use a robots.txt file to block resource files such as unimportant image, script, or style files, if you think that pages loaded without these resources will not be significantly affected by the loss. However, if the absence of these resources make the page harder for Google's crawler to understand the page, don't block them, or else Google won't do a good job of analyzing pages that depend on those resources.	
 
-
-
+### limitations
+- robots.txt directives may not be supported by all search engines.
+    - While Googlebot and other respectable web crawlers obey the instructions in a robots.txt file, other crawlers might not. Therefore, if you want to keep information secure from web crawlers, it's better to use other blocking methods, such as password-protecting private files on your server.
+- Different crawlers interpret syntax differently.
+    - Although respectable web crawlers follow the directives in a robots.txt file, each crawler might interpret the directives differently. You should know the proper syntax for addressing different web crawlers as some might not understand certain instructions.
+- A page that's disallowed in robots.txt can still be indexed if linked to from other sites
+    - While Google won't crawl or index the content blocked by a robots.txt file, we might still find and index a disallowed URL if it is linked from other places on the web. To properly prevent your URL from appearing in Google search results, password-protect the files on your server, use the noindex meta tag or response header, or remove the page entirely.
 
 
