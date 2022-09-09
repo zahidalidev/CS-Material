@@ -222,6 +222,7 @@
 - Crawlers process from top to bottom
 - User agent can crawl any page that is not blocked by a **disallow** rule
 - Rules are case-sensitive
+- [Exmaple of valid robots.txt URLs](https://developers.google.com/search/docs/advanced/robots/robots_txt#examples-of-valid-robots.txt-urls)
 
 ### Upload the robots.txt file
 - How you upload the robots.txt file to your site depends on your site and server architecture. Look for the documentation of your hosting company; for example, search for "upload files infomaniak".
@@ -234,3 +235,15 @@
 ### Update your robots.txt file
 - Download your robots.txt file
 - copy the content by navigating like https://example.com/robots.txt or using curl 'curl https://example.com/robots.txt -o robots.txt' and create new file robots.txt and upload the file at root of your project, and Google's crawlers will notice changes you made to your robots.txt file and update the cached version every 24 hours. 
+
+### How Google interprets the robots.txt specification
+- Google's automated crawlers support the Robots Exclusion Protocol (REP). This means that before crawling a site, Google's crawlers download and parse the site's robots.txt file to extract information about which parts of the site may be crawled.
+
+### Caching
+- Google generally caches the contents of robots.txt file for up to 24 hours, but may cache it longer in situations where refreshing the cached version isn't possible (for example, due to timeouts or 5xx errors). The cached response may be shared by different crawlers. Google may increase or decrease the cache lifetime based on max-age Cache-Control HTTP header
+
+### Meta Robots tag vs Robots.txt
+- The Meta tag option tells bots not to index individual files, whereas Robots.txt can be used to restrict access to entire directories.
+- Robots.txt files are best for disallowing a whole section of a site, such as a category whereas a meta tag is more efficient at disallowing single files and pages. You could choose to use both a meta robots tag and a robots.txt file as neither has authority over the other, but “noindex” always has authority over “index” requests.
+- Sure, use a Meta tag if you have the odd page in indexed folders that you want skipping, but generally, I'd recommend you most of your non-indexed content in one or more folders and use robots.txt to skip the lot.
+
