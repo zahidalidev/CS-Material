@@ -191,4 +191,18 @@
 - A page that's disallowed in robots.txt can still be indexed if linked to from other sites
     - While Google won't crawl or index the content blocked by a robots.txt file, we might still find and index a disallowed URL if it is linked from other places on the web. To properly prevent your URL from appearing in Google search results, password-protect the files on your server, use the noindex meta tag or response header, or remove the page entirely.
 
+### Create a robots.txt file
+- A robots.txt file lives at the root of your site. So, for site www.example.com, the robots.txt file lives at www.example.com/robots.txt. robots.txt is a plain text file that follows the Robots Exclusion Standard. A robots.txt file consists of one or more rules. Each rule blocks or allows access for a given crawler to a specified file path on the domain or subdomain where the robots.txt file is hosted.
+- sample file:
+    ```
+    User-agent: Googlebot
+    Disallow: /nogooglebot/
 
+    User-agent: *
+    Allow: /
+
+    Sitemap: http://www.example.com/sitemap.xml
+    ```
+    - The user agent named Googlebot is not allowed to crawl any URL that starts with http://example.com/nogooglebot/.
+    - All other user agents are allowed to crawl the entire site. This could have been omitted and the result would be the same; the default behavior is that user agents are allowed to crawl the entire site.
+    - The site's sitemap file is located at http://www.example.com/sitemap.xml.
