@@ -178,6 +178,10 @@ If you are writing an application that will run in the browser, you should inste
 - It helps you avoid race conditions. 
 - **race conditions** You would typically notice a race condition (in React) when two slightly different requests for data have been made, and the application displays a different result depending on which request completes first.
 
+ 
+### WHAT IS MEMOIZATION?
+- Memoization is optimization technique to speed up the rendering process of the components. It offers React.memo() and useMemo() to implement memoization.
+
 ### React.memo
 - Performance optimization is an important factor in web development. React uses “memoization” as an optimization technique to speed up the rendering process of the components. It offers React.memo() and useMemo() to implement memoization.
 - React.memo() was introduced with React 16.6 to avoid unnecessary re-renders in functional components. It is a higher-order component that accepts another component as a prop. It will only render the component if there is any change in the props.
@@ -219,9 +223,5 @@ export default React.memo(Child, areSame);
 
 
 ### Diff between useMemo and React.memo
-- 
 - Use React.memo to memoize an entire component.
 - Use useMemo to memoize a value within a functional component.
-- 
-### WHAT IS MEMOIZATION?
--
