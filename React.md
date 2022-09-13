@@ -173,7 +173,55 @@ If you are writing an application that will run in the browser, you should inste
 
 ### suspense 
 - React Suspense is a React component that suspends a component('s) being render until a certain condition has been met, and will display a fallback option. This fallback option is required, and it may be a string or another React component such as a spinner.
+- It lets data fetching libraries deeply integrate with React.
+- It doesn’t say how the data is fetched, but it lets you closely control the visual loading sequence of your app.
+- It helps you avoid race conditions. 
+- **race conditions** You would typically notice a race condition (in React) when two slightly different requests for data have been made, and the application displays a different result depending on which request completes first.
+
+### React.memo
+- Performance optimization is an important factor in web development. React uses “memoization” as an optimization technique to speed up the rendering process of the components. It offers React.memo() and useMemo() to implement memoization.
+- React.memo() was introduced with React 16.6 to avoid unnecessary re-renders in functional components. It is a higher-order component that accepts another component as a prop. It will only render the component if there is any change in the props.
+- Suppose when any state changes in parent component than child component will also re-render even the state which is passed to child component is not changed.So we can use React.memo as a HOC to the child component like 
+```
+import React from "react"; 
+
+//Child.jsexport 
+function Child(props) { 
+  console.log("Child Render"); 
+  return ( 
+    <div> 
+      <h2>{props.name}</h2> 
+    </div> 
+  );
+} 
+
+export default React.memo(Child); //Add React.memo() HOC to the child component
+```
+here when we change the state of parent component, the child component won't be re-rendered, and the application will reuse the previous rendered output.
+- In addition, React.memo() will shallowly compare complex objects in the props object. If you want more authority over the comparison, you can also pass a custom comparison function as the second argument as shown below:
+```
+export function Child(props) { 
+  /* render using props */
+ }
+function areSame(prevProps, nextProps) { 
+    /* return true if passing nextProps to render would return the same result as passing prevProps to render, otherwise return false */
+ }
+
+export default React.memo(Child, areSame);
+```
+- **WHEN** 
+  - Components are rendered too frequently and slow down the application.
+  - Component renders’ cost is high (When the loading time is more than 100ms).
+  - Component keeps re-rendering for the same set of props. 
+
+### What is useMemo()?
+- useMemo() is one of the most used React Hooks among developers. It takes a function and a dependency array as input and memoizes the value returned by that function. The specialty of useMemo() is that it will only recalculate the memoized value when one of the dependencies changes. This optimization helps avoid costly calculations on each render.
+
 
 ### Diff between useMemo and React.memo
-
+- 
+- Use React.memo to memoize an entire component.
+- Use useMemo to memoize a value within a functional component.
+- 
 ### WHAT IS MEMOIZATION?
+-
