@@ -225,3 +225,6 @@ export default React.memo(Child, areSame);
 ### Diff between useMemo and React.memo
 - Use React.memo to memoize an entire component.
 - Use useMemo to memoize a value within a functional component.
+
+## New in React 18
+- 
