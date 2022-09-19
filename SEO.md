@@ -260,15 +260,16 @@
 - There are two methods for verifying Google's crawlers:
     - **Manually**: For one-off lookups, use command line tools. This method is sufficient for most use cases.
     - **Automatically**: For large scale lookups, use an automatic solution to match a crawler's IP address against the list of published Googlebot IP addresses.
-- **Manually** Use command line tools
-    - 1. Run a reverse DNS lookup on the accessing IP address from your logs, using the host command.
-    - 2. Verify that the domain name is either googlebot.com or google.com.
-    - 3. Run a forward DNS lookup on the domain name retrieved in step 1 using the host command on the retrieved domain name.
-    - 4. Verify that it's the same as the original accessing IP address from your logs.
-      ```
-        $ host 66.249.66.1
-        1.66.249.66.in-addr.arpa domain name pointer crawl-66-249-66-1.googlebot.com.
+    - **Manually** Use command line tools
+        - 1. Run a reverse DNS lookup on the accessing IP address from your logs, using the host command.
+        - 2. Verify that the domain name is either googlebot.com or google.com.
+        - 3. Run a forward DNS lookup on the domain name retrieved in step 1 using the host command on the retrieved domain name.
+        - 4. Verify that it's the same as the original accessing IP address from your logs.
+          ```
+            $ host 66.249.66.1
+            1.66.249.66.in-Aaddr.arpa domain name pointer crawl-66-249-66-1.googlebot.com.
 
-        $ host crawl-66-249-66-1.googlebot.com
-        crawl-66-249-66-1.googlebot.com has address 66.249.66.1
-      ```
+            $ host crawl-66-249-66-1.googlebot.com
+            crawl-66-249-66-1.googlebot.com has address 66.249.66.1
+          ```
+    - **Automatic** We can identify Googlebot by IP address by matching the crawler's IP address to the [list of Googlebot IP addresses](https://developers.google.com/static/search/apis/ipranges/googlebot.json). For other Google IP addresses from where your site may be accessed (for example, by user request or Apps Scripts), match the accessing IP address against the list of Google IP addresses.
