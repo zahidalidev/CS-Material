@@ -247,3 +247,14 @@
 - Robots.txt files are best for disallowing a whole section of a site, such as a category whereas a meta tag is more efficient at disallowing single files and pages. You could choose to use both a meta robots tag and a robots.txt file as neither has authority over the other, but “noindex” always has authority over “index” requests.
 - Sure, use a Meta tag if you have the odd page in indexed folders that you want skipping, but generally, I'd recommend you most of your non-indexed content in one or more folders and use robots.txt to skip the lot.
 
+<hr />
+
+## Crawler Management
+### Reduce the Googlebot crawl rate
+- Google has sophisticated algorithms to determine the optimal crawl rate for a site. And goal is to crawl as many pages from the site as google can on each visit without overwhelming the server's bandwidth. In some cases, Google's crawling of your site might be causing a critical load on your infrastructure, or cause unwanted costs during an outage. To alleviate this, you may decide to reduce the number of requests made by Googlebot.
+- To reduce the reduce the Googlebot crawl rate, here are some options:
+    - **Reduce crawl rate with Search Console (recommended)** To quickly reduce the crawl rate, you can change the Googlebot crawl rate in Search Console. Changes made to this setting are generally reflected within days. To use this setting, first verify your site ownership. Make sure that you avoid setting the crawl rate to a value that's too low for your site's needs. Learn more about what crawl budget means for Googlebot.If the Crawl Rate Settings is unavailable for your site, file a special request to reduce the crawl rate. You cannot request an increase in crawl rate.
+    - **Let Google reduce the crawl rate automatically** If you need to urgently reduce the crawl rate for short period of time (for example, a couple of hours, or 1-2 days), then return an informational error page with a 500, 503, or 429 HTTP response status code instead of all content. Googlebot reduces your site's crawling rate when it encounters a significant number of URLs with 500, 503, or 429 HTTP response status codes (for example, if you disabled your website). The change is reflected both in the crawling of the URLs that return these errors, as well as the website overall. Once the number of these errors is reduced, the crawl rate will automatically start increasing again.
+
+
+
