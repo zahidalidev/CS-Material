@@ -254,7 +254,21 @@
 - Google has sophisticated algorithms to determine the optimal crawl rate for a site. And goal is to crawl as many pages from the site as google can on each visit without overwhelming the server's bandwidth. In some cases, Google's crawling of your site might be causing a critical load on your infrastructure, or cause unwanted costs during an outage. To alleviate this, you may decide to reduce the number of requests made by Googlebot.
 - To reduce the reduce the Googlebot crawl rate, here are some options:
     - **Reduce crawl rate with Search Console (recommended)** To quickly reduce the crawl rate, you can change the Googlebot crawl rate in Search Console. Changes made to this setting are generally reflected within days. To use this setting, first verify your site ownership. Make sure that you avoid setting the crawl rate to a value that's too low for your site's needs. Learn more about what crawl budget means for Googlebot.If the Crawl Rate Settings is unavailable for your site, file a special request to reduce the crawl rate. You cannot request an increase in crawl rate.
-    - **Let Google reduce the crawl rate automatically** If you need to urgently reduce the crawl rate for short period of time (for example, a couple of hours, or 1-2 days), then return an informational error page with a 500, 503, or 429 HTTP response status code instead of all content. Googlebot reduces your site's crawling rate when it encounters a significant number of URLs with 500, 503, or 429 HTTP response status codes (for example, if you disabled your website). The change is reflected both in the crawling of the URLs that return these errors, as well as the website overall. Once the number of these errors is reduced, the crawl rate will automatically start increasing again.
+    - **Let Google reduce the crawl rate automatically** If you need to urgently reduce the crawl rate for short period of time (for example, a couple of hours, or 1-2 days), then return an informational error page with a 500, 503, or 429 HTTP response status code instead of all content. Googlebot reduces your site's crawling rate when it encounters a significant number of URLs with 500, 503, or 429 HTTP response status codes (for example, if you disabled your website). The change is reflected both in the crawling of the URLs that return these errors, as well as the website overall. Once the number of these errors is reduced, the crawl rate will automatically start increasing again. 
+### Verifying Googlebot and other Google crawlers
+- You can verify if a web crawler accessing your server really is a Google crawler, such as Googlebot. This is useful if you're concerned that spammers or other troublemakers are accessing your site while claiming to be Googlebot.
+- There are two methods for verifying Google's crawlers:
+    - **Manually**: For one-off lookups, use command line tools. This method is sufficient for most use cases.
+    - **Automatically**: For large scale lookups, use an automatic solution to match a crawler's IP address against the list of published Googlebot IP addresses.
+- **Manually** Use command line tools
+    - 1. Run a reverse DNS lookup on the accessing IP address from your logs, using the host command.
+    - 2. Verify that the domain name is either googlebot.com or google.com.
+    - 3. Run a forward DNS lookup on the domain name retrieved in step 1 using the host command on the retrieved domain name.
+    - 4. Verify that it's the same as the original accessing IP address from your logs.
+      ```
+        $ host 66.249.66.1
+        1.66.249.66.in-addr.arpa domain name pointer crawl-66-249-66-1.googlebot.com.
 
-
-
+        $ host crawl-66-249-66-1.googlebot.com
+        crawl-66-249-66-1.googlebot.com has address 66.249.66.1
+      ```
