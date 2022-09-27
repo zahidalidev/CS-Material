@@ -218,3 +218,11 @@ export default function handler(req, res) {
 - if true will use the 308 status code which instructs clients/search engines to cache the redirect forever, if false will use the 307 status code which is temporary and is not cached.
 - A permanent redirect is applicable when you are reorganizing the routes in the application. 
 
+# Prisma Limitations
+- Prisma currently only supports models that have at least one unique field or combination of fields.
+- When using Prisma, the database connections are handled on an engine-level. This means they're not exposed to the developer and it's not possible to manually access them.
+- Prisma Migrate does not currently support the MongoDB connector.
+- Prisma Migrate generates SQL files that are specific to your provider. This means that you cannot use the same migration files for PostgreSQL in production and SQLite in development, because the syntax in the migrations will be incompatible.
+- In a development environment, Prisma Migrate sometimes prompts you to reset the database. Resetting drops and recreates the database, which results in data loss.
+- Prisma detects when you run CLI commands in non-interactive environments, such as Docker, from Node scripts or in bash shells. When this happens a warning displays "migrate dev command is not supported". To ensure the Docker environment picks up the command, run the image in interactive mode so that it reacts to the migrate dev command.
+
