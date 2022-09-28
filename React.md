@@ -171,6 +171,12 @@ If you are writing an application that will run in the browser, you should inste
 ### Debouncing 
 - A Debouncing Events in ReactJS will allow you to call a function that ensures that a time-consuming task does not fire so often. It's a function that takes a function as a parameter and wraps that function in a closure and returns it so this new function displays the “wait for a bit” behavior.
 
+### Throttling
+- Throttling or sometimes is also called throttle function is a practice used in websites. Throttling is used to call a function after every millisecond or a particular interval of time only the first click is executed immediately.
+
+### Debouncing vs Throttling
+- Throttling: the original function will be called at most once per specified period. Debouncing: the original function will be called after the caller stops calling the decorated function after a specified period.
+
 ### suspense 
 - React Suspense is a React component that suspends a component('s) being render until a certain condition has been met, and will display a fallback option. This fallback option is required, and it may be a string or another React component such as a spinner.
 - It lets data fetching libraries deeply integrate with React.
