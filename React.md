@@ -276,4 +276,13 @@ startTransition(() => {
 - startTransition updates can be interrupted unlike setTimeout and won't freeze the page.
 - React can track the pending state for you when marked with startTransition.
 
-### 
+### Suspense on the server
+- React 18 introduces:
+  - Code splitting on the server with suspense
+  - Streaming rendering on the server
+ - In a client-rendered app, you load the HTML of your page from the server along with all the JavaScript that is needed to run the page, and make it interactive. If, however, your JavaScript bundle is huge, or you have a slow connection, this process can take a long time and the user will be waiting for the page to become interactive, or to see meaningful content. For optimizing the user experience and avoiding the user having to sit on a blank screen, we can use server rendering.
+ - Server rendering is a technique where you render the HTML output of your React components on the server and send HTML from the server. This lets the user view some UI while JS bundles are loading and before the app becomes interactive. Server rendering further enhances the user experience of loading the page and reducing time to interactive. But if the most of the app is fast and one component is slow wo that will slow down the entire app. This is because server side rendering is all or nothing. We couldn’t tell React to defer loading of a slow component and couldn’t tell React to send HTML for other components. React 18 adds support for Suspense on server. With the help of suspense, you can wrap a slow part of your app within the Suspense component, telling React to delay the loading of the slow component. This can also be used to specify a loading state that can be shown while it's loading.
+ - React 18 adds support for Suspense on server. With the help of suspense, you can wrap a slow part of your app within the Suspense component, telling React to delay the loading of the slow component. This can also be used to specify a loading state that can be shown while it's loading.
+- In React 18, one slow component doesn’t have to slow the render of your entire app. With Suspense, you can tell React to send HTML for other components first along with the HTML for the placeholder, like a loading spinner. Then when the slow component is ready and has fetched its data, the server renderer will pop in its HTML in the same stream.
+![Screenshot from 2022-09-30 03-36-47](https://user-images.githubusercontent.com/46484008/193154313-003b7816-8099-4a77-8edd-c86842b0b23a.png)
+- This way the user can see the skeleton of the page as early as possible and see it gradually reveal more content as more pieces of HTML Arrive. All of this happens before any JS or React loads on the page, which significantly improves the user experience and user-perceived latency.
