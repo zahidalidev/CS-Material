@@ -244,10 +244,36 @@ export default React.memo(Child, areSame);
 - React 18 introduces the foundation of concurrent rendering and new features such as suspense, streaming server rendering, and transitions are powered by concurrent rendering.
 
 ### Automatic Batching
-- If there are multiple state updates then react batch them in an event handler and wait for a micro-task to finish before re-rendering and then re-render once. React 18 provide automating Batching which significantly reduces the re-renders.
+- If there are multiple state updates then react batch them in an event handler and wait for a micro-task to finish before re-rendering and then re-render once. React 18 provide automating Batching which significantly reduces the re-renders. eg.
+```
+const handleClick = () => {
+ setCounter();
+ setActive();
+ setValue();
+}
+```
 - Before React 18, without automatic batching React compoenent re-render on every state update.
 - Automatic batching is available out of the box in React, but if you want to opt-out you can use flushSync.
 
+### Transitions
+- Transitions can be used to mark UI updates that do not need urgent resources for updating. For example, when typing in a typeahead field, there are two things happening: a blinking cursor that shows visual feedback of your content being typed, and a search functionality in the background that searches for the data that is typed. Showing a visual feedback to the user is important and therefore urgent. Searching is not so urgent, and so can be marked as non-urgent. These non-urgent updates are called transitions. By marking non-urgent UI updates as "transitions", React will know which updates to prioritize. This makes it easier to optimize rendering and get rid of stale rendering.
+- You can mark updates as non-urgent by using startTransition. Here is an example of what a typeahead component would like when marked with transitions:
+```
+import { startTransition } from 'react';
 
+// Urgent: Show what was typed
+setInputValue(input);
 
+// Mark any non-urgent state updates inside as transitions
+startTransition(() => {
+  // Transition: Show the results
+  setSearchQuery(input);
+})
+```
+#### Transitions different from debouncing or setTimeout?
+- StartTransition executes immediately, unlike setTimeout.
+- setTimeout has a guaranteed delay, whereas startTransition's delay depends on the speed of the device, and other urgent renders.
+- startTransition updates can be interrupted unlike setTimeout and won't freeze the page.
+- React can track the pending state for you when marked with startTransition.
 
+### 
