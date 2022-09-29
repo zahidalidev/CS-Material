@@ -286,3 +286,7 @@ startTransition(() => {
 - In React 18, one slow component doesn’t have to slow the render of your entire app. With Suspense, you can tell React to send HTML for other components first along with the HTML for the placeholder, like a loading spinner. Then when the slow component is ready and has fetched its data, the server renderer will pop in its HTML in the same stream.
 ![Screenshot from 2022-09-30 03-36-47](https://user-images.githubusercontent.com/46484008/193154313-003b7816-8099-4a77-8edd-c86842b0b23a.png)
 - This way the user can see the skeleton of the page as early as possible and see it gradually reveal more content as more pieces of HTML Arrive. All of this happens before any JS or React loads on the page, which significantly improves the user experience and user-perceived latency.
+
+### Strict mode
+- Strict mode in React 18 will simulate mounting, unmounting, and re-mounting the component with a previous state. This sets the ground for reusable state in the future where React can immediately mount a previous screen by remounting trees using the same component state before unmounting.
+- Strict mode will ensure components are resilient to effects being mounted and unmounted multiple times.
