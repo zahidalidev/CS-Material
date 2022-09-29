@@ -232,5 +232,22 @@ export default React.memo(Child, areSame);
 - Use React.memo to memoize an entire component.
 - Use useMemo to memoize a value within a functional component.
 
+<hr />
+
 ## New in React 18
-- 
+
+###  Concurrent React
+- https://www.freecodecamp.org/news/react-18-new-features/
+- In a non-concurrent setting, we can only have one call at a time. Mean if we want to make two calls then 1st we can make 1st call and then end that call, and then have 2nd call. so before react 18, rendering was a single, uninterrupted, synchronous transaction and once rendering started, it couldn’t be interrupted.
+- In React 18 we can have two calls at the same time it does not mean that we are attending both calls, becuase it's like we can start two calls at the same time but we can switch between them and can put one call on hold.
+- Concurrency is a foundational update to React’s rendering mechanism. Concurrency allows React to interrupt rendering.
+- React 18 introduces the foundation of concurrent rendering and new features such as suspense, streaming server rendering, and transitions are powered by concurrent rendering.
+
+### Automatic Batching
+- If there are multiple state updates then react batch them in an event handler and wait for a micro-task to finish before re-rendering and then re-render once. React 18 provide automating Batching which significantly reduces the re-renders.
+- Before React 18, without automatic batching React compoenent re-render on every state update.
+- Automatic batching is available out of the box in React, but if you want to opt-out you can use flushSync.
+
+
+
+
