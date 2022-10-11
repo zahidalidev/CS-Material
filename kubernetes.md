@@ -10,10 +10,6 @@
 - Monitoring and health check of the container.
 - Replacement of the failed containers.
 
-### Pod
-- In Docker container is the smallest unit and in kubernetes pod is the smallest possible unit. And containers are created inside the pods. Inside the post their can be one or serveral containers also their are shared volumes and shared network resources for exmaple shared IP address. This means that all the containers inside the same pod share colume and network resources.
-- One container per pod is the most common use case.
-
 ## Why you need Kubernetes and what it can do
 - Containers are a good way to bundle and run your applications. In a production environment, you need to manage the containers that run the applications and ensure that there is no downtime. For example, if a container goes down, another container needs to start. Wouldn't it be easier if this behavior was handled by a system? 
 - That's how Kubernetes comes to the rescue! Kubernetes provides you with a framework to run distributed systems resiliently. It takes care of scaling and failover for your application, provides deployment patterns, and more. For example, Kubernetes can easily manage a **canary deployment** for your system.
@@ -42,4 +38,14 @@
 - The worker node(s) host the Pods(A Pod represents a set of running containers in your cluster) that are the components of the application workload. The control plane manages the worker nodes and the Pods in the cluster. In production environments, the control plane usually runs across multiple computers and a cluster usually runs multiple nodes, providing fault-tolerance and high availability.
 
 ### Control Plane Components
-- 
+-  
+
+
+## Pod
+- In Docker container is the smallest unit and in kubernetes pod is the smallest possible unit. And containers are created inside the pods. Inside the post their can be one or serveral containers also their are shared volumes and shared network resources for exmaple shared IP address. This means that all the containers inside the same pod share colume and network resources.
+- One container per pod is the most common use case.
+
+## Kubernetes Cluster
+- Cluster consists of nodes, node is actually server either bare metal server or virtual server and you could include multiple side servers into the kubernetes cluster and they would be located in different data centers in different part of the world. But usually which belongs to the same kubernetes clsuter ae located close to each other in ordet to perform all jobs more efficiently. Inside of the node, there are pods and inside of pods there are containers usually single container per pod but can be more. and such pods are graded on different nodes and all of that is done automatically for you, kubernetes does this job. But your job is to create such nodes and create cluster based on those nodes.
+- In kubernetes Cluster there is a master node and other nodes are called worker nodes, and master node acctually manages worker nodes. The job of master node is to distribute load on worker nodes. Master nodes runs only on system pods which are responsible for actual work of the kubernetes cluster in general. We could say that master node in the kubernetes is actually control plane and it does not run your client application.
+- There are services such as kublet, kube-proxy and Container Runtime and those services are present on each node in a kubernate cluster. Container runtime runs actual containers inside of each node, and that there are such container runtime as Docker CRIO or Contianer D. There is also such services as kublet and such services on each worker node communicates with API server.
