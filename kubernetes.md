@@ -1,6 +1,14 @@
 # kubernetes
 - Kubernetes, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.
 - Kubernetes is a portable, extensible, open source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes services, support, and tools are widely available.
+- Kubernetes is container orchestration system. Using Docker you can create container on any computer But if you want to create multiple containers on different computers on different servers, you could get into the troubles. Kubernetes allows you to create containers on different servers, either physical or virtual.
+
+## kubernetes take care of
+- Automatic deployment of the containerized applications across different servers. And those servers could be either bare metal or physical servers or virtual servers. Virtual server option is more common now a days, and almost no one uses bare metal servers.  
+- Distribution of load acorss multiple servers, this allows you to use your resources efficiently and avoid under or over utilizaion of the resources.
+- Auto scaling of deployed application.
+- Monitoring and health check of the container.
+- Replacement of the failed containers.
 
 ## Why you need Kubernetes and what it can do
 - Containers are a good way to bundle and run your applications. In a production environment, you need to manage the containers that run the applications and ensure that there is no downtime. For example, if a container goes down, another container needs to start. Wouldn't it be easier if this behavior was handled by a system? 
@@ -26,6 +34,8 @@
 - Does not provide application-level services, such as middleware (for example, message buses), data-processing frameworks (for example, Spark), databases (for example, MySQL), caches, nor cluster storage systems (for example, Ceph) as built-in services. Such components can run on Kubernetes, and/or can be accessed by applications running on Kubernetes through portable mechanisms, such as the Open Service Broker.
 
 ## Kubernetes Components
-- When you deploy Kubernetes, you get a cluster. A Kubernetes cluster consists of a set of worker machines, called nodes, that run containerized applications. Every cluster has at least one worker node.
-- 
+- When you deploy Kubernetes, you get a cluster. A Kubernetes cluster consists of a set of worker machines, called **nodes**, that run containerized applications. Every cluster has at least one worker node.
+- The worker node(s) host the Pods(A Pod represents a set of running containers in your cluster) that are the components of the application workload. The control plane manages the worker nodes and the Pods in the cluster. In production environments, the control plane usually runs across multiple computers and a cluster usually runs multiple nodes, providing fault-tolerance and high availability.
 
+### Control Plane Components
+- 
