@@ -132,6 +132,12 @@ axios.get(url).then(response => console.log(response));
 ### API
 - An API (application program interface) is a set of rules that enables different programs to communicate with one another. It outlines the appropriate way for a software developer to compose a program on a server that communicates with various client applications.
 
+### 46- REST
+- Representational State Transfer, it means server will transfer a representation of requested resource's state to the client system. it is basically architecture style which is stateless and works only on HTTP. REST works with plain text, XML, HTML and JSON.
+
+### 47- SOAP
+- Simple Object Access Prtocol is basically a messaging protocol which is used for exchanging structured data in the implementation of web services in computer network. SOAP provide excellent data security and retry logic to compensate unsuccessful communications. This works only with XML format.
+
 ### REST (Representational State Transfer Application) & SOAP (Simple Object Access Protocol) API
 - It means when a RESTful API is called, the server will transfer a representation of the requested resource’s state to the client system
 - SOAP is a messaging protocol specification for exchanging structured information (data) in the implementation of web services in computer networks.
