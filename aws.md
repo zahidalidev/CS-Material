@@ -28,6 +28,10 @@
 ### Private Cloud
 - 
 
+### IAM (Identity and access management, Global Service)
+- By default root account is created so we should not share it with anyone. We can create groups with some specific access and users can be in many groups.
+
+
 
 
 
